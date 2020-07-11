@@ -1,6 +1,7 @@
 {
   "name": "texlab/html",
   "description": "Set of classes for view templates",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "TexLab\\Html\\": "src"
