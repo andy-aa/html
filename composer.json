@@ -1,0 +1,9 @@
+{
+  "name": "texlab/html",
+  "description": "Set of classes for view templates",
+  "autoload": {
+    "psr-4": {
+      "TexLab\\HTML\\": "src"
+    }
+  }
+}
