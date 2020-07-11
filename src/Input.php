@@ -4,9 +4,9 @@ namespace TexLab\Html;
 
 class Input extends AbstractTag
 {
-    protected $value = '';
+    use ValueTrait, NameTrait;
+
     protected $type = " type='text'";
-    protected $name;
     protected $checked = '';
 
     public function setType(string $type)
@@ -27,12 +27,6 @@ class Input extends AbstractTag
         return $this;
     }
 
-    public function setValue(string $value)
-    {
-        $this->value = " value='$value'";
-        return $this;
-    }
-
     public function setChecked(string $value)
     {
         if ($value) {
@@ -41,12 +35,6 @@ class Input extends AbstractTag
         return $this;
     }
 
-
-    public function setName(string $name)
-    {
-        $this->name = " name='$name'";
-        return $this;
-    }
 
     public function html()
     {

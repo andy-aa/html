@@ -6,38 +6,46 @@ namespace TexLab\Html;
 
 class Select extends AbstractTag
 {
-    protected $name;
+    use NameTrait;
+
     protected $data;
-    protected $value;
+    protected $selectedValue;
 
-    public function setName(string $name)
+    public function setSelectedValue($selectedValue)
     {
-        $this->name = " name='$name'";
+        $this->selectedValue = $selectedValue;
+
         return $this;
     }
 
-    public function setValue(int $value)
+    public function setData(array $data)
     {
-        $this->value = $value;
-        return $this;
-    }
+        if (!empty($data)) {
+            $str = '';
+            $option = new Option();
+            foreach ($data as $key => $item) {
 
-    public function data(array $data)
-    {
-        $str = "\n";
-        foreach ($data as $key => $item) {
-            if ($key == $this->value) {
-                $str .= "\t<option value=" . $key . ' selected>' . $item . "</option>\n";
-            } else {
-                $str .= "\t<option value=" . $key . '>' . $item. "</option>\n";
+                if ($key == $this->selectedValue) {
+                    $option->setSelected();
+                } else {
+                    $option->setUnSelected();
+                }
+
+                $str .= "\t" .
+                    $option
+                        ->setValue($key)
+                        ->setInnerText($item)
+                        ->html() .
+                    "\n";
             }
+            $this->data = $str;
         }
-        $this->data = $str;
+
         return $this;
     }
 
     public function html()
     {
-        return "\t\n<select$this->name$this->style$this->class$this->id>$this->data</select>\n<br>";
+        return "<select$this->name$this->style$this->class$this->id>$this->data</select>";
     }
 }

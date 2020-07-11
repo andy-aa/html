@@ -6,8 +6,9 @@ namespace TexLab\Html;
 
 class Label extends AbstractTag
 {
+    use InnerTextTrait;
+
     protected $for;
-    protected $innerText;
 
     public function setFor(string $for)
     {
@@ -15,14 +16,8 @@ class Label extends AbstractTag
         return $this;
     }
 
-    public function setInnerText(string $text)
-    {
-        $this->innerText = $text;
-        return $this;
-    }
-
     public function html()
     {
-        return "<label$this->style$this->class$this->id$this->for>$this->innerText</label><br>";
+        return "<label$this->style$this->class$this->id$this->for>$this->innerText</label>";
     }
 }
