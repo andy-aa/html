@@ -10,11 +10,24 @@ class Select extends AbstractTag
 
     protected $data;
     protected $selectedValue;
+    protected $size = "";
+    protected $multiple = "";
 
     public function setSelectedValue($selectedValue)
     {
         $this->selectedValue = $selectedValue;
+        return $this;
+    }
 
+    public function setSize($size)
+    {
+        $this->size = " size='".$size."'";
+        return $this;
+    }
+
+    public function setMultiple($multiple)
+    {
+        $this->multiple = ($multiple)?" multiple":"";
         return $this;
     }
 
@@ -30,7 +43,6 @@ class Select extends AbstractTag
                 } else {
                     $option->setUnSelected();
                 }
-
                 $str .= "\t" .
                     $option
                         ->setValue($key)
@@ -46,6 +58,6 @@ class Select extends AbstractTag
 
     public function html()
     {
-        return "<select$this->name$this->style$this->class$this->id>$this->data</select>";
+        return "<select$this->name$this->style$this->class$this->id$this->size$this->multiple>$this->data</select>";
     }
 }

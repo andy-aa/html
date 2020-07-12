@@ -7,8 +7,8 @@ class Textarea extends AbstractTag
 {
     use NameTrait, InnerTextTrait;
 
-    protected $rows = " rows='30'";
-    protected $cols = " cols='30'";
+    protected $rows = " rows='8'";
+    protected $cols = " cols='16'";
 
     public function setRows(int $row)
     {

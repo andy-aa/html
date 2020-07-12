@@ -10,7 +10,7 @@ class LabelTest extends TestCase
 {
 
 
-    function testOption()
+    function testLabel()
     {
         $this->assertIsString(
             (new Label())->html()
