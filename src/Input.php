@@ -19,6 +19,7 @@ class Input extends AbstractTag
             'password',
             'file',
             'checkbox',
+            'radio',
             'hidden',
             'date'
         ])) {
@@ -27,10 +28,10 @@ class Input extends AbstractTag
         return $this;
     }
 
-    public function setChecked(string $value)
+    public function setChecked(bool $value)
     {
         if ($value) {
-            $this->checked = " checked='checked'";
+            $this->checked = " checked";
         }
         return $this;
     }
@@ -39,7 +40,7 @@ class Input extends AbstractTag
     public function html()
     {
         if ($this->type == " type='checkbox'") {
-            return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked><br>";
+            return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked>";
         } else {
             if ($this->type == " type='date'") {
                 return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked>";
