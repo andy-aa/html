@@ -9,9 +9,10 @@ use TexLab\Html\Input;
 
 class FormTest extends TestCase
 {
-
-
-    function testOption()
+    /**
+     * test Form creation
+     */
+    function testForm()
     {
         $this->assertIsString(
             (new Form())->html()
@@ -49,13 +50,11 @@ class FormTest extends TestCase
                 ->html()
         );
 
-        $this->assertEquals(
-            "<form action='' method='GET'>\n"
+        $this->assertEquals("<form action='' method='GET'>\n"
             . "\t<input type='text' name='login'>\n"
             . "\t<input type='password' name='pass'>\n"
             . "\t<input type='submit' value='Ok'>\n"
-            . "\t</form>",
-            (new Form())
+            . "</form>", (new Form())
                 ->setInnerText("\n\t")
                 ->addInnerText(
                     (new Input())
@@ -77,8 +76,7 @@ class FormTest extends TestCase
                         ->html()
                 )
                 ->addInnerText("\n")
-                ->html()
-        );
+                ->html());
 
     }
 

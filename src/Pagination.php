@@ -6,8 +6,9 @@ namespace TexLab\Html;
 
 class Pagination extends AbstractTag
 {
-    protected $pageCount;
+    protected $pageCount = 1;
     protected $type;
+    protected $pageCurrent = 1;
 
     public function setControllerType(string $type)
     {
@@ -15,9 +16,20 @@ class Pagination extends AbstractTag
         return $this;
     }
 
-    public function setPageCount($pageCount)
+    public function setPageCount(int $pageCount)
     {
-        $this->pageCount = $pageCount;
+        $this->pageCount = ($pageCount > 0) ? $pageCount : 1;
+        return $this;
+    }
+
+    public function setPageCurrent(int $pageCurrent)
+    {
+        if ($pageCurrent <= 0) {
+            $pageCurrent = 1;
+        } elseif ($pageCurrent > $this->pageCount) {
+            $pageCurrent = $this->pageCount;
+        }
+        $this->pageCurrent = $pageCurrent;
         return $this;
     }
 
@@ -25,10 +37,10 @@ class Pagination extends AbstractTag
     {
         $str = "<div$this->class$this->style$this->id>\n";
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $str .= "\t<a href='?action=show&type=$this->type&page=$i'>$i </a>\n";
+            $classCurrentPage = ($i == $this->pageCurrent) ? ' class="current"' : '';
+            $str .= "\t<a href='?action=show&type=$this->type&page=$i'$classCurrentPage>$i</a>\n";
         }
         $str .= "</div>\n";
-
         return $str;
     }
 }

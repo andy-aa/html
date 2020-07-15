@@ -10,16 +10,16 @@ class TextareaTest extends TestCase
 {
 
 
-    function testOption()
+    function testTextArea()
     {
         $this->assertIsString(
             (new Textarea())->html()
         );
 
         $this->assertEquals(
-            "<textarea  name='text' cols='50' rows='10'>Hello!</textarea>",
+            "<textarea  name='text' cols='20' rows='10'>Hello!</textarea>",
             (new Textarea())
-                ->setCols(50)
+                ->setCols(20)
                 ->setRows(10)
                 ->setName('text')
                 ->setInnerText('Hello!')

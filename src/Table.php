@@ -36,11 +36,11 @@ class Table extends AbstractTag
         $str = "";
 
         foreach ($data as $row) {
-            $str .= "\t<tr>\n";
+            $str .= "<tr>\n";
             foreach ($row as $cell) {
-                $str .= "\t\t<td>$cell</td>\n";
+                $str .= "\t<td>$cell</td>\n";
             }
-            $str .= "\t</tr>\n";
+            $str .= "</tr>\n";
         }
 
         $this->data = $str;
@@ -49,6 +49,6 @@ class Table extends AbstractTag
 
     public function html()
     {
-        return "<table class='table table-striped table-dark'  $this->style$this->class>\n<tr>\n$this->headers</tr>\n$this->data</table>\n";
+        return "<table class='table table-striped table-dark'$this->style$this->class>\n<tr>\n$this->headers</tr>\n$this->data</table>\n";
     }
 }

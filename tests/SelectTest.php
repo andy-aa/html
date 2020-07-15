@@ -8,7 +8,9 @@ use TexLab\Html\Select;
 
 class SelectTest extends TestCase
 {
-
+    /**
+     * test Select creation
+     */
     function testSelect()
     {
         $this->assertIsString(
@@ -20,26 +22,20 @@ class SelectTest extends TestCase
             (new Select())->html()
         );
 
-        $this->assertEquals(
-            "<select></select>",
-            (new Select())->html()
-        );
 
         $this->assertEquals(
-            "<select>\t<option value='1'>Opton 1</option>\n</select>",
+            "<select>\n\t<option value='1'>Opton 1</option></select>",
             (new Select())
                 ->setData([1 => 'Opton 1'])
                 ->html()
         );
 
         $this->assertEquals(
-
-            "<select>" .
-            "\t<option value='1'>Opton 1</option>\n" .
-            "\t<option value='2' selected>Opton 2</option>\n" .
-            "\t<option value='3'>Opton 3</option>\n" .
-            "</select>",
-
+            "<select>"
+            . "\n\t<option value='1'>Opton 1</option>"
+            . "\n\t<option value='2' selected>Opton 2</option>"
+            . "\n\t<option value='3'>Opton 3</option>"
+            . "</select>",
             (new Select())
                 ->setSelectedValue('2')
                 ->setData(
@@ -51,7 +47,47 @@ class SelectTest extends TestCase
                 )
                 ->html()
         );
-    }
 
+        $this->assertEquals(
+            "<select size='3'>"
+            . "\n\t<option value='1'>Opton 1</option>"
+            . "\n\t<option value='2' selected>Opton 2</option>"
+            . "\n\t<option value='3'>Opton 3</option>"
+            ."</select>",
+
+            (new Select())
+                ->setSelectedValue('2')
+                ->setData(
+                    [
+                        1 => 'Opton 1',
+                        2 => 'Opton 2',
+                        3 => 'Opton 3',
+                    ]
+                )
+                ->setSize(3)
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<select size='3' multiple>"
+            . "\n\t<option value='1'>Opton 1</option>"
+            . "\n\t<option value='2' selected>Opton 2</option>"
+            . "\n\t<option value='3'>Opton 3</option>"
+            . "</select>",
+
+            (new Select())
+                ->setSelectedValue('2')
+                ->setData(
+                    [
+                        1 => 'Opton 1',
+                        2 => 'Opton 2',
+                        3 => 'Opton 3',
+                    ]
+                )
+                ->setSize(3)
+                ->setMultiple(true)
+                ->html()
+        );
+    }
 
 }

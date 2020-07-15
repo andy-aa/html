@@ -8,13 +8,27 @@ class Select extends AbstractTag
 {
     use NameTrait;
 
-    protected $data;
+    protected $data = "";
     protected $selectedValue;
+    protected $size = "";
+    protected $multiple = "";
 
     public function setSelectedValue($selectedValue)
     {
         $this->selectedValue = $selectedValue;
+        return $this;
+    }
 
+    public function setSize($size)
+    {
+        $this->size = ($size < 2) ? "" : " size='" . $size . "'";
+        return $this;
+    }
+
+    public
+    function setMultiple($multiple)
+    {
+        $this->multiple = ((!$multiple) and ($this->size == "")) ? "" : " multiple";
         return $this;
     }
 
@@ -24,28 +38,25 @@ class Select extends AbstractTag
             $str = '';
             $option = new Option();
             foreach ($data as $key => $item) {
-
                 if ($key == $this->selectedValue) {
                     $option->setSelected();
                 } else {
                     $option->setUnSelected();
                 }
-
-                $str .= "\t" .
+                $str .= "\n\t" .
                     $option
                         ->setValue($key)
                         ->setInnerText($item)
-                        ->html() .
-                    "\n";
+                        ->html();
             }
             $this->data = $str;
         }
-
         return $this;
     }
 
-    public function html()
+    public
+    function html()
     {
-        return "<select$this->name$this->style$this->class$this->id>$this->data</select>";
+        return "<select$this->name$this->style$this->class$this->id$this->size$this->multiple>$this->data</select>";
     }
 }
