@@ -40,7 +40,7 @@ class Pagination extends AbstractTag
             $classCurrentPage = ($i == $this->pageCurrent) ? ' class="current"' : '';
             $str .= "\t<a href='?action=show&type=$this->type&page=$i'$classCurrentPage>$i</a>\n";
         }
-        $str .= "</div>\n";
+        $str .= "</div>";
         return $str;
     }
 }

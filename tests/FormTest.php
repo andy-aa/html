@@ -19,16 +19,20 @@ class FormTest extends TestCase
         );
 
         $this->assertEquals(
-            "<form action='' method='GET'></form>",
+            <<<FORM
+<form action='' method='GET'>
+</form>
+FORM
+            ,
             (new Form())->html()
         );
 
         $this->assertEquals(
-            "<form action='' method='GET'>"
-            . "<input type='text' name='login'>"
-            . "<input type='password' name='pass'>"
-            . "<input type='submit' value='Ok'>"
-            . "</form>",
+            <<<FORM
+<form action='' method='GET'>
+<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+FORM
+            ,
             (new Form())
                 ->setInnerText(
                     (new Input())
@@ -50,32 +54,28 @@ class FormTest extends TestCase
                 ->html()
         );
 
-        $this->assertEquals("<form action='' method='GET'>\n"
-            . "\t<input type='text' name='login'>\n"
-            . "\t<input type='password' name='pass'>\n"
-            . "\t<input type='submit' value='Ok'>\n"
-            . "</form>", (new Form())
-                ->setInnerText("\n\t")
+        $this->assertEquals(<<<FORM
+<form action='' method='GET'>
+<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+FORM
+            , (new Form())
                 ->addInnerText(
                     (new Input())
                         ->setName('login')
                         ->html()
                 )
-                ->addInnerText("\n\t")
                 ->addInnerText(
                     (new Input())
                         ->setType('password')
                         ->setName('pass')
                         ->html()
                 )
-                ->addInnerText("\n\t")
                 ->addInnerText(
                     (new Input())
                         ->setType('submit')
                         ->setValue('Ok')
                         ->html()
                 )
-                ->addInnerText("\n")
                 ->html());
 
     }

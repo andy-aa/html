@@ -25,6 +25,6 @@ class Form extends AbstractTag
 
     public function html()
     {
-        return "<form action='$this->action' method='$this->method'$this->class$this->style>$this->innerText</form>";
+        return "<form action='$this->action' method='$this->method'$this->class$this->style>\r\n$this->innerText</form>";
     }
 }

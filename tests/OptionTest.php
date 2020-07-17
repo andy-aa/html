@@ -8,8 +8,6 @@ use TexLab\Html\Option;
 
 class OptionTest extends TestCase
 {
-
-
     function testOption()
     {
         $this->assertIsString(
