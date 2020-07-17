@@ -9,7 +9,6 @@ use TexLab\Html\Textarea;
 class TextareaTest extends TestCase
 {
 
-
     function testTextArea()
     {
         $this->assertIsString(

@@ -9,7 +9,6 @@ use TexLab\Html\Label;
 class LabelTest extends TestCase
 {
 
-
     function testLabel()
     {
         $this->assertIsString(
