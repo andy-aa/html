@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use TexLab\Html\Pagination;
+use TexLab\Html\Component\Pagination;
 
 
 class PaginationTest extends TestCase
@@ -17,37 +17,37 @@ class PaginationTest extends TestCase
 
         $this->assertEquals(
             <<<PG
-<div>\n\t<a href='?action=show&type=controller&page=1'>1</a>\n\t<a href='?action=show&type=controller&page=2' class="current">2</a>\n\t<a href='?action=show&type=controller&page=3'>3</a>\n</div>
+<div>\n\t<a href='?action=show&type=controller&page=1'>1</a>\n\t<a href='?action=show&type=controller&page=2' class='current'>2</a>\n\t<a href='?action=show&type=controller&page=3'>3</a>\n</div>
 PG
             ,
             (new Pagination())
-                ->setControllerType("controller")
+                ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(3)
-                ->setPageCurrent(2)
+                ->setCurrentPage(2)
                 ->html()
         );
 
         $this->assertEquals(
             <<<PG
-<div>\n\t<a href='?action=show&type=controller&page=1' class="current">1</a>\n\t<a href='?action=show&type=controller&page=2'>2</a>\n\t<a href='?action=show&type=controller&page=3'>3</a>\n</div>
+<div>\n\t<a href='?action=show&type=controller&page=1' class='current'>1</a>\n\t<a href='?action=show&type=controller&page=2'>2</a>\n\t<a href='?action=show&type=controller&page=3'>3</a>\n</div>
 PG
             ,
             (new Pagination())
-                ->setControllerType("controller")
+                ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(3)
-                ->setPageCurrent(0)
+                ->setCurrentPage(0)
                 ->html()
         );
 
         $this->assertEquals(
             <<<PG
-<div>\n\t<a href='?action=show&type=controller&page=1'>1</a>\n\t<a href='?action=show&type=controller&page=2'>2</a>\n\t<a href='?action=show&type=controller&page=3' class="current">3</a>\n</div>
+<div>\n\t<a href='?action=show&type=controller&page=1'>1</a>\n\t<a href='?action=show&type=controller&page=2'>2</a>\n\t<a href='?action=show&type=controller&page=3' class='current'>3</a>\n</div>
 PG
             ,
             (new Pagination())
-                ->setControllerType("controller")
+                ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(3)
-                ->setPageCurrent(5)
+                ->setCurrentPage(5)
                 ->html()
         );
 

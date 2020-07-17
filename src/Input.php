@@ -6,7 +6,7 @@ class Input extends AbstractTag
 {
     use ValueTrait, NameTrait;
 
-    protected $type = " type='text'";
+    protected $type = "text";
     protected $checked = '';
 
     public function setType(string $type)
@@ -23,31 +23,22 @@ class Input extends AbstractTag
             'hidden',
             'date'
         ])) {
-            $this->type = " type='$type'";
+            $this->type = $type;
         }
         return $this;
     }
 
     public function setChecked(bool $value)
     {
-        if ($value) {
+        if (in_array($this->type, ['radio', 'checkbox']) && $value) {
             $this->checked = " checked";
         }
         return $this;
     }
 
-
     public function html()
     {
-        if ($this->type == " type='checkbox'") {
-            return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked>";
-        } else {
-            if ($this->type == " type='date'") {
-                return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked>";
-            } else {
-                return "<input$this->type$this->value$this->name$this->style$this->class$this->id$this->checked>";
-            }
-        }
+        return "<input type='$this->type'$this->value$this->name$this->style$this->class$this->id$this->checked>";
 
     }
 }
