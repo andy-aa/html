@@ -25,12 +25,13 @@ TAB
             ,
             (new Table())
                 ->setHeaders([])
+                ->setClass('table table-striped table-dark')
                 ->html()
         );
 
         $this->assertEquals(
             <<<TAB
-<table class='table table-striped table-dark'>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n</table>\n
+<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n</table>\n
 TAB
             ,
             (new Table())
@@ -44,7 +45,7 @@ TAB
 
         $this->assertEquals(
             <<<TAB
-<table class='table table-striped table-dark'>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n<tr>\n\t<td>1</td>\n\t<td>2</td>\n\t<td>3</td>\n</tr>\n<tr>\n\t<td>11</td>\n\t<td>21</td>\n\t<td>31</td>\n</tr>\n</table>\n
+<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n<tr>\n\t<td>1</td>\n\t<td>2</td>\n\t<td>3</td>\n</tr>\n<tr>\n\t<td>11</td>\n\t<td>21</td>\n\t<td>31</td>\n</tr>\n</table>\n
 TAB
             ,
             (new Table())
@@ -53,7 +54,7 @@ TAB
                     'Two',
                     'Three'
                 ])
-                ->data([
+                ->setData([
                     [
                         'First' => '1',
                         'Two' => '2',

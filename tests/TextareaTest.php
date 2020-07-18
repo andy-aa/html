@@ -16,7 +16,14 @@ class TextareaTest extends TestCase
         );
 
         $this->assertEquals(
-            "<textarea  name='text' cols='20' rows='10'>Hello!</textarea>",
+            "<textarea>Hello!</textarea>",
+            (new Textarea())
+                ->setInnerText('Hello!')
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<textarea name='text' cols='20' rows='10'>Hello!</textarea>",
             (new Textarea())
                 ->setCols(20)
                 ->setRows(10)

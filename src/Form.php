@@ -6,8 +6,8 @@ class Form extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected $action = "";
-    protected $method = "GET";
+    protected $action = '';
+    protected $method = 'GET';
 
     public function setAction(string $action)
     {
@@ -17,7 +17,7 @@ class Form extends AbstractTag
 
     public function setMethod($method)
     {
-        if (in_array($method, ["POST", "GET"])) {
+        if (in_array($method, ['POST', 'GET'])) {
             $this->method = $method;
         }
         return $this;
