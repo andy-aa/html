@@ -7,8 +7,8 @@ class Textarea extends AbstractTag
 {
     use NameTrait, InnerTextTrait;
 
-    protected $rows = " rows='8'";
-    protected $cols = " cols='16'";
+    protected $rows = '';
+    protected $cols = '';
 
     public function setRows(int $row)
     {
@@ -24,6 +24,6 @@ class Textarea extends AbstractTag
 
     public function html()
     {
-        return "<textarea $this->name$this->class$this->style$this->id$this->cols$this->rows>$this->innerText</textarea>";
+        return "<textarea$this->name$this->class$this->style$this->id$this->cols$this->rows>$this->innerText</textarea>";
     }
 }
