@@ -28,14 +28,6 @@ class Pagination extends AbstractTag
 
     public function setCurrentPage(int $pageCurrent)
     {
-//        if ($pageCurrent <= 0) {
-//            $pageCurrent = 1;
-//        } elseif ($pageCurrent > $this->pageCount) {
-//            $pageCurrent = $this->pageCount;
-//        }
-//
-//        $this->currentPage = $pageCurrent;
-
         $this->currentPage =
             ($pageCurrent <= 0) ? 1 : (($pageCurrent > $this->pageCount) ? $this->pageCount : $pageCurrent);
 

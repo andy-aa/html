@@ -48,4 +48,9 @@ class Html
         return new Pagination();
     }
 
+    public static function A(): A
+    {
+        return new A();
+    }
+
 }
