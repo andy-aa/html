@@ -9,7 +9,7 @@ class Table extends AbstractTag
 
     public function setHeaders(array $headers)
     {
-        $str = "<tr>\n";
+        $str = "\n<tr>\n";
 
         foreach ($headers as $value) {
             $str .= "\t<th>$value</th>\n";
@@ -20,7 +20,7 @@ class Table extends AbstractTag
         return $this;
     }
 
-    public function data(array $data)
+    public function setData(array $data)
     {
         $str = "";
 
@@ -38,6 +38,6 @@ class Table extends AbstractTag
 
     public function html()
     {
-        return "<table$this->style$this->class>\n$this->headers$this->tableData</table>\n";
+        return "<table$this->style$this->class>$this->headers$this->tableData</table>\n";
     }
 }

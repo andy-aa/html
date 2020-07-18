@@ -54,7 +54,7 @@ TAB
                     'Two',
                     'Three'
                 ])
-                ->data([
+                ->setData([
                     [
                         'First' => '1',
                         'Two' => '2',
