@@ -4,30 +4,19 @@ namespace TexLab\Html;
 
 class Table extends AbstractTag
 {
-    protected $table;
-    protected $data;
+    protected $tableData;
     protected $headers;
 
-
-    public function __construct()
+    public function setHeaders(array $headers)
     {
-        $this->clear();
-    }
-
-    public function clear(): self
-    {
-        $this->style = '';
-        $this->data = '';
-        return $this;
-    }
-
-    public function setHeaders(array $headers) {
-        $str = '';
+        $str = "<tr>\n";
 
         foreach ($headers as $value) {
             $str .= "\t<th>$value</th>\n";
         }
-        $this->headers = $str;
+
+        $this->headers = $str . "</tr>\n";
+
         return $this;
     }
 
@@ -43,12 +32,12 @@ class Table extends AbstractTag
             $str .= "</tr>\n";
         }
 
-        $this->data = $str;
+        $this->tableData = $str;
         return $this;
     }
 
     public function html()
     {
-        return "<table class='table table-striped table-dark'$this->style$this->class>\n<tr>\n$this->headers</tr>\n$this->data</table>\n";
+        return "<table$this->style$this->class>\n$this->headers$this->tableData</table>\n";
     }
 }
