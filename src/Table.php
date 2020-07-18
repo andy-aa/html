@@ -38,6 +38,6 @@ class Table extends AbstractTag
 
     public function html()
     {
-        return "<table$this->style$this->class>$this->headers$this->tableData</table>\n";
+        return "<table$this->style$this->class>$this->headers$this->tableData</table>";
     }
 }

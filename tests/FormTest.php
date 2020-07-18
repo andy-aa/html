@@ -19,19 +19,14 @@ class FormTest extends TestCase
         );
 
         $this->assertEquals(
-            <<<FORM
-<form action='' method='GET'>
-</form>
-FORM
-            ,
+            "<form action='' method='GET'></form>",
             (new Form())->html()
         );
 
         $this->assertEquals(
-            <<<FORM
-<form action='' method='GET'>
-<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
-FORM
+            <<<HTML
+<form action='' method='GET'><input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+HTML
             ,
             (new Form())
                 ->setInnerText(
@@ -54,10 +49,9 @@ FORM
                 ->html()
         );
 
-        $this->assertEquals(<<<FORM
-<form action='' method='GET'>
-<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
-FORM
+        $this->assertEquals(<<<HTML
+<form action='' method='GET'><input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+HTML
             , (new Form())
                 ->addInnerText(
                     (new Input())

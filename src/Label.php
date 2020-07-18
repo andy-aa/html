@@ -8,7 +8,7 @@ class Label extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected $for;
+    protected $for = '';
 
     public function setFor(string $for)
     {

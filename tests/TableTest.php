@@ -19,9 +19,7 @@ class TableTest extends TestCase
         );
 
         $this->assertEquals(
-            <<<TAB
-<table class='table table-striped table-dark'>\n<tr>\n</tr>\n</table>\n
-TAB
+            "<table class='table table-striped table-dark'>\n<tr>\n</tr>\n</table>"
             ,
             (new Table())
                 ->setHeaders([])
@@ -30,9 +28,7 @@ TAB
         );
 
         $this->assertEquals(
-            <<<TAB
-<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n</table>\n
-TAB
+            "<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n</table>"
             ,
             (new Table())
                 ->setHeaders([
@@ -44,27 +40,19 @@ TAB
         );
 
         $this->assertEquals(
-            <<<TAB
-<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n<tr>\n\t<td>1</td>\n\t<td>2</td>\n\t<td>3</td>\n</tr>\n<tr>\n\t<td>11</td>\n\t<td>21</td>\n\t<td>31</td>\n</tr>\n</table>\n
-TAB
+            "<table>\n" .
+            "<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n" .
+            "<tr>\n\t<td>1</td>\n\t<td>2</td>\n\t<td>3</td>\n</tr>\n" .
+            "<tr>\n\t<td>4</td>\n\t<td>5</td>\n\t<td>6</td>\n</tr>\n" .
+            "</table>"
             ,
             (new Table())
-                ->setHeaders([
-                    'First',
-                    'Two',
-                    'Three'
-                ])
+                ->setHeaders(
+                    ['First', 'Two', 'Three']
+                )
                 ->setData([
-                    [
-                        'First' => '1',
-                        'Two' => '2',
-                        'Three' => '3'
-                    ],
-                    [
-                        'First' => '11',
-                        'Two' => '21',
-                        'Three' => '31'
-                    ]
+                    [1, 2, 3],
+                    [4, 5, 6]
                 ])
                 ->html()
         );
