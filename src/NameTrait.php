@@ -7,7 +7,7 @@ namespace TexLab\Html;
 trait NameTrait
 {
 
-    protected $name;
+    protected $name = '';
 
     public function setName(string $name)
     {

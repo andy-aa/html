@@ -9,7 +9,7 @@ class Select extends AbstractTag
     use NameTrait;
 
     protected $data = "";
-    protected $selectedValue;
+    protected $selectedValue = null;
     protected $size = "";
     protected $multiple = "";
 
@@ -21,7 +21,7 @@ class Select extends AbstractTag
 
     public function setSize($size)
     {
-        $this->size = ($size < 2) ? "" : " size='" . $size . "'";
+        $this->size = ($size < 2) ? "" : " size='$size'";
         return $this;
     }
 

@@ -6,7 +6,7 @@ namespace TexLab\Html;
 
 trait InnerTextTrait
 {
-    protected $innerText;
+    protected $innerText = '';
 
     public function setInnerText(string $innerText)
     {
