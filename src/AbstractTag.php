@@ -8,19 +8,31 @@ abstract class AbstractTag implements TagInterface
     protected $style = '';
     protected $id = '';
 
-    public function setClass(string $class)
+    /**
+     * @param string $class
+     * @return $this|TagInterface
+     */
+    public function setClass(string $class): TagInterface
     {
         $this->class = " class='$class'";
         return $this;
     }
 
-    public function setStyle(string $style)
+    /**
+     * @param string $style
+     * @return $this|TagInterface
+     */
+    public function setStyle(string $style): TagInterface
     {
         $this->style = " style='$style'";
         return $this;
     }
 
-    public function setId(string $id)
+    /**
+     * @param string $id
+     * @return $this|TagInterface
+     */
+    public function setId(string $id): TagInterface
     {
         $this->id = " id='$id'";
         return $this;
