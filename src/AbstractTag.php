@@ -4,9 +4,9 @@ namespace TexLab\Html;
 
 abstract class AbstractTag implements TagInterface
 {
-    protected $class = '';
-    protected $style = '';
-    protected $id = '';
+    protected string $class = '';
+    protected string $style = '';
+    protected string $id = '';
 
     /**
      * @param string $class

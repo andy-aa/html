@@ -8,24 +8,36 @@ use TexLab\Html\AbstractTag;
 
 class Pagination extends AbstractTag
 {
-    protected $pageCount = 1;
-    protected $urlPrefix = '';
-    protected $urlPageVariableName = 'page';
-    protected $currentPage = 1;
-    protected $currentPageCssClass = 'current';
+    protected int $pageCount = 1;
+    protected string $urlPrefix = '';
+    protected string $urlPageVariableName = 'page';
+    protected int $currentPage = 1;
+    protected string$currentPageCssClass = 'current';
 
+    /**
+     * @param string $urlPrefix
+     * @return $this
+     */
     public function setUrlPrefix(string $urlPrefix)
     {
         $this->urlPrefix = $urlPrefix;
         return $this;
     }
 
+    /**
+     * @param int $pageCount
+     * @return $this
+     */
     public function setPageCount(int $pageCount)
     {
         $this->pageCount = ($pageCount > 0) ? $pageCount : 1;
         return $this;
     }
 
+    /**
+     * @param int $pageCurrent
+     * @return $this
+     */
     public function setCurrentPage(int $pageCurrent)
     {
         $this->currentPage =
@@ -34,6 +46,9 @@ class Pagination extends AbstractTag
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function html()
     {
         $str = "<div$this->class$this->style$this->id>\n";
