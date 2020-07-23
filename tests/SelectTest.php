@@ -24,7 +24,7 @@ class SelectTest extends TestCase
 
 
         $this->assertEquals(
-            "<select>\n\t<option value='1'>Opton 1</option></select>",
+            "<select>\n\t<option value=" . "\"1\"".">Opton 1</option></select>",
             (new Select())
                 ->setData([1 => 'Opton 1'])
                 ->html()
@@ -32,7 +32,7 @@ class SelectTest extends TestCase
 
         $this->assertEquals(
             <<<SEL
-<select>\n\t<option value='1'>Opton 1</option>\n\t<option value='2' selected>Opton 2</option>\n\t<option value='3'>Opton 3</option></select>
+<select>\n\t<option value="1">Opton 1</option>\n\t<option value="2" selected>Opton 2</option>\n\t<option value="3">Opton 3</option></select>
 SEL
             ,
             (new Select())
@@ -49,7 +49,7 @@ SEL
 
         $this->assertEquals(
             <<<SEL
-<select size='3'>\n\t<option value='1'>Opton 1</option>\n\t<option value='2' selected>Opton 2</option>\n\t<option value='3'>Opton 3</option></select>
+<select size='3'>\n\t<option value="1">Opton 1</option>\n\t<option value="2" selected>Opton 2</option>\n\t<option value="3">Opton 3</option></select>
 SEL
             ,
             (new Select())
@@ -67,7 +67,7 @@ SEL
 
         $this->assertEquals(
             <<<SEL
-<select size='3' multiple>\n\t<option value='1'>Opton 1</option>\n\t<option value='2' selected>Opton 2</option>\n\t<option value='3'>Opton 3</option></select>
+<select size='3' multiple>\n\t<option value="1">Opton 1</option>\n\t<option value="2" selected>Opton 2</option>\n\t<option value="3">Opton 3</option></select>
 SEL
             ,
 
