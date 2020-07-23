@@ -6,7 +6,7 @@ namespace TexLab\Html;
 
 trait ValueTrait
 {
-    protected $value;
+    protected $value = '';
 
     public function setValue(string $value)
     {
