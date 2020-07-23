@@ -30,7 +30,7 @@ FORM
         $this->assertEquals(
             <<<FORM
 <form action='' method='GET'>
-<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+<input type='text' name='login'><input type='password' name='pass'><input type='submit' value="Ok"></form>
 FORM
             ,
             (new Form())
@@ -56,7 +56,7 @@ FORM
 
         $this->assertEquals(<<<FORM
 <form action='' method='GET'>
-<input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>
+<input type='text' name='login'><input type='password' name='pass'><input type='submit' value="Ok"></form>
 FORM
             , (new Form())
                 ->addInnerText(
