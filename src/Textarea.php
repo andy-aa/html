@@ -5,7 +5,7 @@ namespace TexLab\Html;
 
 class Textarea extends AbstractTag
 {
-    use NameTrait, InnerTextTrait;
+    use NameTrait, InnerTextTrait, PlaceholderTrait;
 
     protected $rows = '';
     protected $cols = '';
@@ -24,6 +24,6 @@ class Textarea extends AbstractTag
 
     public function html()
     {
-        return "<textarea$this->name$this->class$this->style$this->id$this->cols$this->rows>$this->innerText</textarea>";
+        return "<textarea$this->name$this->class$this->style$this->id$this->cols$this->rows$this->placeholder>$this->innerText</textarea>";
     }
 }

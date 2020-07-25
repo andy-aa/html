@@ -27,10 +27,7 @@ class InputTest extends TestCase
             (new Input())->setName('btn1')->setType('button')->html()
         );
 
-        $this->assertEquals(<<<BTN
-<input type='button' value="Ok">
-BTN
-            ,
+        $this->assertEquals("<input type='button' value='Ok'>",
             (new Input())->setType('button')->setValue('Ok')->html()
         );
     }
@@ -116,7 +113,7 @@ BTN
         );
 
         $this->assertEquals(<<<DT
-<input type='date' value="2020/07/15" name='dt1'>
+<input type='date' value='2020/07/15' name='dt1'>
 DT
             ,
             (new Input())->setName('dt1')->setType('date')->setValue('2020/07/15')->html()
