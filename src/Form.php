@@ -6,16 +6,24 @@ class Form extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected $action = " action=''";
-    protected $method = " method='GET'";
+    protected string $action = " action=''";
+    protected string $method = " method='GET'";
 
+    /**
+     * @param string $action
+     * @return $this
+     */
     public function setAction(string $action)
     {
         $this->action = " action='$action'";
         return $this;
     }
 
-    public function setMethod($method)
+    /**
+     * @param string $method
+     * @return $this
+     */
+    public function setMethod(string $method)
     {
         if (in_array($method, ['POST', 'GET'])) {
             $this->method = " method='$method'";
@@ -23,7 +31,7 @@ class Form extends AbstractTag
         return $this;
     }
 
-    public function html()
+    public function html(): string
     {
         return "<form$this->action$this->method$this->style$this->class$this->id>$this->innerText</form>";
     }
