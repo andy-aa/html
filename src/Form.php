@@ -18,7 +18,7 @@ class Form extends AbstractTag
     public function setMethod($method)
     {
         if (in_array($method, ['POST', 'GET'])) {
-            $this->method = $method;
+            $this->method = " method='$method'";
         }
         return $this;
     }
