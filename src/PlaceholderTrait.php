@@ -10,7 +10,7 @@ trait PlaceholderTrait
 
     public function setPlaceholder(string $placeholder)
     {
-        $this->placeholder = " placeholder='$placeholder'";
+        $this->placeholder = " placeholder='" . addslashes($placeholder) . "'";
         return $this;
     }
 
