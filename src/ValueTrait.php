@@ -10,7 +10,7 @@ trait ValueTrait
 
     public function setValue(string $value)
     {
-        $this->value = " value='$value'";
+        $this->value = " value='".addslashes($value)."'";
         return $this;
     }
 }
