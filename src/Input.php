@@ -4,7 +4,7 @@ namespace TexLab\Html;
 
 class Input extends AbstractTag
 {
-    use ValueTrait, NameTrait;
+    use ValueTrait, NameTrait, PlaceholderTrait;
 
     protected $type = "text";
     protected $checked = '';
@@ -38,7 +38,7 @@ class Input extends AbstractTag
 
     public function html()
     {
-        return "<input type='$this->type'$this->value$this->name$this->style$this->class$this->id$this->checked>";
+        return "<input type='$this->type'$this->value$this->name$this->style$this->class$this->id$this->placeholder$this->checked>";
 
     }
 }
