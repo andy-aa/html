@@ -24,17 +24,11 @@ class OptionTest extends TestCase
             (new Option())->setInnerText('Option 1')->html()
         );
 
-        $this->assertEquals(<<<OPT
-<option value="1">Option 1</option>
-OPT
-            ,
+        $this->assertEquals("<option value='1'>Option 1</option>",
             (new Option())->setValue('1')->setInnerText('Option 1')->html()
         );
 
-        $this->assertEquals(<<<OPT
-<option value="1" selected>Option 1</option>
-OPT
-            ,
+        $this->assertEquals("<option value='1' selected>Option 1</option>",
             (new Option())
                 ->setSelected()
                 ->setValue('1')
@@ -42,10 +36,7 @@ OPT
                 ->html()
         );
 
-        $this->assertEquals(<<<OPT
-<option value="1">Option 1</option>
-OPT
-            ,
+        $this->assertEquals("<option value='1'>Option 1</option>",
             (new Option())
                 ->setSelected()
                 ->setUnSelected()

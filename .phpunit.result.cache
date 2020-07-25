@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":121:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:2:{s:21:"LabelTest::testOption";d:0.007;s:24:"TextareaTest::testOption";d:0.007;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":169:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:3:{s:21:"LabelTest::testOption";d:0.007;s:24:"TextareaTest::testOption";d:0.007;s:32:"PlaceholderTest::testPlaceholder";d:0.008;}}}
