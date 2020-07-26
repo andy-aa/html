@@ -10,7 +10,7 @@ use TexLab\Html\Textarea;
 class AddSlashTest extends TestCase
 {
 
-    function testValueSlash()
+    function testValueSlash(): void
     {
         $this->assertEquals(
             "<input type='text' value='I\'m sorry'>",
@@ -20,7 +20,7 @@ class AddSlashTest extends TestCase
         );
     }
 
-    function testPlaceholderSlash()
+    function testPlaceholderSlash(): void
     {
         $this->assertEquals(
             "<input type='text' value='I\'m sorry' placeholder='I\'m sorry'>",

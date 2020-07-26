@@ -11,7 +11,7 @@ class SelectTest extends TestCase
     /**
      * test Select creation
      */
-    function testSelect()
+    function testSelect(): void
     {
         $this->assertIsString(
             (new Select())->html()

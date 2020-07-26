@@ -8,7 +8,7 @@ use TexLab\Html\Option;
 
 class OptionTest extends TestCase
 {
-    function testOption()
+    function testOption(): void
     {
         $this->assertIsString(
             (new Option())->html()

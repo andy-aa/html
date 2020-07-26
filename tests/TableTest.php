@@ -12,7 +12,7 @@ class TableTest extends TestCase
     /**
      * test Table creation
      */
-    function testTable()
+    function testTable(): void
     {
         $this->assertIsString(
             (new Table())->html()
@@ -51,8 +51,8 @@ class TableTest extends TestCase
                     ['First', 'Two', 'Three']
                 )
                 ->setData([
-                    [1, 2, 3],
-                    [4, 5, 6]
+                    ['1', '2', '3'],
+                    ['4', '5', '6']
                 ])
                 ->html()
         );

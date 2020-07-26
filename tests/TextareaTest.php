@@ -9,7 +9,7 @@ use TexLab\Html\Textarea;
 class TextareaTest extends TestCase
 {
 
-    function testTextArea()
+    function testTextArea(): void
     {
         $this->assertIsString(
             (new Textarea())->html()

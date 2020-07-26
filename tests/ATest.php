@@ -10,7 +10,7 @@ use TexLab\Html\Html;
 class ATest extends TestCase
 {
 
-    function testA()
+    function testA():void
     {
         $this->assertIsString(
             (new A())->html()

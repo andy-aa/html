@@ -4,39 +4,50 @@ namespace TexLab\Html;
 
 class Table extends AbstractTag
 {
-    protected $tableData;
-    protected $headers;
+    protected string $tableData = '';
+    protected string $headers = '';
 
+    /**
+     * @param array<string> $headers
+     * @return $this
+     */
     public function setHeaders(array $headers)
     {
-        $str = "\n<tr>\n";
+        $this->headers = "\n<tr>\n";
 
         foreach ($headers as $value) {
-            $str .= "\t<th>$value</th>\n";
+            $this->headers .= "\t<th>$value</th>\n";
         }
 
-        $this->headers = $str . "</tr>\n";
+        $this->headers .= "</tr>\n";
 
         return $this;
     }
 
+    /**
+     * @param string[][] $data
+     * @return $this
+     */
     public function setData(array $data)
     {
-        $str = "";
+        $this->tableData = "";
 
         foreach ($data as $row) {
-            $str .= "<tr>\n";
+
+            $this->tableData .= "<tr>\n";
+
             foreach ($row as $cell) {
-                $str .= "\t<td>$cell</td>\n";
+                $this->tableData .= "\t<td>$cell</td>\n";
             }
-            $str .= "</tr>\n";
+
+            $this->tableData .= "</tr>\n";
+
         }
 
-        $this->tableData = $str;
         return $this;
     }
 
-    public function html()
+    public function html(): string
     {
         return "<table$this->style$this->class>$this->headers$this->tableData</table>";
     }
