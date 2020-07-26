@@ -1,12 +1,11 @@
 <?php
 
-
 namespace TexLab\Html;
-
 
 class Select extends AbstractTag
 {
-    use NameTrait, InnerTextTrait;
+    use NameTrait;
+    use InnerTextTrait;
 
     protected string $selectedValue = '';
     protected string $size = '';
@@ -49,12 +48,10 @@ class Select extends AbstractTag
     public function setData(array $data)
     {
         if (!empty($data)) {
-
             $this->setInnerText('');
             $option = new Option();
 
             foreach ($data as $key => $item) {
-
                 if ($key == $this->selectedValue) {
                     $option->setSelected();
                 } else {
@@ -66,7 +63,8 @@ class Select extends AbstractTag
                     $option
                         ->setValue("$key")
                         ->setInnerText($item)
-                        ->html());
+                        ->html()
+                );
             }
         }
         return $this;
@@ -74,6 +72,15 @@ class Select extends AbstractTag
 
     public function html(): string
     {
-        return "<select$this->name$this->style$this->class$this->id$this->size$this->multiple>$this->innerText</select>";
+        return '<select' .
+            $this->name .
+            $this->style .
+            $this->class .
+            $this->id .
+            $this->size .
+            $this->multiple .
+            '>' .
+            $this->innerText .
+            '</select>';
     }
 }

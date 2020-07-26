@@ -1,8 +1,6 @@
 <?php
 
-
 namespace TexLab\Html;
-
 
 trait ValueTrait
 {
@@ -14,7 +12,7 @@ trait ValueTrait
      */
     public function setValue(string $value)
     {
-        $this->value = " value='".addslashes($value)."'";
+        $this->value = " value='" . addslashes($value) . "'";
         return $this;
     }
 }

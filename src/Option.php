@@ -1,13 +1,11 @@
 <?php
 
-
 namespace TexLab\Html;
-
 
 class Option extends AbstractTag
 {
-    use InnerTextTrait, ValueTrait;
-
+    use InnerTextTrait;
+    use ValueTrait;
 
     protected string $selected = '';
 

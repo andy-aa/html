@@ -1,8 +1,6 @@
 <?php
 
-
 namespace TexLab\Html;
-
 
 class A extends AbstractTag
 {

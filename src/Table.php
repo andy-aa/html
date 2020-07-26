@@ -33,7 +33,6 @@ class Table extends AbstractTag
         $this->tableData = "";
 
         foreach ($data as $row) {
-
             $this->tableData .= "<tr>\n";
 
             foreach ($row as $cell) {
@@ -41,7 +40,6 @@ class Table extends AbstractTag
             }
 
             $this->tableData .= "</tr>\n";
-
         }
 
         return $this;
