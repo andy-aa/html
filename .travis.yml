@@ -7,7 +7,4 @@ install:
   - composer install
 
 script:
-  - composer psalm
-  - composer test
-  - composer phpstan
-  - composer codestyle
+  - composer citest

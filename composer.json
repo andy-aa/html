@@ -18,6 +18,12 @@
   },
   "minimum-stability": "dev",
   "scripts": {
+    "citest": [
+      "@codestyle",
+      "@psalm",
+      "@phpstan",
+      "@test"
+    ],
     "test": "phpunit --testsuite alltests",
     "phpstan": "phpstan analyse -c phpstan.neon",
     "psalm": "psalm",
