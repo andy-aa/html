@@ -6,57 +6,74 @@ namespace TexLab\Html;
 
 class Select extends AbstractTag
 {
-    use NameTrait;
+    use NameTrait, InnerTextTrait;
 
-    protected $data = "";
-    protected $selectedValue = null;
-    protected $size = "";
-    protected $multiple = "";
+    protected string $selectedValue = '';
+    protected string $size = '';
+    protected string $multiple = '';
 
-    public function setSelectedValue($selectedValue)
+    /**
+     * @param string $selectedValue
+     * @return $this
+     */
+    public function setSelectedValue(string $selectedValue)
     {
         $this->selectedValue = $selectedValue;
         return $this;
     }
 
-    public function setSize($size)
+    /**
+     * @param int $size
+     * @return $this
+     */
+    public function setSize(int $size)
     {
         $this->size = ($size < 2) ? "" : " size='$size'";
         return $this;
     }
 
-    public
-    function setMultiple($multiple)
+    /**
+     * @param bool $check
+     * @return $this
+     */
+    public function setMultiple(bool $check)
     {
-        $this->multiple = ((!$multiple) and ($this->size == "")) ? "" : " multiple";
+        $this->multiple = ((!$check) and ($this->size == "")) ? "" : " multiple";
         return $this;
     }
 
+    /**
+     * @param array<string|int, string> $data
+     * @return $this
+     */
     public function setData(array $data)
     {
         if (!empty($data)) {
-            $str = '';
+
+            $this->setInnerText('');
             $option = new Option();
+
             foreach ($data as $key => $item) {
+
                 if ($key == $this->selectedValue) {
                     $option->setSelected();
                 } else {
                     $option->setUnSelected();
                 }
-                $str .= "\n\t" .
+
+                $this->addInnerText(
+                    "\n\t" .
                     $option
-                        ->setValue($key)
+                        ->setValue("$key")
                         ->setInnerText($item)
-                        ->html();
+                        ->html());
             }
-            $this->data = $str;
         }
         return $this;
     }
 
-    public
-    function html()
+    public function html(): string
     {
-        return "<select$this->name$this->style$this->class$this->id$this->size$this->multiple>$this->data</select>";
+        return "<select$this->name$this->style$this->class$this->id$this->size$this->multiple>$this->innerText</select>";
     }
 }

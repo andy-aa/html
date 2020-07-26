@@ -11,7 +11,7 @@ class InputTest extends TestCase
     /**
      *  test Button creation
      */
-    function testButton()
+    function testButton(): void
     {
         $this->assertIsString(
             (new Input())->html()
@@ -35,7 +35,7 @@ class InputTest extends TestCase
     /**
      * test Text creation
      */
-    function testText()
+    function testText(): void
     {
 
         $this->assertIsString(
@@ -56,7 +56,7 @@ class InputTest extends TestCase
     /**
      * test Checkbox creation
      */
-    function testCheckbox()
+    function testCheckbox(): void
     {
         $this->assertEquals(
             "<input type='checkbox'>",
@@ -78,7 +78,7 @@ class InputTest extends TestCase
     /**
      * test Radio creation
      */
-    function testRadio()
+    function testRadio(): void
     {
         $this->assertEquals(
             "<input type='radio'>",
@@ -100,7 +100,7 @@ class InputTest extends TestCase
     /**
      * test Date creation
      */
-    function testDate()
+    function testDate(): void
     {
         $this->assertEquals(
             "<input type='date'>",

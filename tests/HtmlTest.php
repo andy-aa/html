@@ -9,7 +9,7 @@ use TexLab\Html\Html;
 class HtmlTest extends TestCase
 {
 
-    function testHtml()
+    function testHtml(): void
     {
 
         $this->assertInstanceOf(

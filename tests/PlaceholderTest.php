@@ -10,7 +10,7 @@ use TexLab\Html\Textarea;
 class PlaceholderTest extends TestCase
 {
 
-    function testPlaceholder()
+    function testPlaceholder(): void
     {
         $this->assertEquals(
             "<textarea placeholder='Hello'>Hello!</textarea>",

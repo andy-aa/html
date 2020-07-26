@@ -12,7 +12,7 @@ class FormTest extends TestCase
     /**
      * test Form creation
      */
-    function testForm()
+    function testForm(): void
     {
         $this->assertIsString(
             (new Form())->html()

@@ -4,9 +4,21 @@ namespace TexLab\Html;
 
 interface TagInterface
 {
-    public function setClass(string $class): TagInterface;
+    /**
+     * @param string $class
+     * @return $this
+     */
+    public function setClass(string $class);
 
-    public function setStyle(string $style): TagInterface;
+    /**
+     * @param string $style
+     * @return $this
+     */
+    public function setStyle(string $style);
 
-    public function setId(string $id): TagInterface;
+    /**
+     * @param string $id
+     * @return $this
+     */
+    public function setId(string $id);
 }

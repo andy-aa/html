@@ -9,7 +9,7 @@ use TexLab\Html\Component\Pagination;
 class PaginationTest extends TestCase
 {
 
-    function testPagination()
+    function testPagination(): void
     {
         $this->assertIsString(
             (new Pagination())->html()

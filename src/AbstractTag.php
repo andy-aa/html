@@ -10,9 +10,9 @@ abstract class AbstractTag implements TagInterface
 
     /**
      * @param string $class
-     * @return $this|TagInterface
+     * @return $this
      */
-    public function setClass(string $class): TagInterface
+    public function setClass(string $class)
     {
         $this->class = " class='$class'";
         return $this;
@@ -20,9 +20,9 @@ abstract class AbstractTag implements TagInterface
 
     /**
      * @param string $style
-     * @return $this|TagInterface
+     * @return $this
      */
-    public function setStyle(string $style): TagInterface
+    public function setStyle(string $style)
     {
         $this->style = " style='$style'";
         return $this;
@@ -30,9 +30,9 @@ abstract class AbstractTag implements TagInterface
 
     /**
      * @param string $id
-     * @return $this|TagInterface
+     * @return $this
      */
-    public function setId(string $id): TagInterface
+    public function setId(string $id)
     {
         $this->id = " id='$id'";
         return $this;
