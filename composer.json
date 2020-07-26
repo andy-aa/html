@@ -22,11 +22,13 @@
     "phpstan": "phpstan analyse -c phpstan.neon",
     "psalm": "psalm",
     "codestyle": "phpcs",
-    "cbf": "phpcbf"
+    "codestylefix": "phpcbf"
   },
   "scripts-descriptions": {
     "test": "Shortcut to run the full test suite.",
     "phpstan": "Runs the PHPStan static analyzer.",
-    "psalm": "Runs the Psalm static analyzer."
+    "psalm": "Runs the Psalm static analyzer.",
+    "codestyle": "Checks code style.",
+    "codestylefix": "Fix code style."
   }
 }

@@ -10,3 +10,4 @@ script:
   - composer psalm
   - composer test
   - composer phpstan
+  - composer codestyle
