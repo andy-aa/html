@@ -5,53 +5,50 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Html;
 
-
 class HtmlTest extends TestCase
 {
 
-    function testHtml(): void
+    public function testHtml(): void
     {
 
         $this->assertInstanceOf(
             'TexLab\Html\Input',
-            Html::Input()
+            Html::input()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Label',
-            Html::Label()
+            Html::label()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Form',
-            Html::Form()
+            Html::form()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Option',
-            Html::Option()
+            Html::option()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Select',
-            Html::Select()
+            Html::select()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Table',
-            Html::Table()
+            Html::table()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Textarea',
-            Html::Textarea()
+            Html::textarea()
         );
 
         $this->assertInstanceOf(
             'TexLab\Html\Component\Pagination',
-            Html::Pagination()
+            Html::pagination()
         );
-
     }
-
 }

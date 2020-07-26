@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Input;
-use TexLab\Html\Textarea;
-
 
 class AddSlashTest extends TestCase
 {

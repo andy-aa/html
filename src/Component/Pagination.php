@@ -1,8 +1,6 @@
 <?php
 
-
 namespace TexLab\Html\Component;
-
 
 use TexLab\Html\AbstractTag;
 
@@ -12,7 +10,7 @@ class Pagination extends AbstractTag
     protected string $urlPrefix = '';
     protected string $urlPageVariableName = 'page';
     protected int $currentPage = 1;
-    protected string$currentPageCssClass = 'current';
+    protected string $currentPageCssClass = 'current';
 
     /**
      * @param string $urlPrefix
