@@ -20,5 +20,10 @@
     "test": "phpunit --testsuite alltests",
     "phpstan": "phpstan analyse -c phpstan.neon",
     "psalm": "psalm"
+  },
+  "scripts-descriptions": {
+    "test": "Shortcut to run the full test suite.",
+    "phpstan": "Runs the PHPStan static analyzer.",
+    "psalm": "Runs the Psalm static analyzer."
   }
 }
