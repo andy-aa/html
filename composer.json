@@ -22,8 +22,7 @@
       "@codestyle",
       "@psalm",
       "@phpstan",
-      "@test",
-      "@test:coverage:ci"
+      "@test"
     ],
     "test": "phpunit --testsuite alltests",
     "phpstan": "phpstan analyse -c phpstan.neon",
