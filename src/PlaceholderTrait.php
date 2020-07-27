@@ -16,13 +16,8 @@ trait PlaceholderTrait
         return $this;
     }
 
-    /**
      * @param string $placeholder
-     * @return $this
      */
-    public function addPlaceholder(string $placeholder)
     {
-        $this->placeholder .= $placeholder;
         return $this;
-    }
 }
