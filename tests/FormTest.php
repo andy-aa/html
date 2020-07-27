@@ -24,6 +24,14 @@ class FormTest extends TestCase
         );
 
         $this->assertEquals(
+            "<form action='?page=23' method='POST'></form>",
+            (new Form())
+                ->setMethod('POST')
+                ->setAction('?page=23')
+                ->html()
+        );
+
+        $this->assertEquals(
             "<form action='' method='GET'><input type='text' name='login'><input type='password' name='pass'><input type='submit' value='Ok'></form>",
             (new Form())
                 ->setInnerText(

@@ -47,6 +47,11 @@ class HtmlTest extends TestCase
         );
 
         $this->assertInstanceOf(
+            'TexLab\Html\a',
+            Html::a()
+        );
+
+        $this->assertInstanceOf(
             'TexLab\Html\Component\Pagination',
             Html::pagination()
         );

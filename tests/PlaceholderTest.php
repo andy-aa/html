@@ -6,11 +6,10 @@ use PHPUnit\Framework\TestCase;
 use TexLab\Html\Input;
 use TexLab\Html\Textarea;
 
-
 class PlaceholderTest extends TestCase
 {
 
-    function testPlaceholder(): void
+    public function testPlaceholder(): void
     {
         $this->assertEquals(
             "<textarea placeholder='Hello'>Hello!</textarea>",
@@ -19,6 +18,7 @@ class PlaceholderTest extends TestCase
                 ->setPlaceholder('Hello')
                 ->html()
         );
+
         $this->assertEquals(
             "<input type='text' value='Hello!' placeholder='Hello'>",
             (new Input())
@@ -27,5 +27,4 @@ class PlaceholderTest extends TestCase
                 ->html()
         );
     }
-
 }
