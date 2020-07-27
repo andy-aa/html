@@ -15,9 +15,4 @@ trait PlaceholderTrait
         $this->placeholder = " placeholder='" . addslashes($placeholder) . "'";
         return $this;
     }
-
-     * @param string $placeholder
-     */
-    {
-        return $this;
 }
