@@ -26,4 +26,5 @@ Example **composer.json** file
 
 ## Class diagram
 ![Class diagram](https://github.com/Dzmitry2020/images/raw/master/TexLab/Html/html_class_diagramm.png "Class diagram TexLab\HTML")
+![Class diagram](https://github.com/Dzmitry2020/images/raw/master/TexLab/Html/html_class_diagramm_pagination.png "Class diagram TexLab\HTML")
 
