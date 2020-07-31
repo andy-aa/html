@@ -11,7 +11,7 @@ class Select extends AbstractTag
     protected string $size = '';
     protected string $multiple = '';
 
-    public function setSelectedValues(array $selectedValues)
+    public function setSelectedValues(array $selectedValues): array
     {
         $this->selectedValues = $selectedValues;
         return $this;
