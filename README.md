@@ -39,6 +39,8 @@ Example **composer.json** file
 ## Usage example
 
 ### Create an authorization form
+PHP code:
+
 ```php
 <?php
 
@@ -84,6 +86,45 @@ $form->addInnerText(
 
 echo $form->html();
 ```
+CSS:
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 2px solid #e3e3e3;
+    outline: none;
+}
+
+button, input[type='submit']{
+    padding: 10px;
+    background: #e3e3e3;
+    border: unset;
+    cursor: pointer;
+    border-radius: 4px;
+}
+```
+
 Result:
 
 ![Authorization form](https://github.com/Dzmitry2020/images/raw/master/TexLab/Html/authorization_form.png "Example of authorization form")
