@@ -7,10 +7,17 @@ class Select extends AbstractTag
     use NameTrait;
     use InnerTextTrait;
 
+    /**
+     * @var mixed[]
+     */
     protected array $selectedValues = [];
     protected string $size = '';
     protected string $multiple = '';
 
+    /**
+     * @param mixed[] $selectedValues
+     * @return $this
+     */
     public function setSelectedValues(array $selectedValues)
     {
         $this->selectedValues = $selectedValues;

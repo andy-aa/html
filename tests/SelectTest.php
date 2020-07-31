@@ -36,7 +36,7 @@ class SelectTest extends TestCase
 SEL
             ,
             (new Select())
-                ->setSelectedValues([1=>'2'])
+                ->setSelectedValues(['2'])
                 ->setData(
                     [
                         1 => 'Opton 1',
@@ -53,7 +53,7 @@ SEL
 SEL
             ,
             (new Select())
-                ->setSelectedValues([1=>'2'])
+                ->setSelectedValues(['2'])
                 ->setData(
                     [
                         1 => 'Opton 1',
@@ -71,7 +71,7 @@ SEL
 SEL
             ,
             (new Select())
-                ->setSelectedValues([1=>'2'])
+                ->setSelectedValues([2])
                 ->setData(
                     [
                         1 => 'Opton 1',
@@ -91,10 +91,7 @@ SEL
             ,
             (new Select())
                 ->setSelectedValues(
-                    [
-                    1 => '1',
-                    2 => '3'
-                    ]
+                    ['1', '3']
                 )
                 ->setData(
                     [

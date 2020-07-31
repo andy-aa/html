@@ -16,8 +16,4 @@ trait ValueTrait
         $this->value = " value='" . addslashes($value) . "'";
         return $this;
     }
-
-    public function setValues(array $values)
-    {
-    }
 }
