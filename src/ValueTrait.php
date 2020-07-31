@@ -19,6 +19,5 @@ trait ValueTrait
 
     public function setValues(array $values)
     {
-
     }
 }
