@@ -10,6 +10,7 @@ trait ValueTrait
      * @param string $value
      * @return $this
      */
+
     public function setValue(string $value)
     {
         $this->value = " value='" . addslashes($value) . "'";

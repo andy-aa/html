@@ -7,17 +7,20 @@ class Select extends AbstractTag
     use NameTrait;
     use InnerTextTrait;
 
-    protected string $selectedValue = '';
+    /**
+     * @var mixed[]
+     */
+    protected array $selectedValues = [];
     protected string $size = '';
     protected string $multiple = '';
 
     /**
-     * @param string $selectedValue
+     * @param mixed[] $selectedValues
      * @return $this
      */
-    public function setSelectedValue(string $selectedValue)
+    public function setSelectedValues(array $selectedValues)
     {
-        $this->selectedValue = $selectedValue;
+        $this->selectedValues = $selectedValues;
         return $this;
     }
 
@@ -52,7 +55,7 @@ class Select extends AbstractTag
             $option = new Option();
 
             foreach ($data as $key => $item) {
-                if ($key == $this->selectedValue) {
+                if (in_array($key, $this->selectedValues)) {
                     $option->setSelected();
                 } else {
                     $option->setUnSelected();
