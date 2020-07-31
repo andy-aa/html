@@ -36,7 +36,7 @@ class SelectTest extends TestCase
 SEL
             ,
             (new Select())
-                ->setSelectedValue('2')
+                ->setSelectedValues([1=>'2'])
                 ->setData(
                     [
                         1 => 'Opton 1',
@@ -53,7 +53,7 @@ SEL
 SEL
             ,
             (new Select())
-                ->setSelectedValue('2')
+                ->setSelectedValues([1=>'2'])
                 ->setData(
                     [
                         1 => 'Opton 1',
@@ -70,9 +70,32 @@ SEL
 <select size='3' multiple>\n\t<option value='1'>Opton 1</option>\n\t<option value='2' selected>Opton 2</option>\n\t<option value='3'>Opton 3</option></select>
 SEL
             ,
-
             (new Select())
-                ->setSelectedValue('2')
+                ->setSelectedValues([1=>'2'])
+                ->setData(
+                    [
+                        1 => 'Opton 1',
+                        2 => 'Opton 2',
+                        3 => 'Opton 3',
+                    ]
+                )
+                ->setSize(3)
+                ->setMultiple(true)
+                ->html()
+        );
+
+        $this->assertEquals(
+            <<<SEL
+<select size='3' multiple>\n\t<option value='1' selected>Opton 1</option>\n\t<option value='2'>Opton 2</option>\n\t<option value='3' selected>Opton 3</option></select>
+SEL
+            ,
+            (new Select())
+                ->setSelectedValues(
+                    [
+                    1 => '1',
+                    2 => '3'
+                    ]
+                )
                 ->setData(
                     [
                         1 => 'Opton 1',
