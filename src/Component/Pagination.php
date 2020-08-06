@@ -6,11 +6,26 @@ use TexLab\Html\AbstractTag;
 
 class Pagination extends AbstractTag
 {
-    protected int $pageCount = 1;
-    protected string $urlPrefix = '';
-    protected string $urlPageVariableName = 'page';
-    protected int $currentPage = 1;
-    protected string $currentPageCssClass = 'current';
+    /**
+     * @var int
+     */
+    protected $pageCount = 1;
+    /**
+     * @var string
+     */
+    protected $urlPrefix = '';
+    /**
+     * @var string
+     */
+    protected $urlPageVariableName = 'page';
+    /**
+     * @var int
+     */
+    protected $currentPage = 1;
+    /**
+     * @var string
+     */
+    protected $currentPageCssClass = 'current';
 
     /**
      * @param string $urlPrefix
