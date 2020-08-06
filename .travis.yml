@@ -7,7 +7,7 @@ php:
 
 jobs:
   include:
-    - stage: Test
+    - stage:  Test
     php:
       - 7.4
     before_install:
