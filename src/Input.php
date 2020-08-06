@@ -23,9 +23,10 @@ class Input extends AbstractTag
      */
     public function setType(string $type)
     {
-        if (in_array(
-            $type,
-            [
+        if (
+            in_array(
+                $type,
+                [
                 'text',
                 'button',
                 'submit',
@@ -36,8 +37,8 @@ class Input extends AbstractTag
                 'radio',
                 'hidden',
                 'date'
-            ]
-        )
+                ]
+            )
         ) {
             $this->type = $type;
         }
