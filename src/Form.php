@@ -6,8 +6,14 @@ class Form extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected string $action = " action=''";
-    protected string $method = " method='GET'";
+    /**
+     * @var string
+     */
+    protected $action = " action=''";
+    /**
+     * @var string
+     */
+    protected $method = " method='GET'";
 
     /**
      * @param string $action

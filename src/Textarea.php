@@ -8,8 +8,14 @@ class Textarea extends AbstractTag
     use InnerTextTrait;
     use PlaceholderTrait;
 
-    protected string $rows = '';
-    protected string $cols = '';
+    /**
+     * @var string
+     */
+    protected $rows = '';
+    /**
+     * @var string
+     */
+    protected $cols = '';
 
     /**
      * @param int $row

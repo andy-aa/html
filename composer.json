@@ -8,7 +8,7 @@
     }
   },
   "require": {
-    "php": "^7.4"
+    "php": "^7.1"
   },
   "prefer-stable": true,
   "require-dev": {
@@ -19,7 +19,7 @@
   },
   "minimum-stability": "dev",
   "scripts": {
-    "citest": [
+    "ci:test": [
       "@codestyle",
       "@psalm",
       "@phpstan",
@@ -29,7 +29,7 @@
     "phpstan": "phpstan analyse -c phpstan.neon",
     "psalm": "psalm",
     "codestyle": "phpcs",
-    "codestylefix": "phpcbf",
+    "codestyle:fix": "phpcbf",
     "test:coverage:html": "phpunit --coverage-html build/coverage",
     "test:coverage:ci": "phpunit --coverage-clover build/logs/clover.xml"
   },

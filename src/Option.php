@@ -7,7 +7,10 @@ class Option extends AbstractTag
     use InnerTextTrait;
     use ValueTrait;
 
-    protected string $selected = '';
+    /**
+     * @var string
+     */
+    protected $selected = '';
 
     /**
      * @return $this

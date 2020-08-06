@@ -10,9 +10,15 @@ class Select extends AbstractTag
     /**
      * @var mixed[]
      */
-    protected array $selectedValues = [];
-    protected string $size = '';
-    protected string $multiple = '';
+    protected $selectedValues = [];
+    /**
+     * @var string
+     */
+    protected $size = '';
+    /**
+     * @var string
+     */
+    protected $multiple = '';
 
     /**
      * @param mixed[] $selectedValues

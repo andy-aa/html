@@ -4,7 +4,10 @@ namespace TexLab\Html;
 
 trait InnerTextTrait
 {
-    protected string $innerText = '';
+    /**
+     * @var string
+     */
+    protected $innerText = '';
 
     /**
      * @param string $innerText

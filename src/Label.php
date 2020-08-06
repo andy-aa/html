@@ -6,7 +6,10 @@ class Label extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected string $for = '';
+    /**
+     * @var string
+     */
+    protected $for = '';
 
     /**
      * @param string $for

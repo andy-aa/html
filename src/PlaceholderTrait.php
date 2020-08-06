@@ -4,7 +4,10 @@ namespace TexLab\Html;
 
 trait PlaceholderTrait
 {
-    protected string $placeholder = '';
+    /**
+     * @var string
+     */
+    protected $placeholder = '';
 
     /**
      * @param string $placeholder

@@ -4,8 +4,14 @@ namespace TexLab\Html;
 
 class Table extends AbstractTag
 {
-    protected string $tableData = '';
-    protected string $headers = '';
+    /**
+     * @var string
+     */
+    protected $tableData = '';
+    /**
+     * @var string
+     */
+    protected $headers = '';
 
     /**
      * @param array<string> $headers

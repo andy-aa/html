@@ -6,7 +6,10 @@ class A extends AbstractTag
 {
     use InnerTextTrait;
 
-    protected string $href = '';
+    /**
+     * @var string
+     */
+    protected $href = '';
 
     /**
      * @param string $href

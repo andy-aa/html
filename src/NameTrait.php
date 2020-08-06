@@ -5,7 +5,10 @@ namespace TexLab\Html;
 trait NameTrait
 {
 
-    protected string $name = '';
+    /**
+     * @var string
+     */
+    protected $name = '';
 
     /**
      * @param string $name

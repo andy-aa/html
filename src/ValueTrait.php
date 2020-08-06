@@ -4,7 +4,10 @@ namespace TexLab\Html;
 
 trait ValueTrait
 {
-    protected string $value = '';
+    /**
+     * @var string
+     */
+    protected $value = '';
 
     /**
      * @param string $value

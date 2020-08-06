@@ -8,8 +8,14 @@ class Input extends AbstractTag
     use NameTrait;
     use PlaceholderTrait;
 
-    protected string $type = "text";
-    protected string $checked = '';
+    /**
+     * @var string
+     */
+    protected $type = "text";
+    /**
+     * @var string
+     */
+    protected $checked = '';
 
     /**
      * @param string $type
@@ -17,10 +23,9 @@ class Input extends AbstractTag
      */
     public function setType(string $type)
     {
-        if (
-            in_array(
-                $type,
-                [
+        if (in_array(
+            $type,
+            [
                 'text',
                 'button',
                 'submit',
@@ -31,8 +36,8 @@ class Input extends AbstractTag
                 'radio',
                 'hidden',
                 'date'
-                ]
-            )
+            ]
+        )
         ) {
             $this->type = $type;
         }
