@@ -4,20 +4,22 @@ php:
   - "7.1"
   - "7.2"
   - "7.3"
-  - "7.4"
-  - nightly
 
 jobs:
-  allow_failures:
-    - php: nightly
+  include:
+    - stage: Test
+    php:
+      - 7.4
+    before_install:
+      - travis_retry composer require --no-update php-coveralls/php-coveralls
+    after_success:
+      - travis_retry php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+      - travis_retry php vendor/bin/php-coveralls -v
 
 install:
-  - travis_retry composer require --no-update php-coveralls/php-coveralls
   - travis_retry composer install --no-interaction --prefer-dist --no-progress --no-suggest
 
 script:
   - composer ci:test
 
-after_success:
-  - travis_retry php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-  - travis_retry php vendor/bin/php-coveralls -v
+
