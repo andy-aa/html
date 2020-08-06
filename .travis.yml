@@ -1,15 +1,14 @@
 language: php
 
 php:
-  - "7.1"
-  - "7.2"
-  - "7.3"
+  - 7.1
+  - 7.2
+  - 7.3
 
 jobs:
   include:
     - stage: Test
-    php:
-      - "7.4"
+      php: 7.4
 #    before_install:
 #      - travis_retry composer require --no-update php-coveralls/php-coveralls
 #    after_success:
