@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Table;
 
@@ -11,7 +13,7 @@ class TableTest extends TestCase
     /**
      * test Table creation
      */
-    function testTable(): void
+    public function testTable(): void
     {
         $this->assertIsString(
             (new Table())->html()

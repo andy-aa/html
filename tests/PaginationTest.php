@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Component\Pagination;
 
 class PaginationTest extends TestCase
 {
 
-    function testPagination(): void
+    public function testPagination(): void
     {
         $this->assertIsString(
             (new Pagination())->html()

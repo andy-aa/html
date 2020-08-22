@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Option;
 
 class OptionTest extends TestCase
 {
-    function testOption(): void
+    public function testOption(): void
     {
         $this->assertIsString(
             (new Option())->html()

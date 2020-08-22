@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Textarea;
 
 class TextareaTest extends TestCase
 {
 
-    function testTextArea(): void
+    public function testTextArea(): void
     {
         $this->assertIsString(
             (new Textarea())->html()

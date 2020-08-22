@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Label;
 
 class LabelTest extends TestCase
 {
 
-    function testLabel(): void
+    public function testLabel(): void
     {
         $this->assertIsString(
             (new Label())->html()

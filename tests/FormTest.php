@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Form;
 use TexLab\Html\Input;
@@ -11,7 +13,7 @@ class FormTest extends TestCase
     /**
      * test Form creation
      */
-    function testForm(): void
+    public function testForm(): void
     {
         $this->assertIsString(
             (new Form())->html()
@@ -73,7 +75,7 @@ class FormTest extends TestCase
                         ->setValue('Ok')
                         ->html()
                 )
-            ->html()
+                ->html()
         );
     }
 }

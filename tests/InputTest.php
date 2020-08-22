@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Input;
 
@@ -10,7 +12,7 @@ class InputTest extends TestCase
     /**
      *  test Button creation
      */
-    function testButton(): void
+    public function testButton(): void
     {
         $this->assertIsString(
             (new Input())->html()
@@ -35,7 +37,7 @@ class InputTest extends TestCase
     /**
      * test Text creation
      */
-    function testText(): void
+    public function testText(): void
     {
 
         $this->assertIsString(
@@ -56,7 +58,7 @@ class InputTest extends TestCase
     /**
      * test Checkbox creation
      */
-    function testCheckbox(): void
+    public function testCheckbox(): void
     {
         $this->assertEquals(
             "<input type='checkbox'>",
@@ -77,7 +79,7 @@ class InputTest extends TestCase
     /**
      * test Radio creation
      */
-    function testRadio(): void
+    public function testRadio(): void
     {
         $this->assertEquals(
             "<input type='radio'>",
@@ -98,7 +100,7 @@ class InputTest extends TestCase
     /**
      * test Date creation
      */
-    function testDate(): void
+    public function testDate(): void
     {
         $this->assertEquals(
             "<input type='date'>",
@@ -111,10 +113,7 @@ class InputTest extends TestCase
         );
 
         $this->assertEquals(
-            <<<DT
-<input type='date' value='2020/07/15' name='dt1'>
-DT
-            ,
+            "<input type='date' value='2020/07/15' name='dt1'>",
             (new Input())->setName('dt1')->setType('date')->setValue('2020/07/15')->html()
         );
     }

@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Test;
+
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Input;
 
 class AddSlashTest extends TestCase
 {
 
-    function testValueSlash(): void
+    public function testValueSlash(): void
     {
         $this->assertEquals(
             "<input type='text' value='I\'m sorry'>",
@@ -18,7 +20,7 @@ class AddSlashTest extends TestCase
         );
     }
 
-    function testPlaceholderSlash(): void
+    public function testPlaceholderSlash(): void
     {
         $this->assertEquals(
             "<input type='text' value='I\'m sorry' placeholder='I\'m sorry'>",
