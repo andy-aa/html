@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 use TexLab\Html\Form;
 use TexLab\Html\Input;
 
-
 class FormTest extends TestCase
 {
     /**
@@ -74,8 +73,7 @@ class FormTest extends TestCase
                         ->setValue('Ok')
                         ->html()
                 )
-                ->html());
-
+            ->html()
+        );
     }
-
 }

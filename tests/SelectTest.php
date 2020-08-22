@@ -5,13 +5,12 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Select;
 
-
 class SelectTest extends TestCase
 {
     /**
      * test Select creation
      */
-    function testSelect(): void
+    public function testSelect(): void
     {
         $this->assertIsString(
             (new Select())->html()
@@ -105,5 +104,4 @@ SEL
                 ->html()
         );
     }
-
 }

@@ -28,5 +28,4 @@ class AddSlashTest extends TestCase
                 ->html()
         );
     }
-
 }

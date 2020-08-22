@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Input;
 
-
 class InputTest extends TestCase
 {
     /**
@@ -27,7 +26,8 @@ class InputTest extends TestCase
             (new Input())->setName('btn1')->setType('button')->html()
         );
 
-        $this->assertEquals("<input type='button' value='Ok'>",
+        $this->assertEquals(
+            "<input type='button' value='Ok'>",
             (new Input())->setType('button')->setValue('Ok')->html()
         );
     }
@@ -70,9 +70,8 @@ class InputTest extends TestCase
 
         $this->assertEquals(
             "<input type='checkbox' name='chbx1' checked>",
-            (new Input())->setName('chbx1')->setType('checkbox')->setChecked(True)->html()
+            (new Input())->setName('chbx1')->setType('checkbox')->setChecked(true)->html()
         );
-
     }
 
     /**
@@ -92,9 +91,8 @@ class InputTest extends TestCase
 
         $this->assertEquals(
             "<input type='radio' name='rd1' checked>",
-            (new Input())->setName('rd1')->setType('radio')->setChecked(True)->html()
+            (new Input())->setName('rd1')->setType('radio')->setChecked(true)->html()
         );
-
     }
 
     /**
@@ -112,12 +110,12 @@ class InputTest extends TestCase
             (new Input())->setName('dt1')->setType('date')->html()
         );
 
-        $this->assertEquals(<<<DT
+        $this->assertEquals(
+            <<<DT
 <input type='date' value='2020/07/15' name='dt1'>
 DT
             ,
             (new Input())->setName('dt1')->setType('date')->setValue('2020/07/15')->html()
         );
-
     }
 }

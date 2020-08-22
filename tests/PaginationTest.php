@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Component\Pagination;
 
-
 class PaginationTest extends TestCase
 {
 
@@ -50,7 +49,5 @@ PG
                 ->setCurrentPage(5)
                 ->html()
         );
-
     }
-
 }

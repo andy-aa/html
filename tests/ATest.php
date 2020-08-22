@@ -9,7 +9,7 @@ use TexLab\Html\Html;
 class ATest extends TestCase
 {
 
-    public function testA():void
+    public function testA(): void
     {
         $this->assertIsString(
             (new A())->html()
@@ -33,6 +33,5 @@ class ATest extends TestCase
                 ->setInnerText('tut.by')
                 ->html()
         );
-
     }
 }

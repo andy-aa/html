@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Textarea;
 
-
 class TextareaTest extends TestCase
 {
 
@@ -31,8 +30,5 @@ class TextareaTest extends TestCase
                 ->setInnerText('Hello!')
                 ->html()
         );
-
-
     }
-
 }

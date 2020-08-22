@@ -5,7 +5,6 @@ declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\Label;
 
-
 class LabelTest extends TestCase
 {
 
@@ -22,8 +21,5 @@ class LabelTest extends TestCase
                 ->setInnerText('Hello!')
                 ->html()
         );
-
-
     }
-
 }
