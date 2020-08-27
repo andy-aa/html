@@ -72,6 +72,14 @@ class InputTest extends TestCase
                 ->setDisabled()
                 ->html()
         );
+
+        $this->assertEquals(
+            "<input type='text'>",
+            (new Input())
+                ->setType('text')
+                ->setUnDisabled()
+                ->html()
+        );
     }
 
     /**

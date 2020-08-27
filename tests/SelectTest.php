@@ -33,6 +33,13 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
+            "<select></select>",
+            (new Select())
+                ->setUnDisabled()
+                ->html()
+        );
+
+        $this->assertEquals(
             "<select>\n\t<option value='1'>Opton 1</option></select>",
             (new Select())
                 ->setData([1 => 'Opton 1'])
