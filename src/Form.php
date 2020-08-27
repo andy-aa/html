@@ -10,10 +10,16 @@ class Form extends AbstractTag
      * @var string
      */
     protected $action = " action=''";
+
     /**
      * @var string
      */
     protected $method = " method='GET'";
+
+    /**
+     * @var string
+     */
+    protected $enctype = "";
 
     /**
      * @param string $action
@@ -33,6 +39,18 @@ class Form extends AbstractTag
     {
         if (in_array($method, ['POST', 'GET'])) {
             $this->method = " method='$method'";
+        }
+        return $this;
+    }
+
+    /**
+     * @param string $enctype
+     * @return $this
+     */
+    public function setEnctype(string $enctype)
+    {
+        if (in_array($enctype, ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain'])) {
+            $this->enctype = " enctype='$enctype'";
         }
         return $this;
     }
