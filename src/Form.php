@@ -57,6 +57,6 @@ class Form extends AbstractTag
 
     public function html(): string
     {
-        return "<form$this->action$this->method$this->style$this->class$this->id>$this->innerText</form>";
+        return "<form$this->action$this->method$this->enctype$this->style$this->class$this->id>$this->innerText</form>";
     }
 }

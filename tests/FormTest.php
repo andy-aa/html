@@ -33,7 +33,7 @@ class FormTest extends TestCase
         );
 
         $this->assertEquals(
-            "<form action='?page=23' method='POST'></form>",
+            "<form action='?page=23' method='POST' enctype='multipart/form-data'></form>",
             (new Form())
                 ->setMethod('POST')
                 ->setAction('?page=23')
