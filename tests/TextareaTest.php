@@ -32,6 +32,14 @@ class TextareaTest extends TestCase
         );
 
         $this->assertEquals(
+            "<textarea>Hello!</textarea>",
+            (new Textarea())
+                ->setInnerText('Hello!')
+                ->setUnRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
             "<textarea disabled>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')

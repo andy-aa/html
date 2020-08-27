@@ -26,6 +26,13 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
+            "<select></select>",
+            (new Select())
+                ->setUnRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
             "<select disabled></select>",
             (new Select())
                 ->setDisabled()

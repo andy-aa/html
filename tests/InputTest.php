@@ -66,6 +66,14 @@ class InputTest extends TestCase
         );
 
         $this->assertEquals(
+            "<input type='text'>",
+            (new Input())
+                ->setType('text')
+                ->setUnRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
             "<input type='text' disabled>",
             (new Input())
                 ->setType('text')
