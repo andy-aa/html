@@ -7,6 +7,8 @@ class Textarea extends AbstractTag
     use NameTrait;
     use InnerTextTrait;
     use PlaceholderTrait;
+    use RequiredTrait;
+    use DisabledTrait;
 
     /**
      * @var string
@@ -47,6 +49,8 @@ class Textarea extends AbstractTag
             $this->cols .
             $this->rows .
             $this->placeholder .
+            $this->required .
+            $this->disabled.
             '>' .
             $this->innerText .
             '</textarea>';

@@ -6,6 +6,8 @@ class Select extends AbstractTag
 {
     use NameTrait;
     use InnerTextTrait;
+    use RequiredTrait;
+    use DisabledTrait;
 
     /**
      * @var mixed[]
@@ -88,6 +90,8 @@ class Select extends AbstractTag
             $this->id .
             $this->size .
             $this->multiple .
+            $this->required .
+            $this->disabled .
             '>' .
             $this->innerText .
             '</select>';
