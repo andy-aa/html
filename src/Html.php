@@ -25,7 +25,9 @@ class Html
     {
         return new Option();
     }
-
+    /**
+ * @return Select
+*/
     public static function select(): Select
     {
         return new Select();
