@@ -50,7 +50,7 @@ class Textarea extends AbstractTag
             $this->rows .
             $this->placeholder .
             $this->required .
-            $this->disabled.
+            $this->disabled .
             '>' .
             $this->innerText .
             '</textarea>';
