@@ -5,13 +5,13 @@ namespace TexLab\Html;
 class Table extends AbstractTag
 {
     /**
-     * @var string
+     * @var string[][]
      */
-    protected $tableData = '';
+    protected $tableData = [];
     /**
-     * @var string
+     * @var string[]
      */
-    protected $headers = '';
+    protected $headers = [];
 
     /**
      * @param array<string> $headers
@@ -19,15 +19,42 @@ class Table extends AbstractTag
      */
     public function setHeaders(array $headers)
     {
-        $this->headers = "\n<tr>\n";
-
-        foreach ($headers as $value) {
-            $this->headers .= "\t<th>$value</th>\n";
-        }
-
-        $this->headers .= "</tr>\n";
+        $this->headers = $headers;
 
         return $this;
+    }
+
+
+    /**
+     * @return string
+     */
+    protected function generateTableHtml()
+    {
+        $html = "";
+
+        if (!empty($this->headers)) {
+            $html .= "\n<tr>\n";
+
+            foreach ($this->headers as $value) {
+                $html .= "\t<th>$value</th>\n";
+            }
+
+            $html .= "</tr>\n";
+        }
+
+        if (!empty($this->headers)) {
+            foreach ($this->tableData as $row) {
+                $html .= "<tr>\n";
+
+                foreach ($row as $cell) {
+                    $html .= "\t<td>$cell</td>\n";
+                }
+
+                $html .= "</tr>\n";
+            }
+        }
+
+        return $html;
     }
 
     /**
@@ -36,23 +63,13 @@ class Table extends AbstractTag
      */
     public function setData(array $data)
     {
-        $this->tableData = "";
-
-        foreach ($data as $row) {
-            $this->tableData .= "<tr>\n";
-
-            foreach ($row as $cell) {
-                $this->tableData .= "\t<td>$cell</td>\n";
-            }
-
-            $this->tableData .= "</tr>\n";
-        }
+        $this->tableData = $data;
 
         return $this;
     }
 
     public function html(): string
     {
-        return "<table$this->style$this->class>$this->headers$this->tableData</table>";
+        return "<table$this->style$this->class>" . $this->generateTableHtml() . "</table>";
     }
 }

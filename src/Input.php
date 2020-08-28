@@ -26,9 +26,9 @@ class Input extends AbstractTag
     public function setType(string $type)
     {
         if (
-        in_array(
-            $type,
-            [
+            in_array(
+                $type,
+                [
                 'button',
                 'checkbox',
                 'file',
@@ -52,8 +52,8 @@ class Input extends AbstractTag
                 'url',
                 'month',
                 'week'
-            ]
-        )
+                ]
+            )
         ) {
             $this->type = $type;
         }
