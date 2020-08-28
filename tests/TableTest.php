@@ -20,7 +20,7 @@ class TableTest extends TestCase
         );
 
         $this->assertEquals(
-            "<table class='table table-striped table-dark'>\n<tr>\n</tr>\n</table>",
+            "<table class='table table-striped table-dark'></table>",
             (new Table())
                 ->setHeaders([])
                 ->setClass('table table-striped table-dark')
