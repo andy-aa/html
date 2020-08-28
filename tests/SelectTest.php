@@ -19,10 +19,32 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
-            "<select></select>",
-            (new Select())->html()
+            "<select required></select>",
+            (new Select())
+                ->setRequired()
+                ->html()
         );
 
+        $this->assertEquals(
+            "<select></select>",
+            (new Select())
+                ->unsetRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<select disabled></select>",
+            (new Select())
+                ->setDisabled()
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<select></select>",
+            (new Select())
+                ->unsetDisabled()
+                ->html()
+        );
 
         $this->assertEquals(
             "<select>\n\t<option value='1'>Opton 1</option></select>",

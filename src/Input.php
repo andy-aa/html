@@ -7,6 +7,8 @@ class Input extends AbstractTag
     use ValueTrait;
     use NameTrait;
     use PlaceholderTrait;
+    use RequiredTrait;
+    use DisabledTrait;
 
     /**
      * @var string
@@ -81,6 +83,8 @@ class Input extends AbstractTag
             $this->id .
             $this->placeholder .
             $this->checked .
+            $this->required .
+            $this->disabled .
             ">";
     }
 }

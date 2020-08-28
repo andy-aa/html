@@ -30,7 +30,10 @@ class InputTest extends TestCase
 
         $this->assertEquals(
             "<input type='button' value='Ok'>",
-            (new Input())->setType('button')->setValue('Ok')->html()
+            (new Input())
+                ->setType('button')
+                ->setValue('Ok')
+                ->html()
         );
     }
 
@@ -52,6 +55,38 @@ class InputTest extends TestCase
         $this->assertEquals(
             "<input type='text'>",
             (new Input())->setType('text')->html()
+        );
+
+        $this->assertEquals(
+            "<input type='text' required>",
+            (new Input())
+                ->setType('text')
+                ->setRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<input type='text'>",
+            (new Input())
+                ->setType('text')
+                ->unsetRequired()
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<input type='text' disabled>",
+            (new Input())
+                ->setType('text')
+                ->setDisabled()
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<input type='text'>",
+            (new Input())
+                ->setType('text')
+                ->unsetDisabled()
+                ->html()
         );
     }
 
