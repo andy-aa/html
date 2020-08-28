@@ -6,47 +6,74 @@ use TexLab\Html\Component\Pagination;
 
 class Html
 {
-    public static function input(): Input
+    /**
+     * @return Input
+     */
+    public static function input()
     {
         return new Input();
     }
 
-    public static function label(): Label
+    /**
+     * @return Label
+     */
+    public static function label()
     {
         return new Label();
     }
 
-    public static function form(): Form
+    /**
+     * @return Form
+     */
+    public static function form()
     {
         return new Form();
     }
 
-    public static function option(): Option
+    /**
+     * @return Option
+     */
+    public static function option()
     {
         return new Option();
     }
 
-    public static function select(): Select
+    /**
+     * @return Select
+     */
+    public static function select()
     {
         return new Select();
     }
 
-    public static function table(): Table
+    /**
+     * @return Table
+     */
+    public static function table()
     {
         return new Table();
     }
 
-    public static function textarea(): Textarea
+    /**
+     * @return Textarea
+     */
+    public static function textarea()
     {
         return new Textarea();
     }
 
-    public static function pagination(): Pagination
+    /**
+     * @return Pagination
+     */
+    public static function pagination()
     {
         return new Pagination();
     }
 
-    public static function a(): A
+    /**
+     * @return A
+     */
+    public static function a()
     {
         return new A();
     }
