@@ -51,7 +51,7 @@ class TextareaTest extends TestCase
             "<textarea>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')
-                ->setUnDisabled()
+                ->unsetDisabled()
                 ->html()
         );
 

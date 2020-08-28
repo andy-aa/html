@@ -23,7 +23,7 @@ trait DisabledTrait
     /**
      * @return $this
      */
-    public function setUnDisabled()
+    public function unsetDisabled()
     {
         $this->disabled = '';
 

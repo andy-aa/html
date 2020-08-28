@@ -42,7 +42,7 @@ class SelectTest extends TestCase
         $this->assertEquals(
             "<select></select>",
             (new Select())
-                ->setUnDisabled()
+                ->unsetDisabled()
                 ->html()
         );
 

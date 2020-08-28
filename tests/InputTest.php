@@ -85,7 +85,7 @@ class InputTest extends TestCase
             "<input type='text'>",
             (new Input())
                 ->setType('text')
-                ->setUnDisabled()
+                ->unsetDisabled()
                 ->html()
         );
     }
