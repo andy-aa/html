@@ -8,7 +8,7 @@ trait DisabledTrait
     /**
      * @var string
      */
-    protected string $disabled = '';
+    protected $disabled = '';
 
     /**
      * @return $this

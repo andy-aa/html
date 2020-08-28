@@ -8,7 +8,7 @@ trait RequiredTrait
     /**
      * @var string
      */
-    protected string $required = '';
+    protected $required = '';
 
     /**
      * @return $this
