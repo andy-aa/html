@@ -23,7 +23,7 @@ trait RequiredTrait
     /**
      * @return $this
      */
-    public function setUnRequired()
+    public function unsetRequired()
     {
         $this->required = '';
 
