@@ -26,21 +26,34 @@ class Input extends AbstractTag
     public function setType(string $type)
     {
         if (
-            in_array(
-                $type,
-                [
-                'text',
+        in_array(
+            $type,
+            [
                 'button',
-                'submit',
-                'reset',
-                'password',
-                'file',
                 'checkbox',
-                'radio',
+                'file',
                 'hidden',
-                'date'
-                ]
-            )
+                'image',
+                'password',
+                'radio',
+                'reset',
+                'submit',
+                'text',
+                'color',
+                'date',
+                'datetime',
+                'datetime-local',
+                'email',
+                'number',
+                'range',
+                'search',
+                'tel',
+                'time',
+                'url',
+                'month',
+                'week'
+            ]
+        )
         ) {
             $this->type = $type;
         }
