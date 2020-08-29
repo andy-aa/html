@@ -53,7 +53,7 @@ class Select extends AbstractTag
     }
 
     /**
-     * @param array<string|int, string> $data
+     * @param array<mixed, string> $data
      * @return $this
      */
     public function setData(array $data)

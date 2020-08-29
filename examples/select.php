@@ -8,7 +8,7 @@ $select
     ->setName("s1")
     ->setSelectedValues([2])
     ->setData([
-        1.5 => "option 1",
+        1 => "option 1",
         2 => "option 2",
         3 => "option 3"
     ]);
