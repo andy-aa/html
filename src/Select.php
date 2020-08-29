@@ -5,7 +5,6 @@ namespace TexLab\Html;
 class Select extends AbstractTag
 {
     use NameTrait;
-    use InnerTextTrait;
     use RequiredTrait;
     use DisabledTrait;
 
@@ -13,10 +12,17 @@ class Select extends AbstractTag
      * @var mixed[]
      */
     protected $selectedValues = [];
+
+    /**
+     * @var array<mixed, string>
+     */
+    protected $selectData = [];
+
     /**
      * @var string
      */
     protected $size = '';
+
     /**
      * @var string
      */
@@ -58,27 +64,37 @@ class Select extends AbstractTag
      */
     public function setData(array $data)
     {
-        if (!empty($data)) {
-            $this->setInnerText('');
+        $this->selectData = $data;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    protected function generateSelectHtml()
+    {
+        $html = "";
+
+        if (!empty($this->selectData)) {
             $option = new Option();
 
-            foreach ($data as $key => $item) {
+            foreach ($this->selectData as $key => $item) {
                 if (in_array($key, $this->selectedValues)) {
                     $option->setSelected();
                 } else {
                     $option->setUnSelected();
                 }
 
-                $this->addInnerText(
-                    "\n\t" .
+                $html .= "\n\t" .
                     $option
                         ->setValue("$key")
                         ->setInnerText($item)
-                        ->html()
-                );
+                        ->html();
             }
         }
-        return $this;
+
+        return $html;
     }
 
     public function html(): string
@@ -93,7 +109,7 @@ class Select extends AbstractTag
             $this->required .
             $this->disabled .
             '>' .
-            $this->innerText .
+            $this->generateSelectHtml() .
             '</select>';
     }
 }
