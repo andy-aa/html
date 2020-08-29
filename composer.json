@@ -44,7 +44,7 @@
     "phpstan": "Runs the PHPStan static analyzer.",
     "psalm": "Runs the Psalm static analyzer.",
     "codestyle": "Checks code style.",
-    "codestylefix": "Fix code style."
+    "codestyle:fix": "Fix code style."
   },
   "config": {
     "process-timeout": 0
