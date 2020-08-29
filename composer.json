@@ -45,5 +45,8 @@
     "psalm": "Runs the Psalm static analyzer.",
     "codestyle": "Checks code style.",
     "codestylefix": "Fix code style."
+  },
+  "config": {
+    "process-timeout": 0
   }
 }
