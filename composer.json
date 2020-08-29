@@ -36,7 +36,8 @@
     "codestyle": "phpcs",
     "codestyle:fix": "phpcbf",
     "test:coverage:html": "phpunit --coverage-html build/coverage",
-    "test:coverage:ci": "phpunit --coverage-clover build/logs/clover.xml"
+    "test:coverage:ci": "phpunit --coverage-clover build/logs/clover.xml",
+    "examples": "php -S localhost:8000 -t examples/"
   },
   "scripts-descriptions": {
     "test": "Shortcut to run the full test suite.",
