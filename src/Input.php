@@ -24,7 +24,7 @@ class Input extends AbstractTag
      * @param string $type
      * @return $this
      */
-    public function setType(string $type)
+    public function setType(string $type = "text")
     {
         if (
             in_array(
