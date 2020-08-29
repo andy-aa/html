@@ -33,24 +33,24 @@ class Table extends AbstractTag
         $html = "";
 
         if (!empty($this->headers)) {
-            $html .= "\n<tr>\n";
+            $html .= "<tr>";
 
             foreach ($this->headers as $value) {
-                $html .= "\t<th>$value</th>\n";
+                $html .= "<th>$value</th>";
             }
 
-            $html .= "</tr>\n";
+            $html .= "</tr>";
         }
 
-        if (!empty($this->headers)) {
+        if (!empty($this->tableData)) {
             foreach ($this->tableData as $row) {
-                $html .= "<tr>\n";
+                $html .= "<tr>";
 
                 foreach ($row as $cell) {
-                    $html .= "\t<td>$cell</td>\n";
+                    $html .= "<td>$cell</td>";
                 }
 
-                $html .= "</tr>\n";
+                $html .= "</tr>";
             }
         }
 
@@ -70,6 +70,6 @@ class Table extends AbstractTag
 
     public function html(): string
     {
-        return "<table$this->style$this->class>" . $this->generateTableHtml() . "</table>";
+        return "<table$this->style$this->class$this->id>" . $this->generateTableHtml() . "</table>";
     }
 }

@@ -28,7 +28,7 @@ class TableTest extends TestCase
         );
 
         $this->assertEquals(
-            "<table>\n<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n</table>",
+            "<table><tr><th>First</th><th>Two</th><th>Three</th></tr></table>",
             (new Table())
                 ->setHeaders([
                     'First',
@@ -39,10 +39,24 @@ class TableTest extends TestCase
         );
 
         $this->assertEquals(
-            "<table>\n" .
-            "<tr>\n\t<th>First</th>\n\t<th>Two</th>\n\t<th>Three</th>\n</tr>\n" .
-            "<tr>\n\t<td>1</td>\n\t<td>2</td>\n\t<td>3</td>\n</tr>\n" .
-            "<tr>\n\t<td>4</td>\n\t<td>5</td>\n\t<td>6</td>\n</tr>\n" .
+            "<table id='tab1'>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>4</td><td>5</td><td>6</td></tr>" .
+            "</table>",
+            (new Table())
+                ->setId("tab1")
+                ->setData([
+                    ['1', '2', '3'],
+                    ['4', '5', '6']
+                ])
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><th>First</th><th>Two</th><th>Three</th></tr>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>4</td><td>5</td><td>6</td></tr>" .
             "</table>",
             (new Table())
                 ->setHeaders(
