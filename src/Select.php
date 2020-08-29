@@ -83,7 +83,7 @@ class Select extends AbstractTag
                 if (in_array($key, $this->selectedValues)) {
                     $option->setSelected();
                 } else {
-                    $option->setUnSelected();
+                    $option->unsetSelected();
                 }
 
                 $html .= "\n\t" .

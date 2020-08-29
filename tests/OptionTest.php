@@ -43,7 +43,7 @@ class OptionTest extends TestCase
             "<option value='1'>Option 1</option>",
             (new Option())
                 ->setSelected()
-                ->setUnSelected()
+                ->unsetSelected()
                 ->setValue('1')
                 ->setInnerText('Option 1')
                 ->html()

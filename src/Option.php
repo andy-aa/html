@@ -25,7 +25,7 @@ class Option extends AbstractTag
     /**
      * @return $this
      */
-    public function setUnSelected()
+    public function unsetSelected()
     {
         $this->selected = '';
 
