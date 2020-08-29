@@ -1,3 +1,19 @@
+<?php
+
+require_once "../vendor/autoload.php";
+
+$select = TexLab\Html\Html::select();
+
+$select
+    ->setName("s1")
+    ->setSelectedValues([2])
+    ->setData([
+        1.5 => "option 1",
+        2 => "option 2",
+        3 => "option 3"
+    ]);
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,12 +24,6 @@
     <title>Document</title>
 </head>
 <body>
-
-<ul>
-    <li><a href="form_login.php">Login Form</a></li>
-    <li><a href="table.php">Table</a></li>
-    <li><a href="select.php">Select</a></li>
-</ul>
-
+<?= $select->html() ?>
 </body>
 </html>
