@@ -5,17 +5,17 @@ namespace TexLab\Html;
 class Table extends AbstractTag
 {
     /**
-     * @var string[]
+     * @var array<float|int|string>
      */
     protected $headers = [];
 
     /**
-     * @var string[][]
+     * @var array<array<float|int|string>>
      */
     protected $tableData = [];
 
     /**
-     * @param string[] $headers
+     * @param array<float|int|string> $headers
      * @return $this
      */
     public function setHeaders(array $headers)
@@ -26,7 +26,7 @@ class Table extends AbstractTag
     }
 
     /**
-     * @param string[][] $data
+     * @param array<array<float|int|string>> $data
      * @return $this
      */
     public function setData(array $data)
