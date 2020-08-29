@@ -68,5 +68,43 @@ class TableTest extends TestCase
                 ])
                 ->html()
         );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><th>First</th><th>Two</th><th>Three</th></tr>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>4</td><td>5</td><td>6</td></tr>" .
+            "<tr><td>7</td><td>8</td><td>9</td></tr>" .
+            "</table>",
+            (new Table())
+                ->setHeaders(
+                    ['First', 'Two', 'Three']
+                )
+                ->setData([
+                    ['1', '2', '3'],
+                    ['4', '5', '6']
+                ])
+                ->addRow([7, 8, 9])
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><th>First</th><th>Two</th><th>Three</th><th>Four</th></tr>" .
+            "<tr><td>1</td><td>2</td><td>3</td><td>7</td></tr>" .
+            "<tr><td>4</td><td>5</td><td>6</td><td>8</td></tr>" .
+            "</table>",
+            (new Table())
+                ->setHeaders(
+                    ['First', 'Two', 'Three']
+                )
+                ->setData([
+                    ['1', '2', '3'],
+                    ['4', '5', '6']
+                ])
+                ->addHeaders(["Four"])
+                ->addColumn([7, 8])
+                ->html()
+        );
     }
 }

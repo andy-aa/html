@@ -26,12 +26,49 @@ class Table extends AbstractTag
     }
 
     /**
+     * @param array<float|int|string> $headers
+     * @return $this
+     */
+    public function addHeaders(array $headers)
+    {
+        $this->headers = array_merge(
+            array_values($this->headers),
+            array_values($headers)
+        );
+
+        return $this;
+    }
+
+    /**
      * @param array<array<float|int|string>> $data
      * @return $this
      */
     public function setData(array $data)
     {
         $this->tableData = $data;
+
+        return $this;
+    }
+
+    /**
+     * @param array<float|int|string> $column
+     * @return $this
+     */
+    public function addColumn(array $column)
+    {
+        foreach (array_values($column) as $key => $value) {
+            $this->tableData[$key][] = $value;
+        }
+        return $this;
+    }
+
+    /**
+     * @param array<float|int|string> $row
+     * @return $this
+     */
+    public function addRow(array $row)
+    {
+        $this->tableData[] = $row;
 
         return $this;
     }

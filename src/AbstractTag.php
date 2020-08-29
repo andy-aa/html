@@ -8,7 +8,7 @@ abstract class AbstractTag implements TagInterface
      * @var string
      */
     protected $class = '';
-    
+
     /**
      * @var string
      */
