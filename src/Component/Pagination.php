@@ -48,13 +48,13 @@ class Pagination extends AbstractTag
     }
 
     /**
-     * @param int $pageCurrent
+     * @param int $currentPage
      * @return $this
      */
-    public function setCurrentPage(int $pageCurrent)
+    public function setCurrentPage(int $currentPage)
     {
         $this->currentPage =
-            ($pageCurrent <= 0) ? 1 : (($pageCurrent > $this->pageCount) ? $this->pageCount : $pageCurrent);
+            ($currentPage < 1) ? 1 : (($currentPage > $this->pageCount) ? $this->pageCount : $currentPage);
 
         return $this;
     }
