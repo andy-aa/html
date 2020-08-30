@@ -29,9 +29,6 @@ $table->addColumnByCallable(
     fn($row) => "<a href='?edt_id=$row[0]'>Edit $row[0]</a>"
 );
 
-
-$table->removeColumns(['id']);
-
 ?>
 <!doctype html>
 <html lang="en">
