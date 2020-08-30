@@ -30,9 +30,13 @@
       "@phpstan",
       "@test"
     ],
+    "ci:test:7.4": [
+      "@phpstan:examples",
+      "@ci:test"
+    ],
     "test": "phpunit --testsuite alltests",
     "phpstan": "phpstan analyse -c phpstan.neon",
-    "phpstan:examples": "phpstan analyse -l 8 -c examples",
+    "phpstan:examples": "phpstan analyse -l 8 examples",
     "psalm": "psalm",
     "codestyle": "phpcs",
     "codestyle:fix": "phpcbf",
