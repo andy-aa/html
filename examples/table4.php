@@ -13,8 +13,8 @@ $data = [
 $table->setData($data);
 
 // PHP 7.4 arrow functions
-$table->addColumnByCallable(fn($row) => array_sum($row));
-$table->addColumnByCallable(fn($row) => "<a href='?edt_id=$row[0]'>Edit $row[0]</a>");
+$table->addCalculatedColumn(fn($row) => array_sum($row));
+$table->addCalculatedColumn(fn($row) => "<a href='?edt_id=$row[0]'>Edit $row[0]</a>");
 
 ?>
 <!doctype html>

@@ -131,7 +131,7 @@ class TableTest extends TestCase
                     ['id' => '1', 'Peter'],
                     ['id' => '3', 'Viktor']
                 ])
-                ->addColumnByCallable(function ($row) {
+                ->addCalculatedColumn(function ($row) {
                     return "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
                 })
                 ->html()

@@ -14,7 +14,7 @@ $table->setData($data);
 
 
 // PHP 7.4 arrow functions
-$table->addColumnByCallable(
+$table->addCalculatedColumn(
     fn($row) => array_sum($row),
     fn($row) => "<a href='?edt_id=$row[0]'>Edit $row[0]</a>"
 );

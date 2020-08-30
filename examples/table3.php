@@ -12,11 +12,11 @@ $data = [
 
 $table->setData($data);
 
-$table->addColumnByCallable(function ($row) {
+$table->addCalculatedColumn(function ($row) {
     return "<a href='?del_id=$row[id]'>Delete $row[id]</a>";
 });
 
-$table->addColumnByCallable(function ($row) {
+$table->addCalculatedColumn(function ($row) {
     return "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
 });
 
