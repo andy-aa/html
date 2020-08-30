@@ -5,9 +5,9 @@ require_once "../vendor/autoload.php";
 $table = TexLab\Html\Html::table();
 
 $data = [
-    ['id' => 1, 'name' => 'Peter'],
-    ['id' => 3, 'name' => 'Viktor'],
-    ['id' => 7, 'name' => 'Mark']
+    [1, 'Peter', 'Director'],
+    [3, 'Viktor', 'Manager'],
+    [7, 'Mark', 'Worker']
 ];
 
 ?>
