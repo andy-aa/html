@@ -77,19 +77,21 @@ class Table extends AbstractTag
     }
 
     /**
-     * @param callable $fun
+     * @param callable ...$fns
      * @return $this
      */
-    public function addColumnByCallable(callable $fun)
+    public function addColumnByCallable(callable ...$fns)
     {
 //        /** @var array<float|int|string> $column */
 //        $column = array_map($fun, $this->tableData);
 //        $this->addColumn($column);
 
-        foreach ($this->tableData as &$row) {
-            /** @var float|int|string $tmp */
-            $tmp = $fun($row);
-            $row[] = $tmp;
+        foreach ($fns as $fn) {
+            foreach ($this->tableData as &$row) {
+                /** @var float|int|string $tmp */
+                $tmp = $fn($row);
+                $row[] = $tmp;
+            }
         }
 
         return $this;
