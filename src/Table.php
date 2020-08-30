@@ -68,7 +68,9 @@ class Table extends AbstractTag
      */
     public function addColumnByCallable(callable $fun)
     {
-        $this->addColumn(array_map($fun, $this->tableData));
+        /** @var array<float|int|string> $column */
+        $column = array_map($fun, $this->tableData);
+        $this->addColumn($column);
 
         return $this;
     }
