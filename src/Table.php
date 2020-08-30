@@ -63,6 +63,17 @@ class Table extends AbstractTag
     }
 
     /**
+     * @param callable $fun
+     * @return $this
+     */
+    public function addColumnByCallable(callable $fun)
+    {
+        $this->addColumn(array_map($fun, $this->tableData));
+
+        return $this;
+    }
+
+    /**
      * @param array<float|int|string> $row
      * @return $this
      */
