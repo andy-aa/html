@@ -32,7 +32,7 @@
     ],
     "test": "phpunit --testsuite alltests",
     "phpstan": "phpstan analyse -c phpstan.neon",
-    "phpstan:examples": "phpstan analyse -l 8 examples",
+    "phpstan:examples": "phpstan analyse -l 8 -c examples",
     "psalm": "psalm",
     "codestyle": "phpcs",
     "codestyle:fix": "phpcbf",
