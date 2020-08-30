@@ -106,5 +106,35 @@ class TableTest extends TestCase
                 ->addColumn([7, 8])
                 ->html()
         );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><td>2</td></tr>" .
+            "<tr><td>5</td></tr>" .
+            "</table>",
+            (new Table())
+                ->setData([
+                    ['id' => '1', '2', '3'],
+                    ['id' => '4', '5', '6']
+                ])
+                ->removeColumns(['id', 1])
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><td>1</td><td>Peter</td><td><a href='?edt_id=1'>Edit 1</a></td></tr>" .
+            "<tr><td>3</td><td>Viktor</td><td><a href='?edt_id=3'>Edit 3</a></td></tr>" .
+            "</table>",
+            (new Table())
+                ->setData([
+                    ['id' => '1', 'Peter'],
+                    ['id' => '3', 'Viktor']
+                ])
+                ->addColumnByCallable(function ($row) {
+                    return "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
+                })
+                ->html()
+        );
     }
 }

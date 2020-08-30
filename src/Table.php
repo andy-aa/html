@@ -51,6 +51,20 @@ class Table extends AbstractTag
     }
 
     /**
+     * @param array<float|int|string> $columnNames
+     * @return $this
+     */
+    public function removeColumns(array $columnNames)
+    {
+        foreach ($this->tableData as &$row) {
+            foreach ($columnNames as $name) {
+                unset($row[$name]);
+            }
+        }
+        return $this;
+    }
+
+    /**
      * @param array<float|int|string> $column
      * @return $this
      */
@@ -68,9 +82,15 @@ class Table extends AbstractTag
      */
     public function addColumnByCallable(callable $fun)
     {
-        /** @var array<float|int|string> $column */
-        $column = array_map($fun, $this->tableData);
-        $this->addColumn($column);
+//        /** @var array<float|int|string> $column */
+//        $column = array_map($fun, $this->tableData);
+//        $this->addColumn($column);
+
+        foreach ($this->tableData as &$row) {
+            /** @var float|int|string $tmp */
+            $tmp = $fun($row);
+            $row[] = $tmp;
+        }
 
         return $this;
     }

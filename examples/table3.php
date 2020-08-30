@@ -20,6 +20,8 @@ $table->addColumnByCallable(function ($row) {
     return "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
 });
 
+$table->removeColumns(['id']);
+
 ?>
 <!doctype html>
 <html lang="en">
