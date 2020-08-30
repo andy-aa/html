@@ -4,15 +4,11 @@ require_once "../vendor/autoload.php";
 
 $table = TexLab\Html\Html::table();
 
-$table
-    ->setId("tab1")
-    ->setHeaders(['01', '02'])
-    ->setData(
-        [
-            ['a', 'b'],
-            [1, 2]
-        ]
-    );
+$data = [
+    ['id' => 1, 'name' => 'Peter'],
+    ['id' => 3, 'name' => 'Viktor'],
+    ['id' => 7, 'name' => 'Mark']
+];
 
 ?>
 <!doctype html>
@@ -24,22 +20,17 @@ $table
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #tab1 {
+        table {
             border-collapse: collapse;
-            width: 50px;
+            width: 180px;
         }
 
-        #tab1 th {
-            background-color: #0c5460;
-            border: 1px solid blue;
-        }
-
-        #tab1 td {
+        td, th {
             border: 1px solid black;
         }
     </style>
 </head>
 <body>
-<?= $table->html() ?>
+<?= $table->setData($data)->html() ?>
 </body>
 </html>
