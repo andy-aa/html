@@ -8,7 +8,7 @@ $form = Html::form()
     ->setClass("loginForm")
     ->setMethod("POST")
     ->setAction("?type=auth&action=login")
-    ->addInnerText(
+    ->setInnerText(
         Html::input()
             ->setType("text")
             ->setName("login")
