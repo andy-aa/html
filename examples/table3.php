@@ -12,7 +12,7 @@ $data = [
 
 $headers = ['id' => '№', 'name' => 'Name'];
 
-$table->setData($data)->addHeaders($headers);
+$table->setData($data)->setHeaders($headers);
 
 $table->addCalculatedColumn(function ($row) {
     return "<a href='?del_id=$row[id]'>Delete $row[id]</a>";
@@ -21,6 +21,8 @@ $table->addCalculatedColumn(function ($row) {
 $table->addCalculatedColumn(function ($row) {
     return "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
 });
+
+$table->addHeaders(['del' => 'Delete', 'edit' => 'Edit']);
 
 $table->removeColumns(['id']);
 
