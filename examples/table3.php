@@ -10,7 +10,9 @@ $data = [
     ['id' => 7, 'name' => 'Mark']
 ];
 
-$table->setData($data);
+$headers = ['id' => '№', 'name' => 'Name'];
+
+$table->setData($data)->addHeaders($headers);
 
 $table->addCalculatedColumn(function ($row) {
     return "<a href='?del_id=$row[id]'>Delete $row[id]</a>";

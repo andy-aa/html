@@ -32,10 +32,22 @@ class Table extends AbstractTag
     public function addHeaders(array $headers)
     {
         $this->headers = array_merge(
-            array_values($this->headers),
-            array_values($headers)
+            $this->headers,
+            $headers
         );
 
+        return $this;
+    }
+
+    /**
+     * @param array<float|int|string> $columnNames
+     * @return Table
+     */
+    public function removeHeaders(array $columnNames)
+    {
+        foreach ($columnNames as $column) {
+            unset($this->headers[$column]);
+        }
         return $this;
     }
 
@@ -61,6 +73,9 @@ class Table extends AbstractTag
                 unset($row[$name]);
             }
         }
+
+        $this->removeHeaders($columnNames);
+
         return $this;
     }
 
