@@ -136,5 +136,21 @@ class TableTest extends TestCase
                 })
                 ->html()
         );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tr><td>1</td><td>Peter</td><td><a href='?edt_id=1'>Edit 1</a></td></tr>" .
+            "<tr><td>3</td><td>Viktor</td><td><a href='?edt_id=3'>Edit 3</a></td></tr>" .
+            "</table>",
+            (new Table())
+                ->setData([
+                    ['id' => '1', 'Peter'],
+                    ['id' => '3', 'Viktor']
+                ])
+                ->loopByRow(function (&$row) {
+                    $row['edit'] = "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
+                })
+                ->html()
+        );
     }
 }

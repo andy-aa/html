@@ -113,6 +113,21 @@ class Table extends AbstractTag
     }
 
     /**
+     * @param callable ...$fns
+     * @return $this
+     */
+    public function loopByRow(callable ...$fns)
+    {
+        foreach ($fns as $fn) {
+            foreach ($this->tableData as &$row) {
+                $fn($row);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
      * @param array<float|int|string> $row
      * @return $this
      */
