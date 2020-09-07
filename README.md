@@ -28,7 +28,7 @@ Example **composer.json** file
 ```
 {
     "require": {
-        "texlab/html": "^0.11"
+        "texlab/html": "^0.15"
     }
 }
 ```
