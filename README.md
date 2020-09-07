@@ -38,7 +38,7 @@ Example **composer.json** file
 
 ## Usage example
 
-### Create an authorization form
+### Create html table
 PHP code:
 
 ```php
@@ -49,37 +49,32 @@ require_once "../vendor/autoload.php";
 $table = TexLab\Html\Html::table();
 
 $data = [
-    ['id' => 1, 2, 3, 4],
-    ['id' => 5, 6, 7, 8],
-    ['id' => 2, 3, 4, 5]
+    ['id' => 1, 'name' => 'Peter', 'Director'],
+    ['id' => 3, 'name' => 'Viktor', 'Manager'],
+    ['id' => 7, 'name' => 'Mark', 'Worker']
 ];
 
-$table->setData($data);
+$headers = ['id' => '№', 'name' => 'Name', 'Description'];
 
-$table->loopByRow(function (&$row) {
-    $row['sum'] = array_sum($row);
-    $row['edit'] = "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
-});
+$table
+    ->setClass("table")
+    ->setData($data)
+    ->addHeaders($headers)
+    ->loopByRow(function (&$row) {
+        $row['edit'] = "<a href='?edt_id=$row[id]'>✏</a>";
+        $row['del'] = "<a href='?del_id=$row[id]'>❌</a>";
+    });
 
 ?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 300px;
-        }
-
-        td, th {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 <body>
 <?= $table->html() ?>
@@ -88,4 +83,5 @@ $table->loopByRow(function (&$row) {
 ```
 
 Result:
-![image](https://user-images.githubusercontent.com/46691193/92358568-58282800-f0f2-11ea-9bc8-03c2d1875b8d.png)
+
+![image](https://user-images.githubusercontent.com/46691193/92361408-03d37700-f0f7-11ea-92a4-4450c30ba3d5.png)
