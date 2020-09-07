@@ -44,87 +44,48 @@ PHP code:
 ```php
 <?php
 
-use TexLab\Html\Html;
+require_once "../vendor/autoload.php";
 
-/**
- * @var string $action
- */
+$table = TexLab\Html\Html::table();
 
-$form = Html::Form()
-    ->setMethod('POST')
-    ->setAction($action);
+$data = [
+    ['id' => 1, 2, 3, 4],
+    ['id' => 5, 6, 7, 8],
+    ['id' => 2, 3, 4, 5]
+];
 
-$form->addInnerText(Html::Label()
-    ->setInnerText("Login:")
-    ->setFor("login")
-    ->html());
+$table->setData($data);
 
-$form->addInnerText(Html::Input()
-    ->setName("login")
-    ->setId("login")
-    ->setPlaceholder("Your login")
-    ->html());
+$table->loopByRow(function (&$row) {
+    $row['sum'] = array_sum($row);
+    $row['edit'] = "<a href='?edt_id=$row[id]'>Edit $row[id]</a>";
+});
 
-$form->addInnerText(Html::Label()
-    ->setInnerText("Password:")
-    ->setFor("pass")
-    ->html());
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 300px;
+        }
 
-$form->addInnerText(Html::Input()
-    ->setType('password')
-    ->setName("pass")
-    ->setId("pass")
-    ->setPlaceholder("Your password")
-    ->html());
-
-$form->addInnerText(
-    Html::Input()
-        ->setType('submit')
-        ->setValue('Submit')
-        ->html()
-);
-
-echo $form->html();
-```
-CSS:
-```css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Montserrat, sans-serif;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-}
-
-input {
-    margin: 10px 0;
-    padding: 10px;
-    border: unset;
-    border-bottom: 2px solid #e3e3e3;
-    outline: none;
-}
-
-button, input[type='submit']{
-    padding: 10px;
-    background: #e3e3e3;
-    border: unset;
-    cursor: pointer;
-    border-radius: 4px;
-}
+        td, th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<?= $table->html() ?>
+</body>
+</html>
 ```
 
 Result:
-
-![Authorization form](https://github.com/Dzmitry2020/images/raw/master/TexLab/Html/authorization_form.png "Example of authorization form")
+![image](https://user-images.githubusercontent.com/46691193/92358568-58282800-f0f2-11ea-9bc8-03c2d1875b8d.png)
