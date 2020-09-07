@@ -10,7 +10,7 @@
 - [Install](#install-via-composer)
 - [Class diagram](#class-diagram)
 - [Usage example](#usage-example)
-    - [Create an authorization form](#create-an-authorization-form)
+    - [Create html table](#create-html-table)
 
 ## What is it?
 
