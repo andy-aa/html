@@ -172,5 +172,25 @@ class TableTest extends TestCase
                 })
                 ->html()
         );
+
+        $this->assertEquals(
+            "<table>" .
+            "<thead class='thead-dark'>" .
+            "<tr><th>#</th><th>Name</th></tr>" .
+            "</thead>" .
+            "<tbody>" .
+            "<tr><td>1</td><td>Peter</td></tr>" .
+            "<tr><td>3</td><td>Viktor</td></tr>" .
+            "</tbody>" .
+            "</table>",
+            (new Table())
+                ->setData([
+                    ['id' => '1', 'Peter'],
+                    ['id' => '3', 'Viktor']
+                ])
+                ->setHeaders(['#', 'Name'])
+                ->setTheadClass("thead-dark")
+                ->html()
+        );
     }
 }

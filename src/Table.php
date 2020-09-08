@@ -15,6 +15,22 @@ class Table extends AbstractTag
     protected $tableData = [];
 
     /**
+     * @var string
+     */
+    protected $theadClass = '';
+
+    /**
+     * @param string $class
+     * @return Table
+     */
+    public function setTheadClass(string $class)
+    {
+        $this->theadClass = " class='$class'";
+
+        return $this;
+    }
+
+    /**
      * @param array<float|int|string> $headers
      * @return $this
      */
@@ -142,7 +158,7 @@ class Table extends AbstractTag
         $html = "";
 
         if (!empty($this->headers)) {
-            $html .= "<thead><tr>";
+            $html .= "<thead$this->theadClass><tr>";
 
             foreach ($this->headers as $value) {
                 $html .= "<th>$value</th>";
