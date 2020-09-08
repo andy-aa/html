@@ -97,10 +97,6 @@ class Table extends AbstractTag
      */
     public function addCalculatedColumn(callable ...$fns)
     {
-//        /** @var array<float|int|string> $column */
-//        $column = array_map($fun, $this->tableData);
-//        $this->addColumn($column);
-
         foreach ($fns as $fn) {
             foreach ($this->tableData as &$row) {
                 /** @var float|int|string $tmp */
