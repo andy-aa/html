@@ -15,7 +15,7 @@ $headers = ['id' => '№', 'name' => 'Name', 'Description'];
 $table
     ->setClass("table")
     ->setData($data)
-    ->addHeaders($headers)
+    ->setHeaders($headers)
     ->loopByRow(function (&$row) {
         $row['edit'] = "<a href='?edt_id=$row[id]'>✏</a>";
         $row['del'] = "<a href='?del_id=$row[id]'>❌</a>";
