@@ -192,5 +192,32 @@ class TableTest extends TestCase
                 ->setTheadClass("thead-dark")
                 ->html()
         );
+
+        $this->assertEquals(
+            "<table>" .
+            "<tbody>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>1</td><td>2</td><td>3</td></tr>" .
+            "<tr><td>1</td><td>8</td><td>27</td></tr>" .
+            "<tr><td>4</td><td>14</td><td>36</td></tr>" .
+            "</tbody>" .
+            "</table>",
+            (new Table())
+                ->setData([
+                    [1, 2, 3],
+                    [1, 2, 3],
+                    [1, 2, 3],
+                ])
+                ->addCalculatedRow(
+                    function ($col) {
+                        return array_product($col);
+                    },
+                    function ($col) {
+                        return array_sum($col);
+                    }
+                )
+                ->html()
+        );
     }
 }

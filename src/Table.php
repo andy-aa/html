@@ -128,6 +128,28 @@ class Table extends AbstractTag
      * @param callable ...$fns
      * @return $this
      */
+    public function addCalculatedRow(callable ...$fns)
+    {
+        if (!empty($this->tableData[0])) {
+            foreach ($fns as $fn) {
+                $newRow = [];
+                foreach (array_keys($this->tableData[0]) as $key) {
+                    /** @var float|int|string $tmp */
+                    $tmp = $fn(array_column($this->tableData, $key));
+                    $newRow[] = $tmp;
+                }
+
+                $this->addRow($newRow);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param callable ...$fns
+     * @return $this
+     */
     public function loopByRow(callable ...$fns)
     {
         foreach ($fns as $fn) {
