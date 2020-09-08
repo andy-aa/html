@@ -135,7 +135,7 @@ class Table extends AbstractTag
                 $newRow = [];
                 foreach (array_keys($this->tableData[0]) as $key) {
                     /** @var float|int|string $tmp */
-                    $tmp = $fn(array_column($this->tableData, $key));
+                    $tmp = $fn(array_column($this->tableData, $key), $key);
                     $newRow[] = $tmp;
                 }
 
