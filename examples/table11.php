@@ -15,7 +15,7 @@ $table
     ->setClass("table")
     ->setData($data)
     ->addCalculatedRow(
-        fn($col, $key) => (in_array($key, [0, 2]) ? array_sum($col) : '&mdash;')
+        fn($col, $key) => (in_array($key, [0, 2, 3]) ? array_sum($col) : '&mdash;')
     );
 
 ?>
