@@ -28,7 +28,7 @@ class TableTest extends TestCase
         );
 
         $this->assertEquals(
-            "<table><tr><th>First</th><th>Two</th><th>Three</th></tr></table>",
+            "<table><thead><tr><th>First</th><th>Two</th><th>Three</th></tr></thead></table>",
             (new Table())
                 ->setHeaders([
                     'First',
@@ -40,8 +40,10 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table id='tab1'>" .
+            "<tbody>" .
             "<tr><td>1</td><td>2</td><td>3</td></tr>" .
             "<tr><td>4</td><td>5</td><td>6</td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setId("tab1")
@@ -54,9 +56,13 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<thead>" .
             "<tr><th>First</th><th>Two</th><th>Three</th></tr>" .
+            "</thead>" .
+            "<tbody>" .
             "<tr><td>1</td><td>2</td><td>3</td></tr>" .
             "<tr><td>4</td><td>5</td><td>6</td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setHeaders(
@@ -71,10 +77,14 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<thead>" .
             "<tr><th>First</th><th>Two</th><th>Three</th></tr>" .
+            "</thead>" .
+            "<tbody>" .
             "<tr><td>1</td><td>2</td><td>3</td></tr>" .
             "<tr><td>4</td><td>5</td><td>6</td></tr>" .
             "<tr><td>7</td><td>8</td><td>9</td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setHeaders(
@@ -90,9 +100,13 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<thead>" .
             "<tr><th>First</th><th>Two</th><th>Three</th><th>Four</th></tr>" .
+            "</thead>" .
+            "<tbody>" .
             "<tr><td>1</td><td>2</td><td>3</td><td>7</td></tr>" .
             "<tr><td>4</td><td>5</td><td>6</td><td>8</td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setHeaders(
@@ -109,8 +123,10 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<tbody>" .
             "<tr><td>2</td></tr>" .
             "<tr><td>5</td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setData([
@@ -123,8 +139,10 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<tbody>" .
             "<tr><td>1</td><td>Peter</td><td><a href='?edt_id=1'>Edit 1</a></td></tr>" .
             "<tr><td>3</td><td>Viktor</td><td><a href='?edt_id=3'>Edit 3</a></td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setData([
@@ -139,8 +157,10 @@ class TableTest extends TestCase
 
         $this->assertEquals(
             "<table>" .
+            "<tbody>" .
             "<tr><td>1</td><td>Peter</td><td><a href='?edt_id=1'>Edit 1</a></td></tr>" .
             "<tr><td>3</td><td>Viktor</td><td><a href='?edt_id=3'>Edit 3</a></td></tr>" .
+            "</tbody>" .
             "</table>",
             (new Table())
                 ->setData([

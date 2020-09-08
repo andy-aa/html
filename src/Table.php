@@ -142,16 +142,17 @@ class Table extends AbstractTag
         $html = "";
 
         if (!empty($this->headers)) {
-            $html .= "<tr>";
+            $html .= "<thead><tr>";
 
             foreach ($this->headers as $value) {
                 $html .= "<th>$value</th>";
             }
 
-            $html .= "</tr>";
+            $html .= "</tr></thead>";
         }
 
         if (!empty($this->tableData)) {
+            $html .= "<tbody>";
             foreach ($this->tableData as $row) {
                 $html .= "<tr>";
 
@@ -161,6 +162,7 @@ class Table extends AbstractTag
 
                 $html .= "</tr>";
             }
+            $html .= "</tbody>";
         }
 
         return $html;
