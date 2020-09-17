@@ -25,7 +25,7 @@ class Pagination extends AbstractTag
     /**
      * @var string
      */
-    protected $currentPageCssClass = 'current';
+    protected $currentPageClass = 'current';
 
     /**
      * @param string $urlPrefix
@@ -60,6 +60,17 @@ class Pagination extends AbstractTag
     }
 
     /**
+     * @param string $currentPageClass
+     * @return Pagination
+     */
+    public function setCurrentPageClass(string $currentPageClass)
+    {
+        $this->currentPageClass = $currentPageClass;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function html()
@@ -67,7 +78,7 @@ class Pagination extends AbstractTag
         $str = "<div$this->class$this->style$this->id>\n";
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageCssClass'" : '';
+            $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$i'$classCurrentPage>$i</a>\n";
         }
 
