@@ -10,22 +10,36 @@ class Pagination extends AbstractTag
      * @var int
      */
     protected $pageCount = 1;
+
     /**
      * @var string
      */
     protected $urlPrefix = '';
+
     /**
      * @var string
      */
     protected $urlPageVariableName = 'page';
+
     /**
      * @var int
      */
     protected $currentPage = 1;
+
     /**
      * @var string
      */
     protected $currentPageClass = 'current';
+
+    /**
+     * @var string
+     */
+    protected $first = '';
+
+    /**
+     * @var string
+     */
+    protected $last = '';
 
     /**
      * @param string $urlPrefix
@@ -61,12 +75,32 @@ class Pagination extends AbstractTag
 
     /**
      * @param string $currentPageClass
-     * @return Pagination
+     * @return $this
      */
     public function setCurrentPageClass(string $currentPageClass)
     {
         $this->currentPageClass = $currentPageClass;
 
+        return $this;
+    }
+
+    /**
+     * @param string $first
+     * @return $this
+     */
+    public function setFirst(string $first)
+    {
+        $this->first = $first;
+        return $this;
+    }
+
+    /**
+     * @param string $last
+     * @return $this
+     */
+    public function setLast(string $last)
+    {
+        $this->last = $last;
         return $this;
     }
 
@@ -77,9 +111,18 @@ class Pagination extends AbstractTag
     {
         $str = "<div$this->class$this->style$this->id>\n";
 
+
+        if ($this->first != '') {
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=1'>$this->first</a>\n";
+        }
+
         for ($i = 1; $i <= $this->pageCount; $i++) {
             $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$i'$classCurrentPage>$i</a>\n";
+        }
+
+        if ($this->last != '') {
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->pageCount'>$this->last</a>\n";
         }
 
         $str .= "</div>";
