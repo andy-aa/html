@@ -54,5 +54,19 @@ class PaginationTest extends TestCase
                 ->setCurrentPage(5)
                 ->html()
         );
+
+        $this->assertEquals(
+            "<div>\n\t" .
+            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
+            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
+            "<a href='?action=show&type=controller&page=3' class='active'>3</a>\n" .
+            "</div>",
+            (new Pagination())
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(3)
+                ->setCurrentPageClass('active')
+                ->setCurrentPage(5)
+                ->html()
+        );
     }
 }
