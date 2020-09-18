@@ -34,12 +34,23 @@ class Pagination extends AbstractTag
     /**
      * @var string
      */
+    protected $previous = '';
+
+    /**
+     * @var string
+     */
     protected $first = '';
 
     /**
      * @var string
      */
     protected $last = '';
+
+    /**
+     * @var string
+     */
+    protected $next = '';
+
 
     /**
      * @param string $urlPrefix
@@ -85,6 +96,26 @@ class Pagination extends AbstractTag
     }
 
     /**
+     * @param string $previous
+     * @return $this
+     */
+    public function setPrevious(string $previous)
+    {
+        $this->previous = $previous;
+        return $this;
+    }
+
+    /**
+     * @param string $next
+     * @return $this
+     */
+    public function setNext(string $next)
+    {
+        $this->next = $next;
+        return $this;
+    }
+
+    /**
      * @param string $first
      * @return $this
      */
@@ -111,6 +142,13 @@ class Pagination extends AbstractTag
     {
         $str = "<div$this->class$this->style$this->id>\n";
 
+        if ($this->previous != '') {
+            for ($i = 1; $i <= $this->pageCount; $i++) {
+                $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
+                $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->currentPage-$i'".
+                    "$classCurrentPage>$this->previous</a>\n";
+            }
+        }
 
         if ($this->first != '') {
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=1'>$this->first</a>\n";
@@ -123,6 +161,14 @@ class Pagination extends AbstractTag
 
         if ($this->last != '') {
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->pageCount'>$this->last</a>\n";
+        }
+
+        if ($this->next != '') {
+            for ($i = 1; $i <= $this->pageCount; $i++) {
+                $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
+                $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->$this->currentPage+$i'".
+                    "$classCurrentPage>$this->next</a>\n";
+            }
         }
 
         $str .= "</div>";

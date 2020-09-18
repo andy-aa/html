@@ -85,5 +85,27 @@ class PaginationTest extends TestCase
                 ->setLast('Last')
                 ->html()
         );
+
+        $this->assertEquals(
+            "<div>\n\t" .
+            "<a href='?action=show&type=controller&page=2'>Previous</a>\n\t" .
+            "<a href='?action=show&type=controller&page=1'>First</a>\n\t" .
+            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
+            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
+            "<a href='?action=show&type=controller&page=3' class='current'>3</a>\n\t" .
+            "<a href='?action=show&type=controller&page=2'>4</a>\n\t" .
+            "<a href='?action=show&type=controller&page=3'>Last</a>\n\t" .
+            "<a href='?action=show&type=controller&page=4'>Next</a>\n" .
+            "</div>",
+            (new Pagination())
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(4)
+                ->setCurrentPage(3)
+                ->setPrevious('Previous')
+                ->setFirst('First')
+                ->setLast('Last')
+                ->setNext('Next')
+                ->html()
+        );
     }
 }
