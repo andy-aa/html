@@ -68,7 +68,8 @@ class Pagination extends AbstractTag
      */
     public function setPageCount(int $pageCount)
     {
-        $this->pageCount = ($pageCount > 0) ? $pageCount : 1;
+        $this->pageCount = max($pageCount, 1);
+//        $this->pageCount = ($pageCount > 0) ? $pageCount : 1;
         return $this;
     }
 
@@ -78,9 +79,8 @@ class Pagination extends AbstractTag
      */
     public function setCurrentPage(int $currentPage)
     {
-        $this->currentPage =
-            ($currentPage < 1) ? 1 : (($currentPage > $this->pageCount) ? $this->pageCount : $currentPage);
-
+        $this->currentPage = min(max($currentPage, 1), $this->pageCount);
+// $this->currentPage = ($currentPage < 1) ? 1 : (($currentPage > $this->pageCount) ? $this->pageCount : $currentPage);
         return $this;
     }
 
