@@ -147,12 +147,8 @@ class Pagination extends AbstractTag
         }
 
         if (($this->previous != '')) {
-            if (($this->currentPage - 1) >= 1) {
-                $pageNext = $this->currentPage - 1;
-            } else {
-                $pageNext = 1;
-            }
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->previous</a>\n";
+            $pagePrevious = max($this->currentPage - 1, 1);
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pagePrevious'>$this->previous</a>\n";
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
@@ -161,11 +157,7 @@ class Pagination extends AbstractTag
         }
 
         if (($this->next != '')) {
-            if (($this->currentPage + 1) <= $this->pageCount) {
-                $pageNext = $this->currentPage + 1;
-            } else {
-                $pageNext = 1;
-            }
+            $pageNext = min($this->currentPage + 1, $this->pageCount);
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->next</a>\n";
         }
 
