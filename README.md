@@ -125,4 +125,6 @@ $pagination
 </html>
 ```
 
+Result:
+
 ![image](https://user-images.githubusercontent.com/46691193/93690150-aae3e580-fadd-11ea-944b-faa3b40195f8.png)
