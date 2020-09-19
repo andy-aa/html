@@ -34,12 +34,23 @@ class Pagination extends AbstractTag
     /**
      * @var string
      */
+    protected $previous = '';
+
+    /**
+     * @var string
+     */
     protected $first = '';
 
     /**
      * @var string
      */
     protected $last = '';
+
+    /**
+     * @var string
+     */
+    protected $next = '';
+
 
     /**
      * @param string $urlPrefix
@@ -85,6 +96,26 @@ class Pagination extends AbstractTag
     }
 
     /**
+     * @param string $previous
+     * @return $this
+     */
+    public function setPrevious(string $previous)
+    {
+        $this->previous = $previous;
+        return $this;
+    }
+
+    /**
+     * @param string $next
+     * @return $this
+     */
+    public function setNext(string $next)
+    {
+        $this->next = $next;
+        return $this;
+    }
+
+    /**
      * @param string $first
      * @return $this
      */
@@ -111,14 +142,31 @@ class Pagination extends AbstractTag
     {
         $str = "<div$this->class$this->style$this->id>\n";
 
-
         if ($this->first != '') {
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=1'>$this->first</a>\n";
+        }
+
+        if (($this->previous != '')) {
+            if (($this->currentPage - 1) >= 1) {
+                $pageNext = $this->currentPage - 1;
+            } else {
+                $pageNext = 1;
+            }
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->previous</a>\n";
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
             $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$i'$classCurrentPage>$i</a>\n";
+        }
+
+        if (($this->next != '')) {
+            if (($this->currentPage + 1) <= $this->pageCount) {
+                $pageNext = $this->currentPage + 1;
+            } else {
+                $pageNext = 1;
+            }
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->next</a>\n";
         }
 
         if ($this->last != '') {

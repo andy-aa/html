@@ -6,12 +6,13 @@ $pagination = TexLab\Html\Html::pagination();
 
 $pagination
     ->setClass("pagination")
-    ->setUrlPrefix("?type=table")
-    ->setPageCount(8)
+    ->setUrlPrefix("?type=table&action=show")
+    ->setPrevious('Previous')
     ->setFirst('First')
     ->setLast('Last')
-    ->setCurrentPage(3)
-    ->setCurrentPageClass('active');
+    ->setNext('Next')
+    ->setPageCount(8)
+    ->setCurrentPage(3);
 ?>
 <!doctype html>
 <html lang="en">
