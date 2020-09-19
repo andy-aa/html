@@ -28,7 +28,7 @@ $pagination
             text-decoration: none;
         }
 
-        .pagination .current {
+        .pagination .active {
             color: red;
         }
     </style>
