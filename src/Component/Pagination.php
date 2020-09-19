@@ -142,16 +142,17 @@ class Pagination extends AbstractTag
     {
         $str = "<div$this->class$this->style$this->id>\n";
 
-        if ($this->previous != '') {
-            for ($i = 1; $i <= $this->pageCount; $i++) {
-                $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
-                $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->currentPage-$i'".
-                    "$classCurrentPage>$this->previous</a>\n";
-            }
-        }
-
         if ($this->first != '') {
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=1'>$this->first</a>\n";
+        }
+
+        if (($this->previous != '')) {
+            if (($this->currentPage - 1) >= 1) {
+                $pageNext = $this->currentPage - 1;
+            } else {
+                $pageNext = 1;
+            }
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->previous</a>\n";
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
@@ -159,16 +160,17 @@ class Pagination extends AbstractTag
             $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$i'$classCurrentPage>$i</a>\n";
         }
 
-        if ($this->last != '') {
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->pageCount'>$this->last</a>\n";
+        if (($this->next != '')) {
+            if (($this->currentPage + 1) <= $this->pageCount) {
+                $pageNext = $this->currentPage + 1;
+            } else {
+                $pageNext = 1;
+            }
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->next</a>\n";
         }
 
-        if ($this->next != '') {
-            for ($i = 1; $i <= $this->pageCount; $i++) {
-                $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
-                $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->$this->currentPage+$i'".
-                    "$classCurrentPage>$this->next</a>\n";
-            }
+        if ($this->last != '') {
+            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->pageCount'>$this->last</a>\n";
         }
 
         $str .= "</div>";

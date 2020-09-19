@@ -88,14 +88,14 @@ class PaginationTest extends TestCase
 
         $this->assertEquals(
             "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>Previous</a>\n\t" .
             "<a href='?action=show&type=controller&page=1'>First</a>\n\t" .
+            "<a href='?action=show&type=controller&page=2'>Previous</a>\n\t" .
             "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
             "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
             "<a href='?action=show&type=controller&page=3' class='current'>3</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>4</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3'>Last</a>\n\t" .
-            "<a href='?action=show&type=controller&page=4'>Next</a>\n" .
+            "<a href='?action=show&type=controller&page=4'>4</a>\n\t" .
+            "<a href='?action=show&type=controller&page=4'>Next</a>\n\t" .
+            "<a href='?action=show&type=controller&page=4'>Last</a>\n" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
