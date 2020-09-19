@@ -8,9 +8,9 @@
 # Html
 - [What is it?](#what-is-it)
 - [Install](#install-via-composer)
-- [Class diagram](#class-diagram)
 - [Usage example](#usage-example)
-    - [Create html table](#create-html-table)
+    - [HTML table](#html-table)
+    - [Pagination](#pagination)
 
 ## What is it?
 
@@ -28,14 +28,14 @@ Example **composer.json** file
 ```
 {
     "require": {
-        "texlab/html": "^0.15"
+        "texlab/html": "^0.18"
     }
 }
 ```
 
 ## Usage example
 
-### Create html table
+### HTML table
 PHP code:
 
 ```php
@@ -81,3 +81,48 @@ $table
 Result:
 
 ![image](https://user-images.githubusercontent.com/46691193/92361408-03d37700-f0f7-11ea-92a4-4450c30ba3d5.png)
+
+### Pagination
+```php
+<?php
+
+require_once "../vendor/autoload.php";
+
+$pagination = TexLab\Html\Html::pagination();
+
+$pagination
+    ->setClass("pagination")
+    ->setUrlPrefix("?type=table&action=show")
+    ->setPrevious('Previous')
+    ->setFirst('First')
+    ->setLast('Last')
+    ->setNext('Next')
+    ->setPageCount(8)
+    ->setCurrentPage(3);
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .pagination a {
+            color: green;
+            text-decoration: none;
+        }
+
+        .pagination .current {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<?= $pagination->html() ?>
+</body>
+</html>
+```
+
+![image](https://user-images.githubusercontent.com/46691193/93690150-aae3e580-fadd-11ea-944b-faa3b40195f8.png)
