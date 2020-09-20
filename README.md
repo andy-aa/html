@@ -22,7 +22,7 @@
 
 Command line
 ```
-$ composer require texlab/html
+composer require texlab/html
 ```
 Example **composer.json** file
 ```
@@ -34,8 +34,11 @@ Example **composer.json** file
 ```
 
 ## Usage example
-Usage examples can be found in the [examples](examples/) folder
-
+Usage examples can be found in the [examples](examples/) folder. 
+You can run the examples from the library folder using the console command:
+```
+php -S localhost:8000 -t examples/
+```
 ### HTML table
 PHP code:
 
