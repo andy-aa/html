@@ -34,6 +34,7 @@ Example **composer.json** file
 ```
 
 ## Usage example
+Usage examples can be found in the [examples](examples/) folder
 
 ### HTML table
 PHP code:
