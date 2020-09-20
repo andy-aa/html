@@ -40,6 +40,7 @@ You can run the examples from the library folder using the console command:
 php -S localhost:8000 -t examples/
 ```
 ### HTML table
+
 PHP code:
 
 ```php
@@ -87,6 +88,9 @@ Result:
 ![image](https://user-images.githubusercontent.com/46691193/92361408-03d37700-f0f7-11ea-92a4-4450c30ba3d5.png)
 
 ### Pagination
+
+PHP code:
+
 ```php
 <?php
 
