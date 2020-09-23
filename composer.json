@@ -1,6 +1,6 @@
 {
   "name": "texlab/html",
-  "description": "Set of classes for view templates",
+  "description": "Lightweight and easy to use set of classes for building user interfaces.",
   "license": "MIT",
   "autoload": {
     "psr-4": {
