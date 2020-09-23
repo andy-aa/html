@@ -14,13 +14,11 @@
 
 ## What is it?
 
-  It is a powerful and flexible library for generating Html code from PHP programs.
-  Developers are committed to collaboratively developing and maintaining a robust, standards-based, freely available library
-  source code. All library components have been tested with PHPUnit.
+Lightweight and easy to use set of classes for building user interfaces.
   
 ## Install via composer
 
-Command line
+Installation via composer
 ```
 composer require texlab/html
 ```
@@ -28,7 +26,7 @@ Example **composer.json** file
 ```
 {
     "require": {
-        "texlab/html": "^0.18"
+        "texlab/html": "^0.19"
     }
 }
 ```
