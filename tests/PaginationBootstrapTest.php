@@ -37,6 +37,48 @@ class PaginationBootstrapTest extends TestCase
         );
 
         $this->assertEquals(
+            "<nav aria-label='Global'>\n" .
+            "<ul class='pagination'>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>1</a>\n" .
+            "</li>\n" .
+            "<li class='page-item active'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=2'>2</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
+            "</li>\n" .
+            "</ul>\n</nav>",
+            (new PaginationBootstrap())
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(3)
+                ->setCurrentPage(2)
+                ->setAriaLabel("Global")
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<nav aria-label='Global'>\n" .
+            "<ul class='pagination'>\n" .
+            "<li class='page-item active'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>1</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=2'>2</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
+            "</li>\n" .
+            "</ul>\n</nav>",
+            (new PaginationBootstrap())
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(3)
+                ->setCurrentPage(1)
+                ->setAriaLabel("Global")
+                ->html()
+        );
+
+        $this->assertEquals(
             "<nav>\n" .
             "<ul class='pagination'>\n" .
             "<li class='page-item active'>\n" .
@@ -102,6 +144,35 @@ class PaginationBootstrapTest extends TestCase
         $this->assertEquals(
             "<nav>\n" .
             "<ul class='pagination'>\n" .
+            "<li class='page-item disabled'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
+            "</li>\n" .
+            "<li class='page-item active'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>1</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=2'>2</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3'>Last</a>\n" .
+            "</li>\n" .
+            "</ul>\n" .
+            "</nav>",
+            (new PaginationBootstrap())
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(3)
+                ->setCurrentPage(1)
+                ->setFirst('First')
+                ->setLast('Last')
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<nav>\n" .
+            "<ul class='pagination'>\n" .
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
             "</li>\n" .
@@ -129,13 +200,59 @@ class PaginationBootstrapTest extends TestCase
         );
 
         $this->assertEquals(
-            "<nav>\n" .
+            "<nav aria-label='Global'>\n" .
+            "<ul class='pagination'>\n" .
+            "<li class='page-item disabled'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
+            "</li>\n" .
+            "<li class='page-item disabled'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1' aria-label='Previous'>\n" .
+            "<span aria-hidden='true'>«</span>\n" .
+            "<span class='sr-only'>Previous</span>\n" .
+            "</a>\n" .
+            "</li>\n" .
+            "<li class='page-item active'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1'>1</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=2'>2</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=4'>4</a>\n" .
+            "</li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=2' aria-label='Next'>\n" .
+            "<span aria-hidden='true'>»</span>\n" .
+            "<span class='sr-only'>Next</span>\n" .
+            "</a></li>\n" .
+            "<li class='page-item'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=4'>Last</a>\n" .
+            "</li>\n" .
+            "</ul>\n" .
+            "</nav>",
+            (new PaginationBootstrap())
+                ->setAriaLabel("Global")
+                ->setUrlPrefix("?action=show&type=controller")
+                ->setPageCount(4)
+                ->setCurrentPage(1)
+                ->setPrevious('Previous')
+                ->setFirst('First')
+                ->setLast('Last')
+                ->setNext('Next')
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<nav aria-label='Global'>\n" .
             "<ul class='pagination'>\n" .
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
             "</li>\n" .
             "<li class='page-item'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=2' aria-label='Previous'>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3' aria-label='Previous'>\n" .
             "<span aria-hidden='true'>«</span>\n" .
             "<span class='sr-only'>Previous</span>\n" .
             "</a>\n" .
@@ -146,26 +263,27 @@ class PaginationBootstrapTest extends TestCase
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=2'>2</a>\n" .
             "</li>\n" .
-            "<li class='page-item active'>\n" .
+            "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
             "</li>\n" .
-            "<li class='page-item'>\n" .
+            "<li class='page-item active'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=4'>4</a>\n" .
             "</li>\n" .
-            "<li class='page-item'>\n" .
+            "<li class='page-item disabled'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=4' aria-label='Next'>\n" .
             "<span aria-hidden='true'>»</span>\n" .
             "<span class='sr-only'>Next</span>\n" .
             "</a></li>\n" .
-            "<li class='page-item'>\n" .
+            "<li class='page-item disabled'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=4'>Last</a>\n" .
             "</li>\n" .
             "</ul>\n" .
             "</nav>",
             (new PaginationBootstrap())
+                ->setAriaLabel("Global")
                 ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(4)
-                ->setCurrentPage(3)
+                ->setCurrentPage(4)
                 ->setPrevious('Previous')
                 ->setFirst('First')
                 ->setLast('Last')
