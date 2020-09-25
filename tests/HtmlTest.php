@@ -57,5 +57,10 @@ class HtmlTest extends TestCase
             'TexLab\Html\Component\Pagination',
             Html::pagination()
         );
+
+        $this->assertInstanceOf(
+            'TexLab\Html\Component\PaginationBootstrap',
+            Html::paginationBootstrap()
+        );
     }
 }

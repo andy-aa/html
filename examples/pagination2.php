@@ -1,8 +1,10 @@
 <?php
 
+use TexLab\Html\Component\PaginationBootstrap;
+
 require_once "../vendor/autoload.php";
 
-$pagination = TexLab\Html\Html::paginationBS();
+$pagination = TexLab\Html\Html::PaginationBootstrap();
 
 $pagination
     ->setClass("pagination")

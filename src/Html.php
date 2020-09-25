@@ -74,7 +74,7 @@ class Html
     /**
      * @return PaginationBootstrap
      */
-    public static function paginationBS()
+    public static function paginationBootstrap()
     {
         return new PaginationBootstrap();
     }
