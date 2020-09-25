@@ -3,6 +3,7 @@
 namespace TexLab\Html;
 
 use TexLab\Html\Component\Pagination;
+use TexLab\Html\Component\PaginationBootstrap;
 
 class Html
 {
@@ -68,6 +69,14 @@ class Html
     public static function pagination()
     {
         return new Pagination();
+    }
+
+    /**
+     * @return PaginationBootstrap
+     */
+    public static function paginationBS()
+    {
+        return new PaginationBootstrap();
     }
 
     /**
