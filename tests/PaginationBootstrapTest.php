@@ -145,7 +145,7 @@ class PaginationBootstrapTest extends TestCase
             "<nav>\n" .
             "<ul class='pagination'>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1' tabindex='-1'>First</a>\n" .
             "</li>\n" .
             "<li class='page-item active'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=1'>1</a>\n" .
@@ -186,7 +186,7 @@ class PaginationBootstrapTest extends TestCase
             "	<a class='page-link' href='?action=show&type=controller&page=3'>3</a>\n" .
             "</li>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=3'>Last</a>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=3' tabindex='-1'>Last</a>\n" .
             "</li>\n" .
             "</ul>\n" .
             "</nav>",
@@ -203,12 +203,15 @@ class PaginationBootstrapTest extends TestCase
             "<nav aria-label='Global'>\n" .
             "<ul class='pagination'>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=1'>First</a>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=1' tabindex='-1'>First</a>\n" .
             "</li>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=1' aria-label='Previous'>\n" .
-            "<span aria-hidden='true'>«</span>\n" .
-            "<span class='sr-only'>Previous</span>\n" .
+            <<<TAG
+	<a class='page-link' href='?action=show&type=controller&page=1' aria-label='Previous' tabindex='-1'>\n
+TAG
+            .
+            "	<span aria-hidden='true'>Prev</span>\n" .
+            "	<span class='sr-only'>Previous</span>\n" .
             "</a>\n" .
             "</li>\n" .
             "<li class='page-item active'>\n" .
@@ -225,9 +228,10 @@ class PaginationBootstrapTest extends TestCase
             "</li>\n" .
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=2' aria-label='Next'>\n" .
-            "<span aria-hidden='true'>»</span>\n" .
-            "<span class='sr-only'>Next</span>\n" .
-            "</a></li>\n" .
+            "	<span aria-hidden='true'>Next</span>\n" .
+            "	<span class='sr-only'>Next</span>\n" .
+            "	</a>\n" .
+            "</li>\n" .
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=4'>Last</a>\n" .
             "</li>\n" .
@@ -238,7 +242,7 @@ class PaginationBootstrapTest extends TestCase
                 ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(4)
                 ->setCurrentPage(1)
-                ->setPrevious('Previous')
+                ->setPrevious('Prev')
                 ->setFirst('First')
                 ->setLast('Last')
                 ->setNext('Next')
@@ -253,8 +257,8 @@ class PaginationBootstrapTest extends TestCase
             "</li>\n" .
             "<li class='page-item'>\n" .
             "	<a class='page-link' href='?action=show&type=controller&page=3' aria-label='Previous'>\n" .
-            "<span aria-hidden='true'>«</span>\n" .
-            "<span class='sr-only'>Previous</span>\n" .
+            "	<span aria-hidden='true'>Prev</span>\n" .
+            "	<span class='sr-only'>Previous</span>\n" .
             "</a>\n" .
             "</li>\n" .
             "<li class='page-item'>\n" .
@@ -270,12 +274,13 @@ class PaginationBootstrapTest extends TestCase
             "	<a class='page-link' href='?action=show&type=controller&page=4'>4</a>\n" .
             "</li>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=4' aria-label='Next'>\n" .
-            "<span aria-hidden='true'>»</span>\n" .
-            "<span class='sr-only'>Next</span>\n" .
-            "</a></li>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=4' aria-label='Next' tabindex='-1'>\n" .
+            "	<span aria-hidden='true'>Next</span>\n" .
+            "	<span class='sr-only'>Next</span>\n" .
+            "	</a>\n" .
+            "</li>\n" .
             "<li class='page-item disabled'>\n" .
-            "	<a class='page-link' href='?action=show&type=controller&page=4'>Last</a>\n" .
+            "	<a class='page-link' href='?action=show&type=controller&page=4' tabindex='-1'>Last</a>\n" .
             "</li>\n" .
             "</ul>\n" .
             "</nav>",
@@ -284,7 +289,7 @@ class PaginationBootstrapTest extends TestCase
                 ->setUrlPrefix("?action=show&type=controller")
                 ->setPageCount(4)
                 ->setCurrentPage(4)
-                ->setPrevious('Previous')
+                ->setPrevious('Prev')
                 ->setFirst('First')
                 ->setLast('Last')
                 ->setNext('Next')
