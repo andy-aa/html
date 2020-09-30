@@ -14,9 +14,9 @@ trait TabIndexTrait
      * @param string $tabIndex
      * @return $this
      */
-    public function setTabIndex(string $tabIndex)
+    public function setTabIndex(string $tabIndex = '')
     {
-        $this->tabIndex = " tabindex='$tabIndex'";
+        $this->tabIndex = $tabIndex === '' ? '' : " tabindex='$tabIndex'";
         return $this;
     }
 }
