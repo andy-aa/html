@@ -67,7 +67,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setId(string $id)
     {
-        $this->id = " id='$id'";
+        $this->id = $id === '' ? '' : " id='$id'";
         return $this;
     }
 }
