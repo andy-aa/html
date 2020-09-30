@@ -2,6 +2,7 @@
 
 namespace TexLab\Html\Component;
 
+use TexLab\Html\A;
 use TexLab\Html\AbstractTag;
 
 class Pagination extends AbstractTag
@@ -139,29 +140,47 @@ class Pagination extends AbstractTag
      */
     public function html()
     {
-        $str = "<div$this->class$this->style$this->id>\n";
+        $a = new A();
+
+        $url = "$this->urlPrefix&$this->urlPageVariableName=";
+        $str = "<div$this->class$this->style$this->id>";
 
         if ($this->first != '') {
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=1'>$this->first</a>\n";
+            $str .= $a
+                ->setHref($url . '1')
+                ->setInnerText($this->first)
+                ->html();
         }
 
         if (($this->previous != '')) {
-            $pagePrevious = max($this->currentPage - 1, 1);
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pagePrevious'>$this->previous</a>\n";
+            $str .= $a
+                ->setHref($url . max($this->currentPage - 1, 1))
+                ->setInnerText($this->previous)
+                ->html();
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $classCurrentPage = ($i == $this->currentPage) ? " class='$this->currentPageClass'" : '';
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$i'$classCurrentPage>$i</a>\n";
+            $str .= $a
+                ->setHref($url . $i)
+                ->setClass(($i == $this->currentPage) ? $this->currentPageClass : '')
+                ->setInnerText("$i")
+                ->html();
         }
 
         if (($this->next != '')) {
-            $pageNext = min($this->currentPage + 1, $this->pageCount);
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$pageNext'>$this->next</a>\n";
+            $str .= $a
+                ->setHref($url . min($this->currentPage + 1, $this->pageCount))
+                ->setClass()
+                ->setInnerText($this->next)
+                ->html();
         }
 
         if ($this->last != '') {
-            $str .= "\t<a href='$this->urlPrefix&$this->urlPageVariableName=$this->pageCount'>$this->last</a>\n";
+            $str .= $a
+                ->setHref($url . $this->pageCount)
+                ->setClass()
+                ->setInnerText($this->last)
+                ->html();
         }
 
         $str .= "</div>";

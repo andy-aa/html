@@ -17,10 +17,10 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2' class='current'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3'>3</a>\n" .
+            "<div>" .
+            "<a href='?action=show&type=controller&page=1'>1</a>" .
+            "<a class='current' href='?action=show&type=controller&page=2'>2</a>" .
+            "<a href='?action=show&type=controller&page=3'>3</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
@@ -30,10 +30,10 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1' class='current'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3'>3</a>\n" .
+            "<div>" .
+            "<a class='current' href='?action=show&type=controller&page=1'>1</a>" .
+            "<a href='?action=show&type=controller&page=2'>2</a>" .
+            "<a href='?action=show&type=controller&page=3'>3</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
@@ -43,10 +43,10 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3' class='current'>3</a>\n" .
+            "<div>" .
+            "<a href='?action=show&type=controller&page=1'>1</a>" .
+            "<a href='?action=show&type=controller&page=2'>2</a>" .
+            "<a class='current' href='?action=show&type=controller&page=3'>3</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
@@ -56,10 +56,10 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3' class='active'>3</a>\n" .
+            "<div>" .
+            "<a href='?action=show&type=controller&page=1'>1</a>" .
+            "<a href='?action=show&type=controller&page=2'>2</a>" .
+            "<a class='active' href='?action=show&type=controller&page=3'>3</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
@@ -70,12 +70,12 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>First</a>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3' class='current'>3</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3'>Last</a>\n" .
+            "<div>" .
+            "<a href='?action=show&type=controller&page=1'>First</a>" .
+            "<a href='?action=show&type=controller&page=1'>1</a>" .
+            "<a href='?action=show&type=controller&page=2'>2</a>" .
+            "<a class='current' href='?action=show&type=controller&page=3'>3</a>" .
+            "<a href='?action=show&type=controller&page=3'>Last</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
@@ -87,15 +87,15 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>First</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>Previous</a>\n\t" .
-            "<a href='?action=show&type=controller&page=1'>1</a>\n\t" .
-            "<a href='?action=show&type=controller&page=2'>2</a>\n\t" .
-            "<a href='?action=show&type=controller&page=3' class='current'>3</a>\n\t" .
-            "<a href='?action=show&type=controller&page=4'>4</a>\n\t" .
-            "<a href='?action=show&type=controller&page=4'>Next</a>\n\t" .
-            "<a href='?action=show&type=controller&page=4'>Last</a>\n" .
+            "<div>" .
+            "<a href='?action=show&type=controller&page=1'>First</a>" .
+            "<a href='?action=show&type=controller&page=2'>Previous</a>" .
+            "<a href='?action=show&type=controller&page=1'>1</a>" .
+            "<a href='?action=show&type=controller&page=2'>2</a>" .
+            "<a class='current' href='?action=show&type=controller&page=3'>3</a>" .
+            "<a href='?action=show&type=controller&page=4'>4</a>" .
+            "<a href='?action=show&type=controller&page=4'>Next</a>" .
+            "<a href='?action=show&type=controller&page=4'>Last</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
