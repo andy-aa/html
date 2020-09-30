@@ -35,6 +35,7 @@ class ATest extends TestCase
                 ->setInnerText('tut.by')
                 ->html()
         );
+
         $this->assertEquals(
             "<a class='menu menu2 menu3' href='https://www.tut.by/'>tut.by</a>",
             (new A())
@@ -42,6 +43,18 @@ class ATest extends TestCase
                 ->setClass('menu')
                 ->addClass('menu2')
                 ->addClass('menu3')
+                ->setInnerText('tut.by')
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<a class='menu menu3' href='https://www.tut.by/'>tut.by</a>",
+            (new A())
+                ->setHref("https://www.tut.by/")
+                ->setClass('menu')
+                ->addClass('menu2')
+                ->addClass('menu3')
+                ->removeClass('menu2')
                 ->setInnerText('tut.by')
                 ->html()
         );
