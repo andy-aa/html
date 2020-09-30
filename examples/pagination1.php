@@ -26,6 +26,7 @@ $pagination
         .pagination a {
             color: green;
             text-decoration: none;
+            margin-right: 5px;
         }
 
         .pagination .current {
