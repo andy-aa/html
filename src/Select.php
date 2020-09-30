@@ -84,7 +84,7 @@ class Select extends AbstractTag
             foreach ($this->selectData as $key => $item) {
                 $html .= "\n\t" .
                     $option
-                        ->select(in_array($key, $this->selectedValues))
+                        ->selected(in_array($key, $this->selectedValues))
                         ->setValue("$key")
                         ->setInnerText($item)
                         ->html();

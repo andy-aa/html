@@ -13,30 +13,10 @@ class Option extends AbstractTag
     protected $selected = '';
 
     /**
-     * @return $this
-     */
-    public function setSelected()
-    {
-        $this->selected = ' selected';
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function unsetSelected()
-    {
-        $this->selected = '';
-
-        return $this;
-    }
-
-    /**
      * @param bool $selected
      * @return Option
      */
-    public function select(bool $selected)
+    public function selected(bool $selected = true)
     {
         $this->selected = $selected ? ' selected' : '';
 
