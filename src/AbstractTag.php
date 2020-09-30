@@ -35,7 +35,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function addClass(string $class)
     {
-        if ($this->class == '') {
+        if (empty($this->class)) {
             return $this->setClass($class);
         } else {
             $classes = explode(" ", explode("'", $this->class)[1]);
