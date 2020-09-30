@@ -30,6 +30,17 @@ abstract class AbstractTag implements TagInterface
     }
 
     /**
+     * @param string $class
+     * @return $this
+     */
+    public function addClass(string $class)
+    {
+        $classes = explode(" ", explode("'", $this->class)[1]);
+        $this->class = " class='" . implode(" ", array_merge($classes, [$class])) . "'";
+        return $this;
+    }
+
+    /**
      * @param string $style
      * @return $this
      */
