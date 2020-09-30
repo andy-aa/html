@@ -64,6 +64,7 @@ class ATest extends TestCase
             (new A())
                 ->setHref("https://www.tut.by/")
                 ->setTabIndex('-1')
+                ->removeClass('')
                 ->setInnerText('tut.by')
                 ->html()
         );
