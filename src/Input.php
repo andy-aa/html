@@ -14,7 +14,36 @@ class Input extends AbstractTag
     /**
      * @var string
      */
-    protected $type = "text";
+    protected $type = " type='text'";
+
+    /**
+     * @var array<string>
+     */
+    protected $allowedTypes = [
+        'button',
+        'checkbox',
+        'file',
+        'hidden',
+        'image',
+        'password',
+        'radio',
+        'reset',
+        'submit',
+        'text',
+        'color',
+        'date',
+        'datetime',
+        'datetime-local',
+        'email',
+        'number',
+        'range',
+        'search',
+        'tel',
+        'time',
+        'url',
+        'month',
+        'week'
+    ];
 
     /**
      * @var string
@@ -27,56 +56,30 @@ class Input extends AbstractTag
      */
     public function setType(string $type = "text")
     {
-        if (
-            in_array(
-                $type,
-                [
-                'button',
-                'checkbox',
-                'file',
-                'hidden',
-                'image',
-                'password',
-                'radio',
-                'reset',
-                'submit',
-                'text',
-                'color',
-                'date',
-                'datetime',
-                'datetime-local',
-                'email',
-                'number',
-                'range',
-                'search',
-                'tel',
-                'time',
-                'url',
-                'month',
-                'week'
-                ]
-            )
-        ) {
-            $this->type = $type;
+        if (in_array($type, $this->allowedTypes)) {
+            $this->type = " type='$type'";
         }
         return $this;
     }
 
     /**
-     * @param bool $value
+     * @param bool $checked
      * @return $this
      */
-    public function setChecked(bool $value)
+    public function checked(bool $checked = true)
     {
-        if (in_array($this->type, ['radio', 'checkbox']) && $value) {
-            $this->checked = " checked";
-        }
+//        if (in_array($this->type, ['radio', 'checkbox']) && $value) {
+//            $this->checked = " checked";
+//        }
+        $this->checked = $checked ? " checked" : '';
+
         return $this;
     }
 
     public function html(): string
     {
-        return "<input type='$this->type'" .
+        return "<input" .
+            $this->type .
             $this->value .
             $this->name .
             $this->style .
