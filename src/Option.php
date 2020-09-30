@@ -32,6 +32,17 @@ class Option extends AbstractTag
         return $this;
     }
 
+    /**
+     * @param bool $selected
+     * @return Option
+     */
+    public function select(bool $selected)
+    {
+        $this->selected = $selected ? ' selected' : '';
+
+        return $this;
+    }
+
     public function html(): string
     {
         return "<option$this->style$this->class$this->id$this->value$this->selected>$this->innerText</option>";

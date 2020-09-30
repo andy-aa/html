@@ -80,14 +80,9 @@ class Select extends AbstractTag
             $option = new Option();
 
             foreach ($this->selectData as $key => $item) {
-                if (in_array($key, $this->selectedValues)) {
-                    $option->setSelected();
-                } else {
-                    $option->unsetSelected();
-                }
-
                 $html .= "\n\t" .
                     $option
+                        ->select(in_array($key, $this->selectedValues))
                         ->setValue("$key")
                         ->setInnerText($item)
                         ->html();
