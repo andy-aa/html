@@ -11,6 +11,18 @@ interface TagInterface
     public function setClass(string $class);
 
     /**
+     * @param string $class
+     * @return $this
+     */
+    public function addClass(string $class);
+
+    /**
+     * @param string $class
+     * @return $this
+     */
+    public function removeClass(string $class);
+
+    /**
      * @param string $style
      * @return $this
      */
