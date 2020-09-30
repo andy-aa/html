@@ -57,7 +57,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setStyle(string $style)
     {
-        $this->style = " style='$style'";
+        $this->style = $style === '' ? '' : " style='$style'";
         return $this;
     }
 
