@@ -36,8 +36,7 @@ abstract class AbstractTag implements TagInterface
     public function addClass(string $class)
     {
         $classes = explode(" ", explode("'", $this->class)[1]);
-        $this->class = " class='" . implode(" ", array_merge($classes, [$class])) . "'";
-        return $this;
+        return $this->setClass(implode(" ", array_merge($classes, [$class])));
     }
 
     /**
@@ -47,8 +46,7 @@ abstract class AbstractTag implements TagInterface
     public function removeClass(string $class)
     {
         $classes = explode(" ", explode("'", $this->class)[1]);
-        $this->class = " class='" . implode(" ", array_diff($classes, [$class])) . "'";
-        return $this;
+        return $this->setClass(implode(" ", array_diff($classes, [$class])));
     }
 
     /**
