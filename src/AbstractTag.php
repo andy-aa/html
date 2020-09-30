@@ -35,8 +35,12 @@ abstract class AbstractTag implements TagInterface
      */
     public function addClass(string $class)
     {
-        $classes = explode(" ", explode("'", $this->class)[1]);
-        return $this->setClass(implode(" ", array_merge($classes, [$class])));
+        if ($this->class == '') {
+            return $this->setClass($class);
+        } else {
+            $classes = explode(" ", explode("'", $this->class)[1]);
+            return $this->setClass(implode(" ", array_merge($classes, [$class])));
+        }
     }
 
     /**
@@ -45,8 +49,12 @@ abstract class AbstractTag implements TagInterface
      */
     public function removeClass(string $class)
     {
-        $classes = explode(" ", explode("'", $this->class)[1]);
-        return $this->setClass(implode(" ", array_diff($classes, [$class])));
+        if (empty($class) || empty($this->class)) {
+            return $this;
+        } else {
+            $classes = explode(" ", explode("'", $this->class)[1]);
+            return $this->setClass(implode(" ", array_diff($classes, [$class])));
+        }
     }
 
     /**
