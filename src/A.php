@@ -5,21 +5,7 @@ namespace TexLab\Html;
 class A extends AbstractTag
 {
     use InnerTextTrait;
-
-    /**
-     * @var string
-     */
-    protected $href = '';
-
-    /**
-     * @param string $href
-     * @return $this
-     */
-    public function setHref(string $href)
-    {
-        $this->href = " href='$href'";
-        return $this;
-    }
+    use HrefTrait;
 
     /**
      * @return string
