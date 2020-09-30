@@ -7,6 +7,8 @@ class Select extends AbstractTag
     use NameTrait;
     use RequiredTrait;
     use DisabledTrait;
+    use TabIndexTrait;
+
 
     /**
      * @var mixed[]
@@ -103,6 +105,7 @@ class Select extends AbstractTag
             $this->multiple .
             $this->required .
             $this->disabled .
+            $this->tabIndex .
             '>' .
             $this->generateSelectHtml() .
             '</select>';

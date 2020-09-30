@@ -9,6 +9,7 @@ class Input extends AbstractTag
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
+    use TabIndexTrait;
 
     /**
      * @var string
@@ -85,6 +86,7 @@ class Input extends AbstractTag
             $this->checked .
             $this->required .
             $this->disabled .
+            $this->tabIndex .
             ">";
     }
 }

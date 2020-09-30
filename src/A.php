@@ -6,12 +6,13 @@ class A extends AbstractTag
 {
     use InnerTextTrait;
     use HrefTrait;
+    use TabIndexTrait;
 
     /**
      * @return string
      */
     public function html()
     {
-        return "<a$this->style$this->class$this->id$this->href>$this->innerText</a>";
+        return "<a$this->style$this->class$this->id$this->href$this->tabIndex>$this->innerText</a>";
     }
 }

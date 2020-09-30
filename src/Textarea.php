@@ -9,6 +9,8 @@ class Textarea extends AbstractTag
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
+    use TabIndexTrait;
+
 
     /**
      * @var string
@@ -51,6 +53,7 @@ class Textarea extends AbstractTag
             $this->placeholder .
             $this->required .
             $this->disabled .
+            $this->tabIndex .
             '>' .
             $this->innerText .
             '</textarea>';
