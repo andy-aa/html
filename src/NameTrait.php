@@ -16,7 +16,8 @@ trait NameTrait
      */
     public function setName(string $name)
     {
-        $this->name = " name='$name'";
+        $this->name = $name === '' ? '' : " name='$name'";
+
         return $this;
     }
 }
