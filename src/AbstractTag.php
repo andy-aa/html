@@ -23,7 +23,7 @@ abstract class AbstractTag implements TagInterface
      * @param string $class
      * @return $this
      */
-    public function setClass(string $class)
+    public function setClass(string $class = '')
     {
         $this->class = $class === '' ? '' : " class='$class'";
         return $this;
