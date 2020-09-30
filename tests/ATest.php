@@ -67,5 +67,18 @@ class ATest extends TestCase
                 ->setInnerText('tut.by')
                 ->html()
         );
+
+        $this->assertEquals(
+            "<a href='https://www.tut.by/' tabindex='-1'>tut.by</a>",
+            (new A())
+                ->setHref("https://www.tut.by/")
+                ->setTabIndex('-1')
+                ->addClass('menu')
+                ->addClass('menu2')
+                ->removeClass('menu2')
+                ->removeClass('menu')
+                ->setInnerText('tut.by')
+                ->html()
+        );
     }
 }
