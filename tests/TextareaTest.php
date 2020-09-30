@@ -27,7 +27,7 @@ class TextareaTest extends TestCase
             "<textarea required>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')
-                ->setRequired()
+                ->required()
                 ->html()
         );
 
@@ -35,7 +35,7 @@ class TextareaTest extends TestCase
             "<textarea>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')
-                ->unsetRequired()
+                ->required(false)
                 ->html()
         );
 
@@ -43,7 +43,7 @@ class TextareaTest extends TestCase
             "<textarea disabled>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')
-                ->setDisabled()
+                ->disabled()
                 ->html()
         );
 
@@ -51,7 +51,7 @@ class TextareaTest extends TestCase
             "<textarea>Hello!</textarea>",
             (new Textarea())
                 ->setInnerText('Hello!')
-                ->unsetDisabled()
+                ->disabled(false)
                 ->html()
         );
 

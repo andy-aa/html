@@ -4,28 +4,18 @@ namespace TexLab\Html;
 
 trait DisabledTrait
 {
-
     /**
      * @var string
      */
     protected $disabled = '';
 
     /**
+     * @param bool $disabled
      * @return $this
      */
-    public function setDisabled()
+    public function disabled(bool $disabled = true)
     {
-        $this->disabled = ' disabled';
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function unsetDisabled()
-    {
-        $this->disabled = '';
+        $this->disabled = $disabled ? ' disabled' : '';
 
         return $this;
     }

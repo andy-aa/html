@@ -13,9 +13,9 @@ trait HrefTrait
      * @param string $href
      * @return $this
      */
-    public function setHref(string $href)
+    public function setHref(string $href = '')
     {
-        $this->href = " href='$href'";
+        $this->href = $href === '' ? '' : " href='$href'";
         return $this;
     }
 }

@@ -61,7 +61,7 @@ class InputTest extends TestCase
             "<input type='text' required>",
             (new Input())
                 ->setType('text')
-                ->setRequired()
+                ->required()
                 ->html()
         );
 
@@ -69,7 +69,8 @@ class InputTest extends TestCase
             "<input type='text'>",
             (new Input())
                 ->setType('text')
-                ->unsetRequired()
+                ->required()
+                ->required(false)
                 ->html()
         );
 
@@ -77,7 +78,7 @@ class InputTest extends TestCase
             "<input type='text' disabled>",
             (new Input())
                 ->setType('text')
-                ->setDisabled()
+                ->disabled()
                 ->html()
         );
 
@@ -85,7 +86,8 @@ class InputTest extends TestCase
             "<input type='text'>",
             (new Input())
                 ->setType('text')
-                ->unsetDisabled()
+                ->disabled()
+                ->disabled(false)
                 ->html()
         );
     }

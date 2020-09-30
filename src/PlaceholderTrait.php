@@ -15,7 +15,8 @@ trait PlaceholderTrait
      */
     public function setPlaceholder(string $placeholder)
     {
-        $this->placeholder = " placeholder='" . addslashes($placeholder) . "'";
+        $this->placeholder = $placeholder === '' ? '' : " placeholder='" . addslashes($placeholder) . "'";
+
         return $this;
     }
 }

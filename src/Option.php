@@ -14,7 +14,7 @@ class Option extends AbstractTag
 
     /**
      * @param bool $selected
-     * @return Option
+     * @return $this
      */
     public function selected(bool $selected = true)
     {

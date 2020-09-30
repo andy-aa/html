@@ -11,21 +11,12 @@ trait RequiredTrait
     protected $required = '';
 
     /**
+     * @param bool $required
      * @return $this
      */
-    public function setRequired()
+    public function required(bool $required = true)
     {
-        $this->required = ' required';
-
-        return $this;
-    }
-
-    /**
-     * @return $this
-     */
-    public function unsetRequired()
-    {
-        $this->required = '';
+        $this->required = $required ? ' required' : '';
 
         return $this;
     }

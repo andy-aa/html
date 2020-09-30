@@ -21,28 +21,28 @@ class SelectTest extends TestCase
         $this->assertEquals(
             "<select required></select>",
             (new Select())
-                ->setRequired()
+                ->required()
                 ->html()
         );
 
         $this->assertEquals(
             "<select></select>",
             (new Select())
-                ->unsetRequired()
+                ->required(false)
                 ->html()
         );
 
         $this->assertEquals(
             "<select disabled></select>",
             (new Select())
-                ->setDisabled()
+                ->disabled()
                 ->html()
         );
 
         $this->assertEquals(
             "<select></select>",
             (new Select())
-                ->unsetDisabled()
+                ->disabled(false)
                 ->html()
         );
 
