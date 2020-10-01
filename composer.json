@@ -25,12 +25,12 @@
   "minimum-stability": "dev",
   "scripts": {
     "ci:test": [
-      "@codestyle",
-      "@psalm",
-      "@phpstan",
       "@test"
     ],
     "ci:test:7.4": [
+      "@codestyle",
+      "@psalm",
+      "@phpstan",
       "@phpstan:examples",
       "@ci:test"
     ],
