@@ -18,7 +18,7 @@ class Select extends AbstractTag
     /**
      * @var array<mixed, string>
      */
-    protected $selectData = [];
+    protected $data = [];
 
     /**
      * @var string
@@ -66,7 +66,7 @@ class Select extends AbstractTag
      */
     public function setData(array $data)
     {
-        $this->selectData = $data;
+        $this->data = $data;
 
         return $this;
     }
@@ -78,10 +78,10 @@ class Select extends AbstractTag
     {
         $html = "";
 
-        if (!empty($this->selectData)) {
+        if (!empty($this->data)) {
             $option = new Option();
 
-            foreach ($this->selectData as $key => $item) {
+            foreach ($this->data as $key => $item) {
                 $html .= "\n\t" .
                     $option
                         ->selected(in_array($key, $this->selectedValues))
