@@ -31,7 +31,7 @@ Example **composer.json** file
 }
 ```
 
-## Usage example
+## Usage examples
 Usage examples can be found in the [examples](examples/) folder. 
 You can run the examples from the library folder using the console command:
 ```
