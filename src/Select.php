@@ -44,19 +44,19 @@ class Select extends AbstractTag
      * @param int $size
      * @return $this
      */
-    public function setSize(int $size)
+    public function setSize(int $size = 0)
     {
         $this->size = $size ? " size='$size'" : "";
         return $this;
     }
 
     /**
-     * @param bool $check
+     * @param bool $multiple
      * @return $this
      */
-    public function setMultiple(bool $check)
+    public function setMultiple(bool $multiple = true)
     {
-        $this->multiple = ((!$check) and ($this->size == "")) ? "" : " multiple";
+        $this->multiple = $multiple ? " multiple" : '';
         return $this;
     }
 
