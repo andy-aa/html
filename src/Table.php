@@ -23,9 +23,9 @@ class Table extends AbstractTag
      * @param string $class
      * @return Table
      */
-    public function setTheadClass(string $class)
+    public function setTheadClass(string $class = '')
     {
-        $this->theadClass = " class='$class'";
+        $this->theadClass = $class == '' ? '' : " class='$class'";
 
         return $this;
     }
