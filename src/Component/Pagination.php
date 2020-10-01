@@ -99,9 +99,9 @@ class Pagination extends AbstractTag
      * @param string $previous
      * @return $this
      */
-    public function setPrevious(string $previous)
+    public function setPrevious(string $previous = '')
     {
-        $this->previous = $previous;
+        $this->previous = $previous === '' ? '' : $previous;
         return $this;
     }
 
@@ -109,9 +109,9 @@ class Pagination extends AbstractTag
      * @param string $next
      * @return $this
      */
-    public function setNext(string $next)
+    public function setNext(string $next = '')
     {
-        $this->next = $next;
+        $this->next = $next === '' ? '' : $next;
         return $this;
     }
 
@@ -119,9 +119,9 @@ class Pagination extends AbstractTag
      * @param string $first
      * @return $this
      */
-    public function setFirst(string $first)
+    public function setFirst(string $first = '')
     {
-        $this->first = $first;
+        $this->first = $first === '' ? '' : $first;
         return $this;
     }
 
@@ -129,9 +129,9 @@ class Pagination extends AbstractTag
      * @param string $last
      * @return $this
      */
-    public function setLast(string $last)
+    public function setLast(string $last = '')
     {
-        $this->last = $last;
+        $this->last = $last === '' ? '' : $last;
         return $this;
     }
 
