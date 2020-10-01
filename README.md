@@ -34,6 +34,7 @@ Example **composer.json** file
 ## Usage examples
 Usage examples can be found in the [examples](examples/) folder. 
 You can run the examples from the library folder using the console command:
+
 ```
 php -S localhost:8000 -t examples/
 ```
