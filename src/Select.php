@@ -46,7 +46,7 @@ class Select extends AbstractTag
      */
     public function setSize(int $size)
     {
-        $this->size = ($size < 2) ? "" : " size='$size'";
+        $this->size = $size ? " size='$size'" : "";
         return $this;
     }
 
