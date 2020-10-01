@@ -25,9 +25,9 @@ class Textarea extends AbstractTag
      * @param int $row
      * @return $this
      */
-    public function setRows(int $row)
+    public function setRows(int $row = 0)
     {
-        $this->rows = " rows='$row'";
+        $this->rows = $row ? " rows='$row'" : '';
         return $this;
     }
 
@@ -35,9 +35,9 @@ class Textarea extends AbstractTag
      * @param int $col
      * @return $this
      */
-    public function setCols(int $col)
+    public function setCols(int $col = 0)
     {
-        $this->cols = " cols='$col'";
+        $this->cols = $col ? " cols='$col'" : '';
         return $this;
     }
 
