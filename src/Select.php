@@ -8,17 +8,12 @@ class Select extends AbstractTag
     use RequiredTrait;
     use DisabledTrait;
     use TabIndexTrait;
-
+    use InnerTextTrait;
 
     /**
      * @var mixed[]
      */
     protected $selectedValues = [];
-
-    /**
-     * @var array<mixed, string>
-     */
-    protected $data = [];
 
     /**
      * @var string
@@ -66,22 +61,12 @@ class Select extends AbstractTag
      */
     public function setData(array $data)
     {
-        $this->data = $data;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    protected function generateSelectHtml()
-    {
         $html = "";
 
-        if (!empty($this->data)) {
+        if (!empty($data)) {
             $option = new Option();
 
-            foreach ($this->data as $key => $item) {
+            foreach ($data as $key => $item) {
                 $html .= "\n\t" .
                     $option
                         ->selected(in_array($key, $this->selectedValues))
@@ -91,11 +76,13 @@ class Select extends AbstractTag
             }
         }
 
-        return $html;
+        $this->setInnerText($html);
+
+        return $this;
     }
 
     public function html(): string
     {
-        return '<select' . parent::attr() . '>' . $this->generateSelectHtml() . '</select>';
+        return '<select' . parent::attr() . ">$this->innerText</select>";
     }
 }
