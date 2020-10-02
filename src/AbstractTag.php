@@ -91,7 +91,7 @@ abstract class AbstractTag implements TagInterface
     /**
      * @return string
      */
-    protected function attr()
+    public function html()
     {
         $html = '';
 
@@ -101,14 +101,6 @@ abstract class AbstractTag implements TagInterface
             }
         }
 
-        return $html;
-    }
-
-    /**
-     * @return string
-     */
-    public function html()
-    {
-        return "<$this->tagName" . $this->attr() . ">";
+        return "<$this->tagName$html>";
     }
 }
