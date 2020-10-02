@@ -4,8 +4,6 @@ namespace TexLab\Html;
 
 class Form extends AbstractPairedTag
 {
-    use InnerTextTrait;
-
     /**
      * @var string
      */

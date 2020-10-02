@@ -4,8 +4,6 @@ namespace TexLab\Html;
 
 class Label extends AbstractPairedTag
 {
-    use InnerTextTrait;
-
     /**
      * @var string
      */

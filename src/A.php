@@ -4,7 +4,6 @@ namespace TexLab\Html;
 
 class A extends AbstractPairedTag
 {
-    use InnerTextTrait;
     use HrefTrait;
     use TabIndexTrait;
 

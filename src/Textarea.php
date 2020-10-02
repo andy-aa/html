@@ -5,7 +5,6 @@ namespace TexLab\Html;
 class Textarea extends AbstractPairedTag
 {
     use NameTrait;
-    use InnerTextTrait;
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
