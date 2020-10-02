@@ -57,7 +57,7 @@ class Table extends AbstractTag
 
     /**
      * @param array<float|int|string> $columnNames
-     * @return Table
+     * @return $this
      */
     public function removeHeaders(array $columnNames)
     {
