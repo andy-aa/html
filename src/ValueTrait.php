@@ -7,7 +7,7 @@ trait ValueTrait
     /**
      * @var string
      */
-    protected $value = '';
+    protected $attrValue = '';
 
     /**
      * @param string $value
@@ -16,7 +16,7 @@ trait ValueTrait
 
     public function setValue(string $value)
     {
-        $this->value = $value === '' ? '' : " value='" . addslashes($value) . "'";
+        $this->attrValue = $value === '' ? '' : " value='" . addslashes($value) . "'";
 
         return $this;
     }

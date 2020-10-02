@@ -56,7 +56,7 @@ class SelectTest extends TestCase
         $this->assertEquals(
             "<select>\n\t" .
             "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<option selected value='2'>Opton 2</option>\n\t" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -74,7 +74,7 @@ class SelectTest extends TestCase
         $this->assertEquals(
             "<select size='3'>\n\t" .
             "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<option selected value='2'>Opton 2</option>\n\t" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -93,7 +93,7 @@ class SelectTest extends TestCase
         $this->assertEquals(
             "<select size='3' multiple>\n\t" .
             "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<option selected value='2'>Opton 2</option>\n\t" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -112,9 +112,9 @@ class SelectTest extends TestCase
 
         $this->assertEquals(
             "<select size='3' multiple>\n\t" .
-            "<option value='1' selected>Opton 1</option>\n\t" .
+            "<option selected value='1'>Opton 1</option>\n\t" .
             "<option value='2'>Opton 2</option>\n\t" .
-            "<option value='3' selected>Opton 3</option>" .
+            "<option selected value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
                 ->setSelectedValues(

@@ -8,7 +8,7 @@ trait TabIndexTrait
     /**
      * @var string
      */
-    protected $tabIndex = '';
+    protected $attrTabIndex = '';
 
     /**
      * @param string $tabIndex
@@ -16,7 +16,7 @@ trait TabIndexTrait
      */
     public function setTabIndex(string $tabIndex = '')
     {
-        $this->tabIndex = $tabIndex === '' ? '' : " tabindex='$tabIndex'";
+        $this->attrTabIndex = $tabIndex === '' ? '' : " tabindex='$tabIndex'";
         return $this;
     }
 }

@@ -143,7 +143,7 @@ class Pagination extends AbstractTag
         $a = new A();
 
         $url = "$this->urlPrefix&$this->urlPageVariableName=";
-        $str = "<div$this->class$this->attrStyle$this->attrId>";
+        $str = "<div$this->attrClass$this->attrStyle$this->attrId>";
 
         if ($this->first != '') {
             $str .= $a

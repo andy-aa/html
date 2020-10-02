@@ -26,7 +26,7 @@ class ATest extends TestCase
         );
 
         $this->assertEquals(
-            "<a style='color:red' class='menu' id='mn1' href='https://www.tut.by/'>tut.by</a>",
+            "<a class='menu' style='color:red' id='mn1' href='https://www.tut.by/'>tut.by</a>",
             (new A())
                 ->setHref("https://www.tut.by/")
                 ->setClass('menu')

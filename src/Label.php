@@ -9,7 +9,7 @@ class Label extends AbstractTag
     /**
      * @var string
      */
-    protected $for = '';
+    protected $attrFor = '';
 
     /**
      * @param string $for
@@ -17,12 +17,12 @@ class Label extends AbstractTag
      */
     public function setFor(string $for)
     {
-        $this->for = " for='$for'";
+        $this->attrFor = " for='$for'";
         return $this;
     }
 
     public function html(): string
     {
-        return "<label$this->attrStyle$this->class$this->attrId$this->for>$this->innerText</label>";
+        return '<label' . parent::attr() . ">$this->innerText</label>";
     }
 }

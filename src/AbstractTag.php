@@ -7,7 +7,7 @@ abstract class AbstractTag implements TagInterface
     /**
      * @var string
      */
-    protected $class = '';
+    protected $attrClass = '';
 
     /**
      * @var string
@@ -25,7 +25,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setClass(string $class = '')
     {
-        $this->class = $class === '' ? '' : " class='$class'";
+        $this->attrClass = $class === '' ? '' : " class='$class'";
         return $this;
     }
 
@@ -35,10 +35,10 @@ abstract class AbstractTag implements TagInterface
      */
     public function addClass(string $class)
     {
-        if (empty($this->class)) {
+        if (empty($this->attrClass)) {
             return $this->setClass($class);
         } else {
-            $classes = explode(" ", explode("'", $this->class)[1]);
+            $classes = explode(" ", explode("'", $this->attrClass)[1]);
             return $this->setClass(implode(" ", array_merge($classes, [$class])));
         }
     }
@@ -49,10 +49,10 @@ abstract class AbstractTag implements TagInterface
      */
     public function removeClass(string $class)
     {
-        if (empty($class) || empty($this->class)) {
+        if (empty($class) || empty($this->attrClass)) {
             return $this;
         } else {
-            $classes = explode(" ", explode("'", $this->class)[1]);
+            $classes = explode(" ", explode("'", $this->attrClass)[1]);
             return $this->setClass(implode(" ", array_diff($classes, [$class])));
         }
     }
@@ -77,19 +77,19 @@ abstract class AbstractTag implements TagInterface
         return $this;
     }
 
-//    /**
-//     * @return string
-//     */
-//    public function html()
-//    {
-//        $html = '';
-//        foreach (array_keys(get_object_vars($this)) as $value) {
-//            $html .= $this->{$value};
-//        }
-//
-//        return "<a$html></a>";
-//
-//        return join(array_keys(get_object_vars($this)));
-////        return "<a$this->style$this->class$this->id$this->href$this->tabIndex>$this->innerText</a>";
-//    }
+    /**
+     * @return string
+     */
+    public function attr()
+    {
+        $html = '';
+
+        foreach (array_keys(get_object_vars($this)) as $value) {
+            if (substr($value, 0, 4) === 'attr') {
+                $html .= $this->{$value};
+            }
+        }
+
+        return $html;
+    }
 }

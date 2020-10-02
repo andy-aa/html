@@ -108,7 +108,7 @@ class InputTest extends TestCase
         );
 
         $this->assertEquals(
-            "<input type='checkbox' name='chbx1' checked>",
+            "<input type='checkbox' checked name='chbx1'>",
             (new Input())->setName('chbx1')->setType('checkbox')->checked()->html()
         );
     }
@@ -129,7 +129,7 @@ class InputTest extends TestCase
         );
 
         $this->assertEquals(
-            "<input type='radio' name='rd1' checked>",
+            "<input type='radio' checked name='rd1'>",
             (new Input())->setName('rd1')->setType('radio')->checked()->html()
         );
     }

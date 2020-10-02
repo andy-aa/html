@@ -8,7 +8,7 @@ trait RequiredTrait
     /**
      * @var string
      */
-    protected $required = '';
+    protected $attrRequired = '';
 
     /**
      * @param bool $required
@@ -16,7 +16,7 @@ trait RequiredTrait
      */
     public function required(bool $required = true)
     {
-        $this->required = $required ? ' required' : '';
+        $this->attrRequired = $required ? ' required' : '';
 
         return $this;
     }

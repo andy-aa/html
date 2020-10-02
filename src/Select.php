@@ -23,12 +23,12 @@ class Select extends AbstractTag
     /**
      * @var string
      */
-    protected $size = '';
+    protected $attrSize = '';
 
     /**
      * @var string
      */
-    protected $multiple = '';
+    protected $attrMultiple = '';
 
     /**
      * @param mixed[] $selectedValues
@@ -46,7 +46,7 @@ class Select extends AbstractTag
      */
     public function setSize(int $size = 0)
     {
-        $this->size = $size ? " size='$size'" : "";
+        $this->attrSize = $size ? " size='$size'" : "";
         return $this;
     }
 
@@ -56,7 +56,7 @@ class Select extends AbstractTag
      */
     public function setMultiple(bool $multiple = true)
     {
-        $this->multiple = $multiple ? " multiple" : '';
+        $this->attrMultiple = $multiple ? " multiple" : '';
         return $this;
     }
 
@@ -96,18 +96,6 @@ class Select extends AbstractTag
 
     public function html(): string
     {
-        return '<select' .
-            $this->name .
-            $this->attrStyle .
-            $this->class .
-            $this->attrId .
-            $this->size .
-            $this->multiple .
-            $this->required .
-            $this->disabled .
-            $this->tabIndex .
-            '>' .
-            $this->generateSelectHtml() .
-            '</select>';
+        return '<select' . parent::attr() . '>' . $this->generateSelectHtml() . '</select>';
     }
 }

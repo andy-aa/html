@@ -7,7 +7,7 @@ trait PlaceholderTrait
     /**
      * @var string
      */
-    protected $placeholder = '';
+    protected $attrPlaceholder = '';
 
     /**
      * @param string $placeholder
@@ -15,7 +15,7 @@ trait PlaceholderTrait
      */
     public function setPlaceholder(string $placeholder)
     {
-        $this->placeholder = $placeholder === '' ? '' : " placeholder='" . addslashes($placeholder) . "'";
+        $this->attrPlaceholder = $placeholder === '' ? '' : " placeholder='" . addslashes($placeholder) . "'";
 
         return $this;
     }
