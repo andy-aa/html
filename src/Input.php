@@ -68,16 +68,9 @@ class Input extends AbstractTag
      */
     public function checked(bool $checked = true)
     {
-//        if (in_array($this->type, ['radio', 'checkbox']) && $value) {
-//            $this->checked = " checked";
-//        }
+
         $this->attrChecked = $checked ? " checked" : '';
 
         return $this;
     }
-
-//    public function html(): string
-//    {
-//        return '<input' . parent::attr() . ">";
-//    }
 }
