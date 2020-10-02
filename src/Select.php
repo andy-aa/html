@@ -98,7 +98,7 @@ class Select extends AbstractTag
     {
         return '<select' .
             $this->name .
-            $this->style .
+            $this->attrStyle .
             $this->class .
             $this->attrId .
             $this->size .

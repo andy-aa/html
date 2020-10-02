@@ -12,7 +12,7 @@ abstract class AbstractTag implements TagInterface
     /**
      * @var string
      */
-    protected $style = '';
+    protected $attrStyle = '';
 
     /**
      * @var string
@@ -63,7 +63,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setStyle(string $style)
     {
-        $this->style = $style === '' ? '' : " style='$style'";
+        $this->attrStyle = $style === '' ? '' : " style='$style'";
         return $this;
     }
 

@@ -25,6 +25,6 @@ class Option extends AbstractTag
 
     public function html(): string
     {
-        return "<option$this->style$this->class$this->attrId$this->value$this->selected>$this->innerText</option>";
+        return "<option$this->attrStyle$this->class$this->attrId$this->value$this->selected>$this->innerText</option>";
     }
 }
