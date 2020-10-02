@@ -13,6 +13,6 @@ class A extends AbstractTag
      */
     public function html()
     {
-        return "<a$this->style$this->class$this->id$this->href$this->tabIndex>$this->innerText</a>";
+        return "<a$this->style$this->class$this->attrId$this->href$this->tabIndex>$this->innerText</a>";
     }
 }

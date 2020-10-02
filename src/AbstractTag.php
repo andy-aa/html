@@ -17,7 +17,7 @@ abstract class AbstractTag implements TagInterface
     /**
      * @var string
      */
-    protected $id = '';
+    protected $attrId = '';
 
     /**
      * @param string $class
@@ -73,7 +73,23 @@ abstract class AbstractTag implements TagInterface
      */
     public function setId(string $id)
     {
-        $this->id = $id === '' ? '' : " id='$id'";
+        $this->attrId = $id === '' ? '' : " id='$id'";
         return $this;
     }
+
+//    /**
+//     * @return string
+//     */
+//    public function html()
+//    {
+//        $html = '';
+//        foreach (array_keys(get_object_vars($this)) as $value) {
+//            $html .= $this->{$value};
+//        }
+//
+//        return "<a$html></a>";
+//
+//        return join(array_keys(get_object_vars($this)));
+////        return "<a$this->style$this->class$this->id$this->href$this->tabIndex>$this->innerText</a>";
+//    }
 }

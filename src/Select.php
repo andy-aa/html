@@ -100,7 +100,7 @@ class Select extends AbstractTag
             $this->name .
             $this->style .
             $this->class .
-            $this->id .
+            $this->attrId .
             $this->size .
             $this->multiple .
             $this->required .

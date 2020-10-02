@@ -208,6 +208,6 @@ class Table extends AbstractTag
 
     public function html(): string
     {
-        return "<table$this->style$this->class$this->id>" . $this->generateTableHtml() . "</table>";
+        return "<table$this->style$this->class$this->attrId>" . $this->generateTableHtml() . "</table>";
     }
 }

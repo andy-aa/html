@@ -47,7 +47,7 @@ class Textarea extends AbstractTag
             $this->name .
             $this->class .
             $this->style .
-            $this->id .
+            $this->attrId .
             $this->cols .
             $this->rows .
             $this->placeholder .

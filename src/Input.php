@@ -84,7 +84,7 @@ class Input extends AbstractTag
             $this->name .
             $this->style .
             $this->class .
-            $this->id .
+            $this->attrId .
             $this->placeholder .
             $this->checked .
             $this->required .

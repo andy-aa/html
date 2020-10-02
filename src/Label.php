@@ -23,6 +23,6 @@ class Label extends AbstractTag
 
     public function html(): string
     {
-        return "<label$this->style$this->class$this->id$this->for>$this->innerText</label>";
+        return "<label$this->style$this->class$this->attrId$this->for>$this->innerText</label>";
     }
 }
