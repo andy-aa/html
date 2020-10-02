@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Label extends AbstractTag
+class Label extends AbstractPairedTag
 {
     use InnerTextTrait;
 

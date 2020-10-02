@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Option extends AbstractTag
+class Option extends AbstractPairedTag
 {
     use InnerTextTrait;
     use ValueTrait;

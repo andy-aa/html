@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Form extends AbstractTag
+class Form extends AbstractPairedTag
 {
     use InnerTextTrait;
 

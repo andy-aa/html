@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Select extends AbstractTag
+class Select extends AbstractPairedTag
 {
     use NameTrait;
     use RequiredTrait;

@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Textarea extends AbstractTag
+class Textarea extends AbstractPairedTag
 {
     use NameTrait;
     use InnerTextTrait;

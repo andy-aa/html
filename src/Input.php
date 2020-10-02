@@ -76,8 +76,8 @@ class Input extends AbstractTag
         return $this;
     }
 
-    public function html(): string
-    {
-        return '<input' . parent::attr() . ">";
-    }
+//    public function html(): string
+//    {
+//        return '<input' . parent::attr() . ">";
+//    }
 }

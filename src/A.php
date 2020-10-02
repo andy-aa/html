@@ -2,17 +2,17 @@
 
 namespace TexLab\Html;
 
-class A extends AbstractTag
+class A extends AbstractPairedTag
 {
     use InnerTextTrait;
     use HrefTrait;
     use TabIndexTrait;
-    
+
     /**
      * @return string
      */
     public function html()
     {
-        return '<a' . parent::attr() . ">$this->innerText</a>";
+        return parent::html() . "$this->innerText</$this->tagName>";
     }
 }

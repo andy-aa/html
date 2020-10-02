@@ -20,6 +20,17 @@ abstract class AbstractTag implements TagInterface
     protected $attrId = '';
 
     /**
+     * @var string
+     */
+    protected $tagName = '';
+
+
+    public function __construct()
+    {
+        $this->tagName = strtolower((new \ReflectionClass($this))->getShortName());
+    }
+
+    /**
      * @param string $class
      * @return $this
      */
@@ -91,5 +102,13 @@ abstract class AbstractTag implements TagInterface
         }
 
         return $html;
+    }
+
+    /**
+     * @return string
+     */
+    public function html()
+    {
+        return "<$this->tagName" . $this->attr() . ">";
     }
 }
