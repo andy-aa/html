@@ -61,22 +61,21 @@ class Select extends AbstractTag
      */
     public function setData(array $data)
     {
-        $html = "";
+        $this->setInnerText('');
 
         if (!empty($data)) {
             $option = new Option();
 
             foreach ($data as $key => $item) {
-                $html .= "\n\t" .
+                $this->addInnerText(
                     $option
                         ->selected(in_array($key, $this->selectedValues))
                         ->setValue("$key")
                         ->setInnerText($item)
-                        ->html();
+                        ->html()
+                );
             }
         }
-
-        $this->setInnerText($html);
 
         return $this;
     }
