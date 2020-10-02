@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Table extends AbstractTag
+class Table extends AbstractPairedTag
 {
     /**
      * @var array<float|int|string>
@@ -203,11 +203,14 @@ class Table extends AbstractTag
             $html .= "</tbody>";
         }
 
+        $this->setInnerText($html);
+
         return $html;
     }
 
     public function html(): string
     {
-        return "<table" . parent::attr() . ">" . $this->generateTableHtml() . "</table>";
+        $this->generateTableHtml();
+        return parent::html();
     }
 }
