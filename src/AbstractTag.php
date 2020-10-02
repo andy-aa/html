@@ -91,7 +91,7 @@ abstract class AbstractTag implements TagInterface
     /**
      * @return string
      */
-    public function attr()
+    protected function attr()
     {
         $html = '';
 

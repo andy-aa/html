@@ -21,9 +21,4 @@ class Option extends AbstractPairedTag
 
         return $this;
     }
-
-    public function html(): string
-    {
-        return '<option' . parent::attr() . ">$this->innerText</option>";
-    }
 }

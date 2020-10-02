@@ -39,9 +39,5 @@ class Textarea extends AbstractPairedTag
         $this->attrCols = $col ? " cols='$col'" : '';
         return $this;
     }
-
-    public function html(): string
-    {
-        return '<textarea' . parent::attr() . ">$this->innerText</textarea>";
-    }
+    
 }

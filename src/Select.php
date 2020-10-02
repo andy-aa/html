@@ -78,9 +78,4 @@ class Select extends AbstractPairedTag
 
         return $this;
     }
-
-    public function html(): string
-    {
-        return '<select' . parent::attr() . ">$this->innerText</select>";
-    }
 }

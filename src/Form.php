@@ -52,9 +52,4 @@ class Form extends AbstractPairedTag
         }
         return $this;
     }
-
-    public function html(): string
-    {
-        return '<form' . parent::attr() . ">$this->innerText</form>";
-    }
 }

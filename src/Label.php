@@ -18,9 +18,4 @@ class Label extends AbstractPairedTag
         $this->attrFor = " for='$for'";
         return $this;
     }
-
-    public function html(): string
-    {
-        return '<label' . parent::attr() . ">$this->innerText</label>";
-    }
 }
