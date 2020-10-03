@@ -16,6 +16,7 @@ trait HrefTrait
     public function setHref(string $href = '')
     {
         $this->attrHref = $href === '' ? '' : " href='$href'";
+
         return $this;
     }
 }

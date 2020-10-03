@@ -4,7 +4,6 @@ namespace TexLab\Html;
 
 trait TabIndexTrait
 {
-
     /**
      * @var string
      */
@@ -17,6 +16,7 @@ trait TabIndexTrait
     public function setTabIndex(string $tabIndex = '')
     {
         $this->attrTabIndex = $tabIndex === '' ? '' : " tabindex='$tabIndex'";
+
         return $this;
     }
 }

@@ -4,7 +4,6 @@ namespace TexLab\Html;
 
 trait NameTrait
 {
-
     /**
      * @var string
      */
