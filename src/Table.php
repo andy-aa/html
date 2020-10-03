@@ -208,7 +208,10 @@ class Table extends AbstractPairedTag
         return $html;
     }
 
-    public function html(): string
+    /**
+     * @return string
+     */
+    public function html()
     {
         $this->generateTableHtml();
         return parent::html();

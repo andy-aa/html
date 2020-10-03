@@ -69,8 +69,11 @@ class Select extends AbstractPairedTag
 
         return $this;
     }
-    
-    public function html(): string
+
+    /**
+     * @return string
+     */
+    public function html()
     {
         $this->setInnerText('');
 
