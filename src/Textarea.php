@@ -39,5 +39,4 @@ class Textarea extends AbstractPairedTag
         $this->attrCols = $col ? " cols='$col'" : '';
         return $this;
     }
-    
 }
