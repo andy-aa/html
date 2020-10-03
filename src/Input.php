@@ -9,7 +9,6 @@ class Input extends AbstractTag
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
 
     /**
      * @var string

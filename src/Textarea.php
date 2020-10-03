@@ -8,7 +8,6 @@ class Textarea extends AbstractPairedTag
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
 
 
     /**

@@ -7,7 +7,6 @@ class Select extends AbstractPairedTag
     use NameTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
 
     /**
      * @var mixed[]

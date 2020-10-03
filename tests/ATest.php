@@ -60,7 +60,7 @@ class ATest extends TestCase
         );
 
         $this->assertEquals(
-            "<a href='https://www.tut.by/' tabindex='-1'>tut.by</a>",
+            "<a tabindex='-1' href='https://www.tut.by/'>tut.by</a>",
             (new A())
                 ->setHref("https://www.tut.by/")
                 ->setTabIndex('-1')
@@ -70,7 +70,7 @@ class ATest extends TestCase
         );
 
         $this->assertEquals(
-            "<a href='https://www.tut.by/' tabindex='-1'>tut.by</a>",
+            "<a tabindex='-1' href='https://www.tut.by/'>tut.by</a>",
             (new A())
                 ->setHref("https://www.tut.by/")
                 ->setTabIndex('-1')

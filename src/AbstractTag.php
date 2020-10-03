@@ -4,6 +4,8 @@ namespace TexLab\Html;
 
 abstract class AbstractTag implements TagInterface
 {
+    use TabIndexTrait;
+
     /**
      * @var string
      */
@@ -95,9 +97,9 @@ abstract class AbstractTag implements TagInterface
     {
         $html = '';
 
-        foreach (array_keys(get_object_vars($this)) as $value) {
-            if (substr($value, 0, 4) === 'attr') {
-                $html .= $this->{$value};
+        foreach (get_object_vars($this) as $key => $value) {
+            if (substr($key, 0, 4) === 'attr') {
+                $html .= $this->{$key};
             }
         }
 
