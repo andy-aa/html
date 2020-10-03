@@ -25,6 +25,11 @@ class Select extends AbstractPairedTag
     protected $attrMultiple = '';
 
     /**
+     * @var array<mixed, string>
+     */
+    protected $data = [];
+
+    /**
      * @param mixed[] $selectedValues
      * @return $this
      */
@@ -60,12 +65,19 @@ class Select extends AbstractPairedTag
      */
     public function setData(array $data)
     {
+        $this->data = $data;
+
+        return $this;
+    }
+    
+    public function html(): string
+    {
         $this->setInnerText('');
 
-        if (!empty($data)) {
+        if (!empty($this->data)) {
             $option = new Option();
 
-            foreach ($data as $key => $item) {
+            foreach ($this->data as $key => $item) {
                 $this->addInnerText(
                     $option
                         ->selected(in_array($key, $this->selectedValues))
@@ -76,6 +88,6 @@ class Select extends AbstractPairedTag
             }
         }
 
-        return $this;
+        return parent::html();
     }
 }
