@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class UlTest extends TestCase
 {
 
-    public function testUl()
+    public function testUl(): void
     {
         $this->assertEquals(
             "<ul type='a'></ul>",

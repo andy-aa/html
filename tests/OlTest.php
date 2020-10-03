@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class OlTest extends TestCase
 {
-    public function testOl()
+    public function testOl(): void
     {
         $this->assertEquals(
             "<ol type='1'></ol>",

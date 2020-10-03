@@ -97,6 +97,7 @@ abstract class AbstractTag implements TagInterface
     {
         $html = '';
 
+        /** @var string $value */
         foreach (get_object_vars($this) as $key => $value) {
             if (substr($key, 0, 4) === 'attr') {
                 $html .= $this->{$key};
