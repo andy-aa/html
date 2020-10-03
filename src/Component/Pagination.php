@@ -4,6 +4,7 @@ namespace TexLab\Html\Component;
 
 use TexLab\Html\A;
 use TexLab\Html\AbstractTag;
+use TexLab\Html\Div;
 
 class Pagination extends AbstractTag
 {
@@ -142,49 +143,51 @@ class Pagination extends AbstractTag
     {
         $a = new A();
 
+        ($div = new Div())
+            ->setClass($this->attrClass)
+            ->setId($this->attrId)
+            ->setStyle($this->attrStyle);
+
         $url = "$this->urlPrefix&$this->urlPageVariableName=";
-        $str = "<div$this->attrClass$this->attrStyle$this->attrId>";
 
         if ($this->first != '') {
-            $str .= $a
+            $div->addInnerText($a
                 ->setHref($url . '1')
                 ->setInnerText($this->first)
-                ->html();
+                ->html());
         }
 
         if (($this->previous != '')) {
-            $str .= $a
+            $div->addInnerText($a
                 ->setHref($url . max($this->currentPage - 1, 1))
                 ->setInnerText($this->previous)
-                ->html();
+                ->html());
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $str .= $a
+            $div->addInnerText($a
                 ->setHref($url . $i)
                 ->setClass(($i == $this->currentPage) ? $this->currentPageClass : '')
                 ->setInnerText("$i")
-                ->html();
+                ->html());
         }
 
+        $a->setClass();
+
         if (($this->next != '')) {
-            $str .= $a
+            $div->addInnerText($a
                 ->setHref($url . min($this->currentPage + 1, $this->pageCount))
-                ->setClass()
                 ->setInnerText($this->next)
-                ->html();
+                ->html());
         }
 
         if ($this->last != '') {
-            $str .= $a
+            $div->addInnerText($a
                 ->setHref($url . $this->pageCount)
-                ->setClass()
                 ->setInnerText($this->last)
-                ->html();
+                ->html());
         }
 
-        $str .= "</div>";
-
-        return $str;
+        return $div->html();
     }
 }
