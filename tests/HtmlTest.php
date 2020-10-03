@@ -72,7 +72,5 @@ class HtmlTest extends TestCase
             'TexLab\Html\Ul',
             Html::ul()
         );
-
-
     }
 }
