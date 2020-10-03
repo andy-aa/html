@@ -77,4 +77,28 @@ class Html
     {
         return new A();
     }
+
+    /**
+     * @return Li
+     */
+    public static function li()
+    {
+        return new Li();
+    }
+
+    /**
+     * @return Ol
+     */
+    public static function ol()
+    {
+        return new Ol();
+    }
+
+    /**
+     * @return Ul
+     */
+    public static function ul()
+    {
+        return new Ul();
+    }
 }
