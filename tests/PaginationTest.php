@@ -87,7 +87,7 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>" .
+            "<div class='pagination'>" .
             "<a href='?action=show&type=controller&page=1'>First</a>" .
             "<a href='?action=show&type=controller&page=2'>Previous</a>" .
             "<a href='?action=show&type=controller&page=1'>1</a>" .
@@ -99,6 +99,7 @@ class PaginationTest extends TestCase
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
+                ->setClass("pagination")
                 ->setPageCount(4)
                 ->setCurrentPage(3)
                 ->setPrevious('Previous')

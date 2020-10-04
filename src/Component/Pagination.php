@@ -3,10 +3,9 @@
 namespace TexLab\Html\Component;
 
 use TexLab\Html\A;
-use TexLab\Html\AbstractTag;
-use TexLab\Html\Div;
+use TexLab\Html\AbstractPairedTag;
 
-class Pagination extends AbstractTag
+class Pagination extends AbstractPairedTag
 {
     /**
      * @var int
@@ -53,6 +52,10 @@ class Pagination extends AbstractTag
      */
     protected $next = '';
 
+    public function __construct()
+    {
+        $this->tagName = 'div';
+    }
 
     /**
      * @param string $urlPrefix
@@ -143,29 +146,26 @@ class Pagination extends AbstractTag
     {
         $a = new A();
 
-        ($div = new Div())
-            ->setClass($this->attrClass)
-            ->setId($this->attrId)
-            ->setStyle($this->attrStyle);
+        $this->setInnerText('');
 
         $url = "$this->urlPrefix&$this->urlPageVariableName=";
 
         if ($this->first != '') {
-            $div->addInnerText($a
+            $this->addInnerText($a
                 ->setHref($url . '1')
                 ->setInnerText($this->first)
                 ->html());
         }
 
         if (($this->previous != '')) {
-            $div->addInnerText($a
+            $this->addInnerText($a
                 ->setHref($url . max($this->currentPage - 1, 1))
                 ->setInnerText($this->previous)
                 ->html());
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $div->addInnerText($a
+            $this->addInnerText($a
                 ->setHref($url . $i)
                 ->setClass(($i == $this->currentPage) ? $this->currentPageClass : '')
                 ->setInnerText("$i")
@@ -175,19 +175,19 @@ class Pagination extends AbstractTag
         $a->setClass();
 
         if (($this->next != '')) {
-            $div->addInnerText($a
+            $this->addInnerText($a
                 ->setHref($url . min($this->currentPage + 1, $this->pageCount))
                 ->setInnerText($this->next)
                 ->html());
         }
 
         if ($this->last != '') {
-            $div->addInnerText($a
+            $this->addInnerText($a
                 ->setHref($url . $this->pageCount)
                 ->setInnerText($this->last)
                 ->html());
         }
 
-        return $div->html();
+        return parent::html();
     }
 }
