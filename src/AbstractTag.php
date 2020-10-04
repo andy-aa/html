@@ -89,11 +89,11 @@ abstract class AbstractTag implements TagInterface
         $this->attrId = $id === '' ? '' : " id='$id'";
         return $this;
     }
-
+    
     /**
      * @return string
      */
-    public function html()
+    protected function getAttr(): string
     {
         $html = '';
 
@@ -103,7 +103,14 @@ abstract class AbstractTag implements TagInterface
                 $html .= $this->{$key};
             }
         }
+        return $html;
+    }
 
-        return "<$this->tagName$html>";
+    /**
+     * @return string
+     */
+    public function html()
+    {
+        return "<$this->tagName" . $this->getAttr() . '>';
     }
 }
