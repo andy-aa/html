@@ -47,16 +47,16 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
-            "<select>\n\t<option value='1'>Opton 1</option></select>",
+            "<select><option value='1'>Opton 1</option></select>",
             (new Select())
                 ->setData([1 => 'Opton 1'])
                 ->html()
         );
 
         $this->assertEquals(
-            "<select>\n\t" .
-            "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<select>" .
+            "<option value='1'>Opton 1</option>" .
+            "<option selected value='2'>Opton 2</option>" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -72,9 +72,9 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
-            "<select size='3'>\n\t" .
-            "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<select size='3'>" .
+            "<option value='1'>Opton 1</option>" .
+            "<option selected value='2'>Opton 2</option>" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -91,9 +91,9 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
-            "<select size='3' multiple>\n\t" .
-            "<option value='1'>Opton 1</option>\n\t" .
-            "<option value='2' selected>Opton 2</option>\n\t" .
+            "<select size='3' multiple>" .
+            "<option value='1'>Opton 1</option>" .
+            "<option selected value='2'>Opton 2</option>" .
             "<option value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
@@ -111,10 +111,10 @@ class SelectTest extends TestCase
         );
 
         $this->assertEquals(
-            "<select size='3' multiple>\n\t" .
-            "<option value='1' selected>Opton 1</option>\n\t" .
-            "<option value='2'>Opton 2</option>\n\t" .
-            "<option value='3' selected>Opton 3</option>" .
+            "<select size='3' multiple>" .
+            "<option selected value='1'>Opton 1</option>" .
+            "<option value='2'>Opton 2</option>" .
+            "<option selected value='3'>Opton 3</option>" .
             "</select>",
             (new Select())
                 ->setSelectedValues(

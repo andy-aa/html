@@ -2,24 +2,22 @@
 
 namespace TexLab\Html;
 
-class Textarea extends AbstractTag
+class Textarea extends AbstractPairedTag
 {
     use NameTrait;
-    use InnerTextTrait;
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
 
 
     /**
      * @var string
      */
-    protected $rows = '';
+    protected $attrRows = '';
     /**
      * @var string
      */
-    protected $cols = '';
+    protected $attrCols = '';
 
     /**
      * @param int $row
@@ -27,7 +25,7 @@ class Textarea extends AbstractTag
      */
     public function setRows(int $row = 0)
     {
-        $this->rows = $row ? " rows='$row'" : '';
+        $this->attrRows = $row ? " rows='$row'" : '';
         return $this;
     }
 
@@ -37,25 +35,7 @@ class Textarea extends AbstractTag
      */
     public function setCols(int $col = 0)
     {
-        $this->cols = $col ? " cols='$col'" : '';
+        $this->attrCols = $col ? " cols='$col'" : '';
         return $this;
-    }
-
-    public function html(): string
-    {
-        return '<textarea' .
-            $this->name .
-            $this->class .
-            $this->style .
-            $this->id .
-            $this->cols .
-            $this->rows .
-            $this->placeholder .
-            $this->required .
-            $this->disabled .
-            $this->tabIndex .
-            '>' .
-            $this->innerText .
-            '</textarea>';
     }
 }

@@ -57,5 +57,20 @@ class HtmlTest extends TestCase
             'TexLab\Html\Component\Pagination',
             Html::pagination()
         );
+
+        $this->assertInstanceOf(
+            'TexLab\Html\Li',
+            Html::li()
+        );
+
+        $this->assertInstanceOf(
+            'TexLab\Html\Ol',
+            Html::ol()
+        );
+
+        $this->assertInstanceOf(
+            'TexLab\Html\Ul',
+            Html::ul()
+        );
     }
 }

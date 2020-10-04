@@ -7,16 +7,15 @@ trait ValueTrait
     /**
      * @var string
      */
-    protected $value = '';
+    protected $attrValue = '';
 
     /**
      * @param string $value
      * @return $this
      */
-
     public function setValue(string $value)
     {
-        $this->value = $value === '' ? '' : " value='" . addslashes($value) . "'";
+        $this->attrValue = $value === '' ? '' : " value='" . addslashes($value) . "'";
 
         return $this;
     }

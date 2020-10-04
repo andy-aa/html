@@ -9,12 +9,11 @@ class Input extends AbstractTag
     use PlaceholderTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
 
     /**
      * @var string
      */
-    protected $type = " type='text'";
+    protected $attrType = " type='text'";
 
     /**
      * @var array<string>
@@ -48,7 +47,7 @@ class Input extends AbstractTag
     /**
      * @var string
      */
-    protected $checked = '';
+    protected $attrChecked = '';
 
     /**
      * @param string $type
@@ -57,7 +56,7 @@ class Input extends AbstractTag
     public function setType(string $type = "text")
     {
         if (in_array($type, $this->allowedTypes)) {
-            $this->type = " type='$type'";
+            $this->attrType = " type='$type'";
         }
         return $this;
     }
@@ -68,28 +67,9 @@ class Input extends AbstractTag
      */
     public function checked(bool $checked = true)
     {
-//        if (in_array($this->type, ['radio', 'checkbox']) && $value) {
-//            $this->checked = " checked";
-//        }
-        $this->checked = $checked ? " checked" : '';
+
+        $this->attrChecked = $checked ? " checked" : '';
 
         return $this;
-    }
-
-    public function html(): string
-    {
-        return "<input" .
-            $this->type .
-            $this->value .
-            $this->name .
-            $this->style .
-            $this->class .
-            $this->id .
-            $this->placeholder .
-            $this->checked .
-            $this->required .
-            $this->disabled .
-            $this->tabIndex .
-            ">";
     }
 }

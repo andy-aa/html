@@ -4,20 +4,33 @@ namespace TexLab\Html;
 
 abstract class AbstractTag implements TagInterface
 {
-    /**
-     * @var string
-     */
-    protected $class = '';
+    use TabIndexTrait;
 
     /**
      * @var string
      */
-    protected $style = '';
+    protected $attrClass = '';
 
     /**
      * @var string
      */
-    protected $id = '';
+    protected $attrStyle = '';
+
+    /**
+     * @var string
+     */
+    protected $attrId = '';
+
+    /**
+     * @var string
+     */
+    protected $tagName = '';
+
+
+    public function __construct()
+    {
+        $this->tagName = strtolower((new \ReflectionClass($this))->getShortName());
+    }
 
     /**
      * @param string $class
@@ -25,7 +38,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setClass(string $class = '')
     {
-        $this->class = $class === '' ? '' : " class='$class'";
+        $this->attrClass = $class === '' ? '' : " class='$class'";
         return $this;
     }
 
@@ -35,10 +48,10 @@ abstract class AbstractTag implements TagInterface
      */
     public function addClass(string $class)
     {
-        if (empty($this->class)) {
+        if (empty($this->attrClass)) {
             return $this->setClass($class);
         } else {
-            $classes = explode(" ", explode("'", $this->class)[1]);
+            $classes = explode(" ", explode("'", $this->attrClass)[1]);
             return $this->setClass(implode(" ", array_merge($classes, [$class])));
         }
     }
@@ -49,10 +62,10 @@ abstract class AbstractTag implements TagInterface
      */
     public function removeClass(string $class)
     {
-        if (empty($class) || empty($this->class)) {
+        if (empty($class) || empty($this->attrClass)) {
             return $this;
         } else {
-            $classes = explode(" ", explode("'", $this->class)[1]);
+            $classes = explode(" ", explode("'", $this->attrClass)[1]);
             return $this->setClass(implode(" ", array_diff($classes, [$class])));
         }
     }
@@ -63,7 +76,7 @@ abstract class AbstractTag implements TagInterface
      */
     public function setStyle(string $style)
     {
-        $this->style = $style === '' ? '' : " style='$style'";
+        $this->attrStyle = $style === '' ? '' : " style='$style'";
         return $this;
     }
 
@@ -73,7 +86,31 @@ abstract class AbstractTag implements TagInterface
      */
     public function setId(string $id)
     {
-        $this->id = $id === '' ? '' : " id='$id'";
+        $this->attrId = $id === '' ? '' : " id='$id'";
         return $this;
+    }
+    
+    /**
+     * @return string
+     */
+    protected function getAttr(): string
+    {
+        $html = '';
+
+        /** @var string $value */
+        foreach (get_object_vars($this) as $key => $value) {
+            if (substr($key, 0, 4) === 'attr') {
+                $html .= $this->{$key};
+            }
+        }
+        return $html;
+    }
+
+    /**
+     * @return string
+     */
+    public function html()
+    {
+        return "<$this->tagName" . $this->getAttr() . '>';
     }
 }

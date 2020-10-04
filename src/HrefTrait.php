@@ -7,7 +7,7 @@ trait HrefTrait
     /**
      * @var string
      */
-    protected $href = '';
+    protected $attrHref = '';
 
     /**
      * @param string $href
@@ -15,7 +15,8 @@ trait HrefTrait
      */
     public function setHref(string $href = '')
     {
-        $this->href = $href === '' ? '' : " href='$href'";
+        $this->attrHref = $href === '' ? '' : " href='$href'";
+
         return $this;
     }
 }

@@ -2,14 +2,12 @@
 
 namespace TexLab\Html;
 
-class Label extends AbstractTag
+class Label extends AbstractPairedTag
 {
-    use InnerTextTrait;
-
     /**
      * @var string
      */
-    protected $for = '';
+    protected $attrFor = '';
 
     /**
      * @param string $for
@@ -17,12 +15,7 @@ class Label extends AbstractTag
      */
     public function setFor(string $for)
     {
-        $this->for = " for='$for'";
+        $this->attrFor = " for='$for'";
         return $this;
-    }
-
-    public function html(): string
-    {
-        return "<label$this->style$this->class$this->id$this->for>$this->innerText</label>";
     }
 }

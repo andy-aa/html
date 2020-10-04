@@ -4,11 +4,10 @@ namespace TexLab\Html;
 
 trait NameTrait
 {
-
     /**
      * @var string
      */
-    protected $name = '';
+    protected $attrName = '';
 
     /**
      * @param string $name
@@ -16,7 +15,7 @@ trait NameTrait
      */
     public function setName(string $name)
     {
-        $this->name = $name === '' ? '' : " name='$name'";
+        $this->attrName = $name === '' ? '' : " name='$name'";
 
         return $this;
     }

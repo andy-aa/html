@@ -31,7 +31,7 @@ class OptionTest extends TestCase
         );
 
         $this->assertEquals(
-            "<option value='1' selected>Option 1</option>",
+            "<option selected value='1'>Option 1</option>",
             (new Option())
                 ->selected()
                 ->setValue('1')

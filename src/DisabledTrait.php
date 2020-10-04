@@ -7,7 +7,7 @@ trait DisabledTrait
     /**
      * @var string
      */
-    protected $disabled = '';
+    protected $attrDisabled = '';
 
     /**
      * @param bool $disabled
@@ -15,7 +15,7 @@ trait DisabledTrait
      */
     public function disabled(bool $disabled = true)
     {
-        $this->disabled = $disabled ? ' disabled' : '';
+        $this->attrDisabled = $disabled ? ' disabled' : '';
 
         return $this;
     }

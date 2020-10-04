@@ -2,13 +2,11 @@
 
 namespace TexLab\Html;
 
-class Select extends AbstractTag
+class Select extends AbstractPairedTag
 {
     use NameTrait;
     use RequiredTrait;
     use DisabledTrait;
-    use TabIndexTrait;
-
 
     /**
      * @var mixed[]
@@ -16,19 +14,19 @@ class Select extends AbstractTag
     protected $selectedValues = [];
 
     /**
+     * @var string
+     */
+    protected $attrSize = '';
+
+    /**
+     * @var string
+     */
+    protected $attrMultiple = '';
+
+    /**
      * @var array<mixed, string>
      */
     protected $data = [];
-
-    /**
-     * @var string
-     */
-    protected $size = '';
-
-    /**
-     * @var string
-     */
-    protected $multiple = '';
 
     /**
      * @param mixed[] $selectedValues
@@ -46,7 +44,7 @@ class Select extends AbstractTag
      */
     public function setSize(int $size = 0)
     {
-        $this->size = $size ? " size='$size'" : "";
+        $this->attrSize = $size ? " size='$size'" : "";
         return $this;
     }
 
@@ -56,7 +54,7 @@ class Select extends AbstractTag
      */
     public function setMultiple(bool $multiple = true)
     {
-        $this->multiple = $multiple ? " multiple" : '';
+        $this->attrMultiple = $multiple ? " multiple" : '';
         return $this;
     }
 
@@ -74,40 +72,24 @@ class Select extends AbstractTag
     /**
      * @return string
      */
-    protected function generateSelectHtml()
+    public function html()
     {
-        $html = "";
+        $this->setInnerText('');
 
         if (!empty($this->data)) {
             $option = new Option();
 
             foreach ($this->data as $key => $item) {
-                $html .= "\n\t" .
+                $this->addInnerText(
                     $option
                         ->selected(in_array($key, $this->selectedValues))
                         ->setValue("$key")
                         ->setInnerText($item)
-                        ->html();
+                        ->html()
+                );
             }
         }
 
-        return $html;
-    }
-
-    public function html(): string
-    {
-        return '<select' .
-            $this->name .
-            $this->style .
-            $this->class .
-            $this->id .
-            $this->size .
-            $this->multiple .
-            $this->required .
-            $this->disabled .
-            $this->tabIndex .
-            '>' .
-            $this->generateSelectHtml() .
-            '</select>';
+        return parent::html();
     }
 }

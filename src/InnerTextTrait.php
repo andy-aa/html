@@ -16,6 +16,7 @@ trait InnerTextTrait
     public function setInnerText(string $innerText)
     {
         $this->innerText = $innerText;
+
         return $this;
     }
 
@@ -26,6 +27,7 @@ trait InnerTextTrait
     public function addInnerText(string $innerText)
     {
         $this->innerText .= $innerText;
+
         return $this;
     }
 }

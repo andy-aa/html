@@ -2,15 +2,14 @@
 
 namespace TexLab\Html;
 
-class Option extends AbstractTag
+class Option extends AbstractPairedTag
 {
-    use InnerTextTrait;
     use ValueTrait;
 
     /**
      * @var string
      */
-    protected $selected = '';
+    protected $attrSelected = '';
 
     /**
      * @param bool $selected
@@ -18,13 +17,8 @@ class Option extends AbstractTag
      */
     public function selected(bool $selected = true)
     {
-        $this->selected = $selected ? ' selected' : '';
+        $this->attrSelected = $selected ? ' selected' : '';
 
         return $this;
-    }
-
-    public function html(): string
-    {
-        return "<option$this->style$this->class$this->id$this->value$this->selected>$this->innerText</option>";
     }
 }

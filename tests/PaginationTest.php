@@ -87,18 +87,20 @@ class PaginationTest extends TestCase
         );
 
         $this->assertEquals(
-            "<div>" .
-            "<a href='?action=show&type=controller&page=1'>First</a>" .
-            "<a href='?action=show&type=controller&page=2'>Previous</a>" .
-            "<a href='?action=show&type=controller&page=1'>1</a>" .
-            "<a href='?action=show&type=controller&page=2'>2</a>" .
-            "<a class='current' href='?action=show&type=controller&page=3'>3</a>" .
-            "<a href='?action=show&type=controller&page=4'>4</a>" .
-            "<a href='?action=show&type=controller&page=4'>Next</a>" .
-            "<a href='?action=show&type=controller&page=4'>Last</a>" .
+            "<div class='pagination'>" .
+            "<a href='?action=show&type=controller&pg=1'>First</a>" .
+            "<a href='?action=show&type=controller&pg=2'>Previous</a>" .
+            "<a href='?action=show&type=controller&pg=1'>1</a>" .
+            "<a href='?action=show&type=controller&pg=2'>2</a>" .
+            "<a class='current' href='?action=show&type=controller&pg=3'>3</a>" .
+            "<a href='?action=show&type=controller&pg=4'>4</a>" .
+            "<a href='?action=show&type=controller&pg=4'>Next</a>" .
+            "<a href='?action=show&type=controller&pg=4'>Last</a>" .
             "</div>",
             (new Pagination())
                 ->setUrlPrefix("?action=show&type=controller")
+                ->setClass("pagination")
+                ->setPageVariable('pg')
                 ->setPageCount(4)
                 ->setCurrentPage(3)
                 ->setPrevious('Previous')

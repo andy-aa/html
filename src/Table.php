@@ -2,7 +2,7 @@
 
 namespace TexLab\Html;
 
-class Table extends AbstractTag
+class Table extends AbstractPairedTag
 {
     /**
      * @var array<float|int|string>
@@ -57,7 +57,7 @@ class Table extends AbstractTag
 
     /**
      * @param array<float|int|string> $columnNames
-     * @return Table
+     * @return $this
      */
     public function removeHeaders(array $columnNames)
     {
@@ -203,11 +203,17 @@ class Table extends AbstractTag
             $html .= "</tbody>";
         }
 
+        $this->setInnerText($html);
+
         return $html;
     }
 
-    public function html(): string
+    /**
+     * @return string
+     */
+    public function html()
     {
-        return "<table$this->style$this->class$this->id>" . $this->generateTableHtml() . "</table>";
+        $this->generateTableHtml();
+        return parent::html();
     }
 }

@@ -4,6 +4,7 @@ namespace TexLab\Html\Component;
 
 use TexLab\Html\A;
 use TexLab\Html\AbstractTag;
+use TexLab\Html\Html;
 
 class Pagination extends AbstractTag
 {
@@ -20,7 +21,7 @@ class Pagination extends AbstractTag
     /**
      * @var string
      */
-    protected $urlPageVariableName = 'page';
+    protected $PageVariable = 'page';
 
     /**
      * @var int
@@ -52,7 +53,6 @@ class Pagination extends AbstractTag
      */
     protected $next = '';
 
-
     /**
      * @param string $urlPrefix
      * @return $this
@@ -60,6 +60,16 @@ class Pagination extends AbstractTag
     public function setUrlPrefix(string $urlPrefix)
     {
         $this->urlPrefix = $urlPrefix;
+        return $this;
+    }
+
+    /**
+     * @param string $PageVariable
+     * @return $this
+     */
+    public function setPageVariable(string $PageVariable)
+    {
+        $this->PageVariable = $PageVariable;
         return $this;
     }
 
@@ -142,49 +152,48 @@ class Pagination extends AbstractTag
     {
         $a = new A();
 
-        $url = "$this->urlPrefix&$this->urlPageVariableName=";
-        $str = "<div$this->class$this->style$this->id>";
+        $html = '';
+
+        $url = "$this->urlPrefix&$this->PageVariable=";
 
         if ($this->first != '') {
-            $str .= $a
+            $html .= $a
                 ->setHref($url . '1')
                 ->setInnerText($this->first)
                 ->html();
         }
 
         if (($this->previous != '')) {
-            $str .= $a
+            $html .= $a
                 ->setHref($url . max($this->currentPage - 1, 1))
                 ->setInnerText($this->previous)
                 ->html();
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $str .= $a
+            $html .= Html::a()
                 ->setHref($url . $i)
                 ->setClass(($i == $this->currentPage) ? $this->currentPageClass : '')
                 ->setInnerText("$i")
                 ->html();
         }
 
+        $a->setClass();
+
         if (($this->next != '')) {
-            $str .= $a
+            $html .= $a
                 ->setHref($url . min($this->currentPage + 1, $this->pageCount))
-                ->setClass()
                 ->setInnerText($this->next)
                 ->html();
         }
 
         if ($this->last != '') {
-            $str .= $a
+            $html .= $a
                 ->setHref($url . $this->pageCount)
-                ->setClass()
                 ->setInnerText($this->last)
                 ->html();
         }
 
-        $str .= "</div>";
-
-        return $str;
+        return "<div" . $this->getAttr() . ">$html</div>";
     }
 }
