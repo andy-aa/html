@@ -21,7 +21,7 @@ class Pagination extends AbstractTag
     /**
      * @var string
      */
-    protected $urlPageVariableName = 'page';
+    protected $PageVariable = 'page';
 
     /**
      * @var int
@@ -60,6 +60,16 @@ class Pagination extends AbstractTag
     public function setUrlPrefix(string $urlPrefix)
     {
         $this->urlPrefix = $urlPrefix;
+        return $this;
+    }
+
+    /**
+     * @param string $PageVariable
+     * @return $this
+     */
+    public function setPageVariable(string $PageVariable)
+    {
+        $this->PageVariable = $PageVariable;
         return $this;
     }
 
@@ -144,7 +154,7 @@ class Pagination extends AbstractTag
 
         $html = '';
 
-        $url = "$this->urlPrefix&$this->urlPageVariableName=";
+        $url = "$this->urlPrefix&$this->PageVariable=";
 
         if ($this->first != '') {
             $html .= $a
