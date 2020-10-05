@@ -171,7 +171,7 @@ class Pagination extends AbstractTag
         }
 
         for ($i = 1; $i <= $this->pageCount; $i++) {
-            $html .= Html::a()
+            $html .= $a
                 ->setHref($url . $i)
                 ->setClass(($i == $this->currentPage) ? $this->currentPageClass : '')
                 ->setInnerText("$i")
