@@ -21,11 +21,11 @@ class UlTest extends TestCase
         );
 
         $this->assertEquals(
-            "<ul type='a'><li>1</li><li>2</li></ul>",
+            "<ul type='a'><li>1</li><li>2</li><li>3</li></ul>",
             (new Ul())
                 ->setType('a')
-                ->setInnerText((new Li())->setInnerText('1')->html())
-                ->addInnerText((new Li())->setInnerText('2')->html())
+                ->setData(['1','2'])
+                ->addItem('3')
                 ->html()
         );
     }
