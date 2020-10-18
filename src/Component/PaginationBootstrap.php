@@ -60,36 +60,8 @@ class PaginationBootstrap extends Pagination
      */
     public function html()
     {
-
-        $ulClass = "pagination";
-
-        switch (strtoupper($this->size)) {
-            case 'L':
-            case 'LG':
-            case 'LARGE':
-                $ulClass .= ' pagination-lg';
-                break;
-            case 'S':
-            case 'SM':
-            case 'SMALL':
-                $ulClass .= ' pagination-sm';
-                break;
-        }
-
-        switch (strtoupper($this->justify)) {
-            case 'C':
-            case 'CENTER':
-                $ulClass .= ' justify-content-center';
-                break;
-            case 'E':
-            case 'END':
-            case 'RIGHT':
-                $ulClass .= ' justify-content-end';
-                break;
-        }
-
         $ul = new Ul();
-
+        $ulClass = "pagination" . ' ' . $this->size . ' ' . $this->justify;
         $ul->setClass($ulClass);
 
         if ($this->first != '') {

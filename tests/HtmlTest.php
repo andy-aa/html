@@ -59,6 +59,11 @@ class HtmlTest extends TestCase
         );
 
         $this->assertInstanceOf(
+            'TexLab\Html\Component\PaginationBootstrap',
+            Html::paginationBootstrap()
+        );
+
+        $this->assertInstanceOf(
             'TexLab\Html\Li',
             Html::li()
         );

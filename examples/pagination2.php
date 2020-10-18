@@ -7,10 +7,10 @@ require_once "../vendor/autoload.php";
 $pagination = TexLab\Html\Html::PaginationBootstrap();
 
 $pagination
-    ->setClass("pagination bg-red")
+    ->setClass("pagination")
     ->setUrlPrefix("?type=table&action=show")
-    ->setJustify("center")
     ->setAriaLabel("Page navigation example")
+    ->setJustify("justify-content-center")
     ->setPrevious('Prev')
     ->setFirst('First')
     ->setLast('Last')
@@ -21,10 +21,9 @@ $pagination
 $pagination1 = TexLab\Html\Html::PaginationBootstrap();
 
 $pagination1
-    ->setClass("pagination bg-red")
+    ->setClass("pagination")
     ->setUrlPrefix("?type=table&action=show")
-    ->setJustify("center")
-    ->setSize("small")
+    ->setSize("pagination-sm")
     ->setAriaLabel("Page navigation example")
     ->setPrevious('Prev')
     ->setFirst('First')
@@ -36,10 +35,10 @@ $pagination1
 $pagination2 = TexLab\Html\Html::PaginationBootstrap();
 
 $pagination2
-    ->setClass("pagination bg-red")
+    ->setClass("pagination")
     ->setUrlPrefix("?type=table&action=show")
-    ->setJustify("center")
-    ->setSize("large")
+    ->setJustify("justify-content-end")
+    ->setSize("pagination-lg")
     ->setAriaLabel("Page navigation example")
     ->setPrevious('Prev')
     ->setFirst('First')
