@@ -20,16 +20,7 @@ trait ListTrait
      */
     public function setStyle(string $style)
     {
-        switch (strtoupper($style)) {
-            case 'CIRCLE':
-            case 'DISC':
-            case 'SQUARE':
-                $this->attrStyle = " style='list-style-type:$style'";
-                break;
-            default:
-                $this->attrStyle = '';
-        }
-        
+        $this->attrStyle = " style='list-style-type:$style'";
         return $this;
     }
 

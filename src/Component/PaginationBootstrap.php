@@ -31,7 +31,7 @@ class PaginationBootstrap extends Pagination
      */
     public function setAriaLabel(string $aria_label)
     {
-        $this->aria_label = $aria_label;
+        $this->aria_label = $aria_label === '' ? '' : $aria_label;
         return $this;
     }
 
@@ -41,7 +41,7 @@ class PaginationBootstrap extends Pagination
      */
     public function setJustify(string $justify)
     {
-        $this->justify = $justify;
+        $this->justify = ' ' . $justify;
         return $this;
     }
 
@@ -51,7 +51,7 @@ class PaginationBootstrap extends Pagination
      */
     public function setSize(string $size)
     {
-        $this->size = $size;
+        $this->size = ' ' . $size;
         return $this;
     }
 
@@ -61,7 +61,7 @@ class PaginationBootstrap extends Pagination
     public function html()
     {
         $ul = new Ul();
-        $ulClass = "pagination" . ' ' . $this->size . ' ' . $this->justify;
+        $ulClass = "pagination" . $this->size . $this->justify;
         $ul->setClass($ulClass);
 
         if ($this->first != '') {
