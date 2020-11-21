@@ -101,7 +101,7 @@ class Pagination extends AbstractTag
      */
     public function setCurrentPageClass(string $currentPageClass)
     {
-        $this->currentPageClass = $currentPageClass;
+        $this->currentPageClass = $currentPageClass === '' ? '' : $currentPageClass;
         return $this;
     }
 

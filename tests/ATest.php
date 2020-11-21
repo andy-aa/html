@@ -6,7 +6,6 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use TexLab\Html\A;
-use TexLab\Html\Html;
 
 class ATest extends TestCase
 {
@@ -76,6 +75,20 @@ class ATest extends TestCase
                 ->setTabIndex('-1')
                 ->addClass('menu')
                 ->addClass('menu2')
+                ->removeClass('menu2')
+                ->removeClass('menu')
+                ->setInnerText('tut.by')
+                ->html()
+        );
+
+        $this->assertEquals(
+            "<a tabindex='-1' href='https://www.tut.by/' aria-label='Link'>tut.by</a>",
+            (new A())
+                ->setHref("https://www.tut.by/")
+                ->setTabIndex('-1')
+                ->addClass('menu')
+                ->addClass('menu2')
+                ->setAriaLabel('Link')
                 ->removeClass('menu2')
                 ->removeClass('menu')
                 ->setInnerText('tut.by')

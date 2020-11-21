@@ -23,8 +23,7 @@ class OlTest extends TestCase
             "<ol type='i'><li>1</li><li>2</li></ol>",
             (new Ol())
                 ->setType('i')
-                ->setInnerText((new Li())->setInnerText('1')->html())
-                ->addInnerText((new Li())->setInnerText('2')->html())
+                ->setData(['1','2'])
                 ->html()
         );
     }
